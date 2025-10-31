@@ -1,0 +1,18 @@
+{
+  "name": "housethat",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Real estate listing frontend",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
+
