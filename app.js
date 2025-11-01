@@ -22,6 +22,28 @@ app.get('/home.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'home.html'));
 });
 
+// Serve about.html
+app.get('/about', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'about.html'));
+});
+
+app.get('/about.html', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'about.html'));
+});
+
+// Serve contact.html
+app.get('/contact', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'contact.html'));
+});
+
+app.get('/contact.html', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'contact.html'));
+});
+
 // Serve other HTML files (only catch .html files, not CSS/JS)
 app.get('/:page.html', (req, res) => {
   // Skip if it's not an actual HTML file request
