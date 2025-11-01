@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Explore the latest real estate insights, property news, and luxury residential projects in Noida. HouseThat brings you comprehensive blogs on premium developments.">
+   <meta name="keywords" content="real estate blogs, Noida properties, luxury apartments, property news, real estate insights">
+   <title>Blogs - Real Estate Insights & Property News | HouseThat</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header class="header">
+
+   <nav class="navbar nav-1">
+      <section class="flex">
+         <a href="home.html" class="logo"><i class="fas fa-house"></i>HouseThat</a>
+
+         <ul>
+            <li><a href="#">Post Property<i class="fas fa-paper-plane"></i></a></li>
+         </ul>
+      </section>
+   </nav>
+
+   <nav class="navbar nav-2">
+      <section class="flex">
+         <div id="menu-btn" class="fas fa-bars"></div>
+
+         <div class="menu">
+            <ul>
+               <li><a href="#">Buy<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="#">House</a></li>
+                     <li><a href="#">Flat</a></li>
+                     <li><a href="#">Shop</a></li>
+                     <li><a href="#">Ready to move</a></li>
+                     <li><a href="#">Furnished</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">Sell<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="#">Post Property</a></li>
+                     <li><a href="#">Dashboard</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">Rent</a>
+                  <ul>
+                     <li><a href="#">House</a></li>
+                     <li><a href="#">Flat</a></li>
+                     <li><a href="#">Shop</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">Help<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="about.html">About Us</a></li>
+                     <li><a href="contact.html">Contact Us</a></li>
+                     <li><a href="contact.html#faq">FAQ</a></li>
+                     <li><a href="blogs.html">Blogs</a></li>
+                  </ul>
+               </li>
+               <li><a href="blogs.html">Blogs</a></li>
+            </ul>
+         </div>
+
+         <ul>
+            <li><a href="#">Saved <i class="far fa-heart"></i></a></li>
+            <li><a href="#">Account <i class="fas fa-angle-down"></i></a>
+               <ul>
+                  <li><a href="login.html">Login</a></li>
+                  <li><a href="register.html">Register</a></li>
+               </ul>
+            </li>
+         </ul>
+      </section>
+   </nav>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- blogs section starts -->
+
+<section class="steps" style="padding: 7rem 0 5rem; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%); min-height: 100vh; position: relative; overflow: hidden;">
+   
+   <!-- Background decorative elements -->
+   <div style="position: absolute; top: -50px; right: -50px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,123,255,0.08) 0%, transparent 70%); border-radius: 50%; z-index: 0; animation: float 6s ease-in-out infinite;"></div>
+   <div style="position: absolute; bottom: -100px; left: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,107,107,0.08) 0%, transparent 70%); border-radius: 50%; z-index: 0; animation: float 8s ease-in-out infinite;"></div>
+   
+   <style>
+      @keyframes float {
+         0%, 100% { transform: translateY(0px); }
+         50% { transform: translateY(-20px); }
+      }
+      .blog-card {
+         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .blog-card:hover {
+         transform: translateY(-10px);
+         box-shadow: 0 35px 90px rgba(0,0,0,0.18), 0 12px 35px rgba(0,0,0,0.12) !important;
+      }
+      .blog-image-container {
+         position: relative;
+         overflow: hidden;
+         border-radius: 15px;
+      }
+      .blog-image-container img {
+         transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .blog-card:hover .blog-image-container img {
+         transform: scale(1.12);
+      }
+      .blog-image-overlay {
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.15) 100%);
+         opacity: 0;
+         transition: opacity 0.5s ease;
+      }
+      .blog-card:hover .blog-image-overlay {
+         opacity: 1;
+      }
+      .read-more-btn {
+         display: inline-flex;
+         align-items: center;
+         gap: 0.8rem;
+         padding: 1.2rem 2.5rem;
+         background: linear-gradient(135deg, var(--main-color), #0056b3);
+         color: white;
+         border-radius: 50px;
+         font-size: 1.6rem;
+         font-weight: 600;
+         text-decoration: none;
+         transition: all 0.3s ease;
+         box-shadow: 0 6px 20px rgba(0,123,255,0.25);
+         margin-top: 2rem;
+      }
+      .read-more-btn:hover {
+         transform: translateY(-2px);
+         box-shadow: 0 8px 25px rgba(0,123,255,0.35);
+         background: linear-gradient(135deg, #0056b3, var(--main-color));
+      }
+      .read-more-btn i {
+         transition: transform 0.3s ease;
+      }
+      .read-more-btn:hover i {
+         transform: translateX(5px);
+      }
+      @media (max-width: 768px) {
+         .blog-card {
+            margin-bottom: 3rem !important;
+         }
+         .blog-card > div {
+            flex-direction: column !important;
+         }
+         .blog-card > div > div:first-child,
+         .blog-card > div > div:last-child {
+            min-width: 100% !important;
+            max-width: 100% !important;
+         }
+         .blog-image-container {
+            max-height: 300px !important;
+            border-radius: 15px 15px 0 0 !important;
+         }
+      }
+   </style>
+
+   <!-- Hero Section -->
+   <div style="position: relative; z-index: 1; text-align: center; margin-bottom: 6rem; padding: 0 2rem;">
+      <div style="max-width: 800px; margin: 0 auto;">
+         <h1 class="heading" style="margin-bottom: 2rem; position: relative; display: inline-block; font-size: 4.5rem;">
+            <span style="display: inline-block; position: relative;">
+               Real Estate Blogs
+               <span style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 150px; height: 6px; background: linear-gradient(90deg, transparent, var(--main-color), transparent); border-radius: 3px;"></span>
+            </span>
+         </h1>
+         <p style="font-size: 2rem; color: #6c757d; font-style: italic; margin-top: 3rem; line-height: 1.6;">
+            Discover the Latest Property Insights, Market Trends & Luxury Residential Projects
+         </p>
+         <p style="font-size: 1.7rem; color: #868e96; margin-top: 1.5rem; line-height: 1.8;">
+            Stay informed about Noida's premium real estate developments, investment opportunities, and lifestyle trends.
+         </p>
+      </div>
+   </div>
+
+   <div style="max-width: 1400px !important; width: 95% !important; margin: 0 auto !important; padding: 0 2rem !important; display: block !important; grid-template-columns: none !important; position: relative; z-index: 1;">
+
+      <!-- Blog Post 1 -->
+      <div class="blog-card" style="background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%); box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.08); padding: 0; width: 100% !important; max-width: 100% !important; border-radius: 25px; position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); margin-bottom: 4.5rem; display: flex; flex-direction: column;">
+         <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--main-color) 0%, #ff6b6b 25%, #4ecdc4 50%, #ffe66d 75%, var(--main-color) 100%); box-shadow: 0 2px 10px rgba(0,0,0,0.15); z-index: 2;"></div>
+         
+         <div style="display: flex; gap: 0; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 350px; padding: 4rem;">
+               <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem;">
+                  <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--main-color), #ff6b6b); border-radius: 18px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,123,255,0.35);">
+                     <i class="fas fa-building" style="color: white; font-size: 2.8rem;"></i>
+                  </div>
+                  <div>
+                     <h2 style="font-size: 2.8rem; color: var(--black); margin: 0; font-weight: 700; line-height: 1.3;">Sobha Sector 1, Noida Extension</h2>
+                  </div>
+               </div>
+               
+               <div style="display: flex; align-items: center; gap: 2.5rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 2px solid #e9ecef; flex-wrap: wrap;">
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-calendar-alt" style="color: var(--main-color);"></i>October 31, 2025</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-tag" style="color: var(--main-color);"></i>Noida Extension</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-user" style="color: var(--main-color);"></i>HouseThat Editorial</span>
+               </div>
+
+               <p style="font-size: 1.8rem; line-height: 2.3; color: #495057; margin-bottom: 3rem;">
+                  The highly anticipated real-estate arrival from Sobha Limited — Sobha Sector 1 in Noida Extension (Greater Noida West) — sets a new benchmark for luxury residential living in the NCR. Located within the booming Zone of Noida Extension, Sector 1 offers an enviable mix of connectivity, lifestyle and brand value. With Sobha's reputation for high-quality construction and thoughtful design, this project represents a premium investment opportunity for those seeking luxury living in one of Noida's fastest-growing regions.
+               </p>
+
+               <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                  <span style="background: linear-gradient(135deg, #e7f3ff 0%, #cfe2ff 100%); color: var(--main-color); padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(0,123,255,0.18);">Noida Extension</span>
+                  <span style="background: linear-gradient(135deg, #e7f3ff 0%, #cfe2ff 100%); color: var(--main-color); padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(0,123,255,0.18);">Sobha</span>
+                  <span style="background: linear-gradient(135deg, #e7f3ff 0%, #cfe2ff 100%); color: var(--main-color); padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(0,123,255,0.18);">Luxury Living</span>
+               </div>
+
+               <a href="listings.html" class="read-more-btn">
+                  Read Full Article <i class="fas fa-arrow-right"></i>
+               </a>
+            </div>
+            <div class="blog-image-container" style="flex: 1; min-width: 350px; max-height: 500px; overflow: hidden;">
+               <img src="images/house-img-1.webp" alt="Sobha Sector 1, Noida Extension" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+               <div class="blog-image-overlay"></div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Blog Post 2 -->
+      <div class="blog-card" style="background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%); box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.08); padding: 0; width: 100% !important; max-width: 100% !important; border-radius: 25px; position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); margin-bottom: 4.5rem; display: flex; flex-direction: column;">
+         <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #28a745 0%, #20c997 25%, #17a2b8 50%, #28a745 100%); box-shadow: 0 2px 10px rgba(0,0,0,0.15); z-index: 2;"></div>
+         
+         <div style="display: flex; gap: 0; flex-wrap: wrap-reverse;">
+            <div class="blog-image-container" style="flex: 1; min-width: 350px; max-height: 500px; overflow: hidden;">
+               <img src="images/house-img-2.webp" alt="CRC Maesta" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+               <div class="blog-image-overlay"></div>
+            </div>
+            <div style="flex: 1; min-width: 350px; padding: 4rem;">
+               <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem;">
+                  <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #28a745, #20c997); border-radius: 18px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(40,167,69,0.35);">
+                     <i class="fas fa-home" style="color: white; font-size: 2.8rem;"></i>
+                  </div>
+                  <div>
+                     <h2 style="font-size: 2.8rem; color: var(--black); margin: 0; font-weight: 700; line-height: 1.3;">CRC Maesta — Luxury Living in Sector 1</h2>
+                  </div>
+               </div>
+               
+               <div style="display: flex; align-items: center; gap: 2.5rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 2px solid #e9ecef; flex-wrap: wrap;">
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-calendar-alt" style="color: #28a745;"></i>October 31, 2025</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-tag" style="color: #28a745;"></i>Real Estate</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-user" style="color: #28a745;"></i>HouseThat Editorial</span>
+               </div>
+
+               <p style="font-size: 1.8rem; line-height: 2.3; color: #495057; margin-bottom: 3rem;">
+                  If you're looking for a high-end residential investment or a premium home in the NCR region, CRC Maesta in Sector 1 of Greater Noida West (also referred to as Noida Extension) is emerging as a standout. Developed by CRC Group, this project promises luxury, connectivity and thoughtful design. Below is an in-depth overview to help you understand what makes CRC Maesta a compelling choice for luxury living in Noida Extension.
+               </p>
+
+               <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                  <span style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); color: #155724; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(40,167,69,0.18);">CRC Maesta</span>
+                  <span style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); color: #155724; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(40,167,69,0.18);">Greater Noida West</span>
+                  <span style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); color: #155724; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(40,167,69,0.18);">Luxury Apartments</span>
+               </div>
+
+               <a href="listings.html" class="read-more-btn" style="background: linear-gradient(135deg, #28a745, #20c997); box-shadow: 0 6px 20px rgba(40,167,69,0.25);">
+                  Read Full Article <i class="fas fa-arrow-right"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+
+      <!-- Blog Post 3 -->
+      <div class="blog-card" style="background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%); box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.08); padding: 0; width: 100% !important; max-width: 100% !important; border-radius: 25px; position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); margin-bottom: 4.5rem; display: flex; flex-direction: column;">
+         <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #17a2b8 0%, #138496 25%, #20c997 50%, #17a2b8 100%); box-shadow: 0 2px 10px rgba(0,0,0,0.15); z-index: 2;"></div>
+         
+         <div style="display: flex; gap: 0; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 350px; padding: 4rem;">
+               <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem;">
+                  <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #17a2b8, #20c997); border-radius: 18px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(23,162,184,0.35);">
+                     <i class="fas fa-city" style="color: white; font-size: 2.8rem;"></i>
+                  </div>
+                  <div>
+                     <h2 style="font-size: 2.8rem; color: var(--black); margin: 0; font-weight: 700; line-height: 1.3;">Gulshan Avante: Elevating Luxury Living</h2>
+                  </div>
+               </div>
+               
+               <div style="display: flex; align-items: center; gap: 2.5rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 2px solid #e9ecef; flex-wrap: wrap;">
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-calendar-alt" style="color: #17a2b8;"></i>October 31, 2025</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-tag" style="color: #17a2b8;"></i>Noida Extension</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-user" style="color: #17a2b8;"></i>HouseThat Editorial</span>
+               </div>
+
+               <p style="font-size: 1.8rem; line-height: 2.3; color: #495057; margin-bottom: 3rem;">
+                  Gulshan Avante, a flagship residential project by Gulshan Homz, epitomizes opulence and modernity in Noida Extension's Sector 143. This sprawling development spans over 1.35 acres, offering a diverse range of 2BHK, 3BHK, and 4BHK apartments alongside independent villas, catering to varied preferences. With possession expected by 2025, the project features thoughtfully designed units ranging from spacious apartments to luxurious villas, all set within a well-planned gated community with premium amenities.
+               </p>
+
+               <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                  <span style="background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%); color: #0c5460; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(23,162,184,0.18);">Gulshan Avante</span>
+                  <span style="background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%); color: #0c5460; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(23,162,184,0.18);">Premium Property</span>
+                  <span style="background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%); color: #0c5460; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(23,162,184,0.18);">2/3/4 BHK</span>
+               </div>
+
+               <a href="listings.html" class="read-more-btn" style="background: linear-gradient(135deg, #17a2b8, #138496); box-shadow: 0 6px 20px rgba(23,162,184,0.25);">
+                  Read Full Article <i class="fas fa-arrow-right"></i>
+               </a>
+            </div>
+            <div class="blog-image-container" style="flex: 1; min-width: 350px; max-height: 500px; overflow: hidden;">
+               <img src="images/house-img-3.jpg" alt="Gulshan Avante" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+               <div class="blog-image-overlay"></div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Blog Post 4 -->
+      <div class="blog-card" style="background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%); box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.08); padding: 0; width: 100% !important; max-width: 100% !important; border-radius: 25px; position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); margin-bottom: 4.5rem; display: flex; flex-direction: column;">
+         <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #dc3545 0%, #c82333 25%, #ff6b6b 50%, #dc3545 100%); box-shadow: 0 2px 10px rgba(0,0,0,0.15); z-index: 2;"></div>
+         
+         <div style="display: flex; gap: 0; flex-wrap: wrap-reverse;">
+            <div class="blog-image-container" style="flex: 1; min-width: 350px; max-height: 500px; overflow: hidden;">
+               <img src="images/house-img-4.webp" alt="Greater Noida West" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+               <div class="blog-image-overlay"></div>
+            </div>
+            <div style="flex: 1; min-width: 350px; padding: 4rem;">
+               <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem;">
+                  <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #dc3545, #ff6b6b); border-radius: 18px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(220,53,69,0.35);">
+                     <i class="fas fa-chart-line" style="color: white; font-size: 2.8rem;"></i>
+                  </div>
+                  <div>
+                     <h2 style="font-size: 2.8rem; color: var(--black); margin: 0; font-weight: 700; line-height: 1.3;">Why Greater Noida West is Gaining Premium Appeal</h2>
+                  </div>
+               </div>
+               
+               <div style="display: flex; align-items: center; gap: 2.5rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 2px solid #e9ecef; flex-wrap: wrap;">
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-calendar-alt" style="color: #dc3545;"></i>October 31, 2025</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-tag" style="color: #dc3545;"></i>Blogs & Articles</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-user" style="color: #dc3545;"></i>HouseThat Editorial</span>
+               </div>
+
+               <p style="font-size: 1.8rem; line-height: 2.3; color: #495057; margin-bottom: 3rem;">
+                  Greater Noida West is emerging as a hot zone for luxury housing for several reasons: Strategic connectivity: It's well-connected via the Noida-Greater Noida Expressway, FNG Expressway and other infrastructure upgrades, boosting its appeal. Supply of luxury-tier projects: For instance, a listing of "Luxury Projects in Greater Noida West" shows many new-launch or under-construction high-end developments attracting buyers seeking premium living spaces in the NCR region.
+               </p>
+
+               <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                  <span style="background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%); color: #721c24; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(220,53,69,0.18);">Greater Noida West</span>
+                  <span style="background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%); color: #721c24; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(220,53,69,0.18);">Luxury Projects</span>
+                  <span style="background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%); color: #721c24; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(220,53,69,0.18);">Investment</span>
+               </div>
+
+               <a href="listings.html" class="read-more-btn" style="background: linear-gradient(135deg, #dc3545, #c82333); box-shadow: 0 6px 20px rgba(220,53,69,0.25);">
+                  Read Full Article <i class="fas fa-arrow-right"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+
+      <!-- Blog Post 5 -->
+      <div class="blog-card" style="background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%); box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.08); padding: 0; width: 100% !important; max-width: 100% !important; border-radius: 25px; position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); margin-bottom: 4.5rem; display: flex; flex-direction: column;">
+         <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #fd7e14 0%, #fd9843 25%, #ffc107 50%, #fd7e14 100%); box-shadow: 0 2px 10px rgba(0,0,0,0.15); z-index: 2;"></div>
+         
+         <div style="display: flex; gap: 0; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 350px; padding: 4rem;">
+               <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem;">
+                  <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #fd7e14, #ffc107); border-radius: 18px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(253,126,20,0.35);">
+                     <i class="fas fa-gem" style="color: white; font-size: 2.8rem;"></i>
+                  </div>
+                  <div>
+                     <h2 style="font-size: 2.8rem; color: var(--black); margin: 0; font-weight: 700; line-height: 1.3;">Ace Medalleo: A Pinnacle of Luxury</h2>
+                  </div>
+               </div>
+               
+               <div style="display: flex; align-items: center; gap: 2.5rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 2px solid #e9ecef; flex-wrap: wrap;">
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-calendar-alt" style="color: #fd7e14;"></i>October 31, 2025</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-tag" style="color: #fd7e14;"></i>Real Estate</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-user" style="color: #fd7e14;"></i>HouseThat Editorial</span>
+               </div>
+
+               <p style="font-size: 1.8rem; line-height: 2.3; color: #495057; margin-bottom: 3rem;">
+                  Ace Medalleo, developed by the renowned Ace Group, stands as a beacon of modern luxury in Sector 107, Noida. This upscale residential project is strategically nestled in one of Noida's most sought-after sectors, offering residents a perfect blend of urban convenience and serene living. Spanning over 10 acres, Ace Medalleo features a collection of meticulously designed 2BHK, 3BHK, and 4BHK apartments, ensuring that every home feels like a personal sanctuary amidst the bustling NCR landscape.
+               </p>
+
+               <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                  <span style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); color: #856404; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(253,126,20,0.18);">Ace Medalleo</span>
+                  <span style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); color: #856404; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(253,126,20,0.18);">Sector 107</span>
+                  <span style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); color: #856404; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(253,126,20,0.18);">Luxury Residences</span>
+               </div>
+
+               <a href="listings.html" class="read-more-btn" style="background: linear-gradient(135deg, #fd7e14, #ffc107); box-shadow: 0 6px 20px rgba(253,126,20,0.25);">
+                  Read Full Article <i class="fas fa-arrow-right"></i>
+               </a>
+            </div>
+            <div class="blog-image-container" style="flex: 1; min-width: 350px; max-height: 500px; overflow: hidden;">
+               <img src="images/house-img-5.webp" alt="Ace Medalleo" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+               <div class="blog-image-overlay"></div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Blog Post 6 -->
+      <div class="blog-card" style="background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%); box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.08); padding: 0; width: 100% !important; max-width: 100% !important; border-radius: 25px; position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); margin-bottom: 4.5rem; display: flex; flex-direction: column;">
+         <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #6c757d 0%, #5a6268 25%, #495057 50%, #6c757d 100%); box-shadow: 0 2px 10px rgba(0,0,0,0.15); z-index: 2;"></div>
+         
+         <div style="display: flex; gap: 0; flex-wrap: wrap-reverse;">
+            <div class="blog-image-container" style="flex: 1; min-width: 350px; max-height: 500px; overflow: hidden;">
+               <img src="images/house-img-6.webp" alt="RG Group" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+               <div class="blog-image-overlay"></div>
+            </div>
+            <div style="flex: 1; min-width: 350px; padding: 4rem;">
+               <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem;">
+                  <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #6c757d, #495057); border-radius: 18px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(108,117,125,0.35);">
+                     <i class="fas fa-building" style="color: white; font-size: 2.8rem;"></i>
+                  </div>
+                  <div>
+                     <h2 style="font-size: 2.8rem; color: var(--black); margin: 0; font-weight: 700; line-height: 1.3;">RG Group's Expansion in Sector 1</h2>
+                  </div>
+               </div>
+               
+               <div style="display: flex; align-items: center; gap: 2.5rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 2px solid #e9ecef; flex-wrap: wrap;">
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-calendar-alt" style="color: #6c757d;"></i>October 31, 2025</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-tag" style="color: #6c757d;"></i>Noida Extension</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-user" style="color: #6c757d;"></i>HouseThat Editorial</span>
+               </div>
+
+               <p style="font-size: 1.8rem; line-height: 2.3; color: #495057; margin-bottom: 3rem;">
+                  RG Group, a prominent real estate developer in the Delhi-NCR region, has made significant strides in Noida Extension by launching innovative projects that cater to modern urban living. With a legacy spanning over two decades, RG Group has earned a reputation for delivering high-quality residential, commercial, and mixed-use developments. Their latest ventures in Sector 1, Noida Extension, including RG Pleiades, represent their commitment to creating premium living spaces.
+               </p>
+
+               <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                  <span style="background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%); color: #495057; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(108,117,125,0.18);">RG Group</span>
+                  <span style="background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%); color: #495057; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(108,117,125,0.18);">RG Pleiades</span>
+                  <span style="background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%); color: #495057; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(108,117,125,0.18);">Premium Living</span>
+               </div>
+
+               <a href="listings.html" class="read-more-btn" style="background: linear-gradient(135deg, #6c757d, #495057); box-shadow: 0 6px 20px rgba(108,117,125,0.25);">
+                  Read Full Article <i class="fas fa-arrow-right"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+
+      <!-- Blog Post 7 -->
+      <div class="blog-card" style="background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%); box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.08); padding: 0; width: 100% !important; max-width: 100% !important; border-radius: 25px; position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); margin-bottom: 4.5rem; display: flex; flex-direction: column;">
+         <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--main-color) 0%, #ff6b6b 25%, #4ecdc4 50%, #ffe66d 75%, var(--main-color) 100%); box-shadow: 0 2px 10px rgba(0,0,0,0.15); z-index: 2;"></div>
+         
+         <div style="display: flex; gap: 0; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 350px; padding: 4rem;">
+               <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem;">
+                  <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--main-color), #ff6b6b); border-radius: 18px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,123,255,0.35);">
+                     <i class="fas fa-crown" style="color: white; font-size: 2.8rem;"></i>
+                  </div>
+                  <div>
+                     <h2 style="font-size: 2.8rem; color: var(--black); margin: 0; font-weight: 700; line-height: 1.3;">Trump Tower Sector 94 Noida</h2>
+                  </div>
+               </div>
+               
+               <div style="display: flex; align-items: center; gap: 2.5rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 2px solid #e9ecef; flex-wrap: wrap;">
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-calendar-alt" style="color: var(--main-color);"></i>October 31, 2025</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-tag" style="color: var(--main-color);"></i>News, Real Estate</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-user" style="color: var(--main-color);"></i>HouseThat Editorial</span>
+               </div>
+
+               <p style="font-size: 1.8rem; line-height: 2.3; color: #495057; margin-bottom: 3rem;">
+                  Nestled in the heart of Central Noida, Sector 94, the Trump Tower project stands out as a new-launch ultra-luxury development that marries internationally-recognised branding with prime urban connectivity. Positioned just off the Noida–Greater Noida Expressway and with close access to the DND Flyway, it gives residents swift access to Delhi, Noida's business hubs and other key destinations. The Trump brand brings a global standard of luxury and service.
+               </p>
+
+               <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                  <span style="background: linear-gradient(135deg, #e7f3ff 0%, #cfe2ff 100%); color: var(--main-color); padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(0,123,255,0.18);">Trump Tower</span>
+                  <span style="background: linear-gradient(135deg, #e7f3ff 0%, #cfe2ff 100%); color: var(--main-color); padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(0,123,255,0.18);">Sector 94</span>
+                  <span style="background: linear-gradient(135deg, #e7f3ff 0%, #cfe2ff 100%); color: var(--main-color); padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(0,123,255,0.18);">Ultra Luxury</span>
+               </div>
+
+               <a href="listings.html" class="read-more-btn">
+                  Read Full Article <i class="fas fa-arrow-right"></i>
+               </a>
+            </div>
+            <div class="blog-image-container" style="flex: 1; min-width: 350px; max-height: 500px; overflow: hidden;">
+               <img src="images/hall-img-1.webp" alt="Trump Tower" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+               <div class="blog-image-overlay"></div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Blog Post 8 -->
+      <div class="blog-card" style="background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%); box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.08); padding: 0; width: 100% !important; max-width: 100% !important; border-radius: 25px; position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); margin-bottom: 4.5rem; display: flex; flex-direction: column;">
+         <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #28a745 0%, #20c997 25%, #17a2b8 50%, #28a745 100%); box-shadow: 0 2px 10px rgba(0,0,0,0.15); z-index: 2;"></div>
+         
+         <div style="display: flex; gap: 0; flex-wrap: wrap-reverse;">
+            <div class="blog-image-container" style="flex: 1; min-width: 350px; max-height: 500px; overflow: hidden;">
+               <img src="images/hall-img-2.webp" alt="Ivory County" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+               <div class="blog-image-overlay"></div>
+            </div>
+            <div style="flex: 1; min-width: 350px; padding: 4rem;">
+               <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem;">
+                  <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #28a745, #20c997); border-radius: 18px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(40,167,69,0.35);">
+                     <i class="fas fa-home" style="color: white; font-size: 2.8rem;"></i>
+                  </div>
+                  <div>
+                     <h2 style="font-size: 2.8rem; color: var(--black); margin: 0; font-weight: 700; line-height: 1.3;">Overview of Ivory County Noida</h2>
+                  </div>
+               </div>
+               
+               <div style="display: flex; align-items: center; gap: 2.5rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 2px solid #e9ecef; flex-wrap: wrap;">
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-calendar-alt" style="color: #28a745;"></i>October 31, 2025</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-tag" style="color: #28a745;"></i>Real Estate</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-user" style="color: #28a745;"></i>HouseThat Editorial</span>
+               </div>
+
+               <p style="font-size: 1.8rem; line-height: 2.3; color: #495057; margin-bottom: 3rem;">
+                  Ivory County is a premium residential project located in Sector 115, Noida, Uttar Pradesh, India. Developed by Ivory Properties, it's designed as a luxury gated community with a focus on modern architecture, green spaces, and high-end amenities. The project spans over 28 acres and offers a mix of 3BHK, and 4BHK, 5BHK apartments, ranging from spacious units to penthouses, all set within a well-planned community with premium lifestyle amenities.
+               </p>
+
+               <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                  <span style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); color: #155724; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(40,167,69,0.18);">Ivory County</span>
+                  <span style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); color: #155724; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(40,167,69,0.18);">Sector 115</span>
+                  <span style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); color: #155724; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(40,167,69,0.18);">Premium Project</span>
+               </div>
+
+               <a href="listings.html" class="read-more-btn" style="background: linear-gradient(135deg, #28a745, #20c997); box-shadow: 0 6px 20px rgba(40,167,69,0.25);">
+                  Read Full Article <i class="fas fa-arrow-right"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+
+      <!-- Blog Post 9 -->
+      <div class="blog-card" style="background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%); box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.08); padding: 0; width: 100% !important; max-width: 100% !important; border-radius: 25px; position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); margin-bottom: 4.5rem; display: flex; flex-direction: column;">
+         <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--main-color) 0%, #ff6b6b 25%, #4ecdc4 50%, var(--main-color) 100%); box-shadow: 0 2px 10px rgba(0,0,0,0.15); z-index: 2;"></div>
+         
+         <div style="display: flex; gap: 0; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 350px; padding: 4rem;">
+               <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem;">
+                  <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--main-color), #4ecdc4); border-radius: 18px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,123,255,0.35);">
+                     <i class="fas fa-gem" style="color: white; font-size: 2.8rem;"></i>
+                  </div>
+                  <div>
+                     <h2 style="font-size: 2.8rem; color: var(--black); margin: 0; font-weight: 700; line-height: 1.3;">M3M Jacob & Co Sector 97 Noida</h2>
+                  </div>
+               </div>
+               
+               <div style="display: flex; align-items: center; gap: 2.5rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 2px solid #e9ecef; flex-wrap: wrap;">
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-calendar-alt" style="color: var(--main-color);"></i>October 30, 2025</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-tag" style="color: var(--main-color);"></i>Real Estate</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-user" style="color: var(--main-color);"></i>HouseThat Editorial</span>
+               </div>
+
+               <p style="font-size: 1.8rem; line-height: 2.3; color: #495057; margin-bottom: 3rem;">
+                  M3M Jacob & Co Sector 97 Noida is a landmark ultra-luxury residential project that blends world-class design with the craftsmanship and sophistication of the renowned Jacob & Co brand. Situated in one of Noida's most exclusive and rapidly developing sectors, this project redefines high-end living by combining architectural brilliance, elite amenities, and timeless elegance. Developed by M3M Group in collaboration with Jacob & Co, it represents a unique fusion of real estate excellence and luxury brand heritage.
+               </p>
+
+               <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                  <span style="background: linear-gradient(135deg, #e7f3ff 0%, #cfe2ff 100%); color: var(--main-color); padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(0,123,255,0.18);">M3M Jacob & Co</span>
+                  <span style="background: linear-gradient(135deg, #e7f3ff 0%, #cfe2ff 100%); color: var(--main-color); padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(0,123,255,0.18);">Sector 97</span>
+                  <span style="background: linear-gradient(135deg, #e7f3ff 0%, #cfe2ff 100%); color: var(--main-color); padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(0,123,255,0.18);">Iconic Luxury</span>
+               </div>
+
+               <a href="listings.html" class="read-more-btn">
+                  Read Full Article <i class="fas fa-arrow-right"></i>
+               </a>
+            </div>
+            <div class="blog-image-container" style="flex: 1; min-width: 350px; max-height: 500px; overflow: hidden;">
+               <img src="images/hall-img-3.webp" alt="M3M Jacob & Co" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+               <div class="blog-image-overlay"></div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Blog Post 10 -->
+      <div class="blog-card" style="background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%); box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 8px 25px rgba(0,0,0,0.08); padding: 0; width: 100% !important; max-width: 100% !important; border-radius: 25px; position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.05); margin-bottom: 4.5rem; display: flex; flex-direction: column;">
+         <div style="position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, #dc3545 0%, #c82333 25%, #ff6b6b 50%, #dc3545 100%); box-shadow: 0 2px 10px rgba(0,0,0,0.15); z-index: 2;"></div>
+         
+         <div style="display: flex; gap: 0; flex-wrap: wrap-reverse;">
+            <div class="blog-image-container" style="flex: 1; min-width: 350px; max-height: 500px; overflow: hidden;">
+               <img src="images/hall-img-4.webp" alt="Trump Tower Noida" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+               <div class="blog-image-overlay"></div>
+            </div>
+            <div style="flex: 1; min-width: 350px; padding: 4rem;">
+               <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem;">
+                  <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #dc3545, #ff6b6b); border-radius: 18px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(220,53,69,0.35);">
+                     <i class="fas fa-crown" style="color: white; font-size: 2.8rem;"></i>
+                  </div>
+                  <div>
+                     <h2 style="font-size: 2.8rem; color: var(--black); margin: 0; font-weight: 700; line-height: 1.3;">Trump Tower Noida – Ultra Luxury Residences</h2>
+                  </div>
+               </div>
+               
+               <div style="display: flex; align-items: center; gap: 2.5rem; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 2px solid #e9ecef; flex-wrap: wrap;">
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-calendar-alt" style="color: #dc3545;"></i>October 30, 2025</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-tag" style="color: #dc3545;"></i>Blog</span>
+                  <span style="color: #6c757d; font-size: 1.6rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-user" style="color: #dc3545;"></i>HouseThat Editorial</span>
+               </div>
+
+               <p style="font-size: 1.8rem; line-height: 2.3; color: #495057; margin-bottom: 3rem;">
+                  Welcome to Trump Tower Noida, a landmark that redefines the meaning of luxury living in North India. Rising majestically in Sector 94, Noida, these ultra-luxury residences embody the signature Trump lifestyle — elegant, bold, and timeless. Developed by Macrotech Developers (Lodha Group) in association with The Trump Organization, the project offers a world-class living experience with unparalleled amenities, strategic location, and the prestige of the Trump brand.
+               </p>
+
+               <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                  <span style="background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%); color: #721c24; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(220,53,69,0.18);">Trump Tower</span>
+                  <span style="background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%); color: #721c24; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(220,53,69,0.18);">Ultra Luxury</span>
+                  <span style="background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%); color: #721c24; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.5rem; font-weight: 600; box-shadow: 0 4px 12px rgba(220,53,69,0.18);">Sector 94 Noida</span>
+               </div>
+
+               <a href="listings.html" class="read-more-btn" style="background: linear-gradient(135deg, #dc3545, #c82333); box-shadow: 0 6px 20px rgba(220,53,69,0.25);">
+                  Read Full Article <i class="fas fa-arrow-right"></i>
+               </a>
+            </div>
+         </div>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- blogs section ends -->
+
+<!-- footer section starts  -->
+
+<footer class="footer">
+
+   <section class="flex">
+
+      <div class="box">
+         <a href="tel:9696968030"><i class="fas fa-phone"></i><span>+91 9696968030</span></a>
+         <a href="tel:7840803090"><i class="fas fa-phone"></i><span>+91 7840803090</span></a>
+         <a href="mailto:Info@HouseThat.co.in"><i class="fas fa-envelope"></i><span>Info@HouseThat.co.in</span></a>
+         <a href="#"><i class="fas fa-map-marker-alt"></i><span>B-34, 3rd Floor, Sector 67, Noida,
+            Uttar Pradesh 201301</span></a>
+      </div>
+
+      <div class="box">
+         <a href="home.html"><span>Home</span></a>
+         <a href="about.html"><span>About Us</span></a>
+         <a href="contact.html"><span>Contact Us</span></a>
+         <a href="listings.html"><span>All Listings</span></a>
+         <a href="blogs.html"><span>Blogs</span></a>
+         <a href="terms.html"><span>Terms & Conditions</span></a>
+      </div>
+
+      <div class="box">
+         <a href="https://www.facebook.com/housethat.ind/"><span>Facebook</span><i class="fab fa-facebook-f"></i></a>
+         <a href="https://x.com/HouseThat35250"><span>Twitter</span><i class="fab fa-twitter"></i></a>
+         <a href="https://in.linkedin.com/company/housethat"><span>Linkedin</span><i class="fab fa-linkedin"></i></a>
+         <a href="https://www.instagram.com/housethat.co.in/"><span>Instagram</span><i class="fab fa-instagram"></i></a>
+
+      </div>
+
+   </section>
+
+   <div class="credit">
+      <p style="margin: 0 0 0.5rem 0; line-height: 1.6;">© 2025 Marketed by <span>HouseThat</span>. All rights reserved.</p>
+      <p style="margin: 0; font-size: 1.6rem; opacity: 0.9;">RERA Registered Channel Partner: <span style="font-weight: 600;">UPRERAAGT13108</span></p>
+   </div>
+
+</footer>
+
+<!-- footer section ends -->
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
