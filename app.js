@@ -66,6 +66,17 @@ app.get('/blogs.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'blogs.html'));
 });
 
+// Serve emi_calculator.html
+app.get('/emi-calculator', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'emi_calculator.html'));
+});
+
+app.get('/emi_calculator.html', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'emi_calculator.html'));
+});
+
 // Serve other HTML files (only catch .html files, not CSS/JS)
 app.get('/:page.html', (req, res) => {
   // Skip if it's not an actual HTML file request

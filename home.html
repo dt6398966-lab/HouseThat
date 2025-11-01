@@ -416,6 +416,116 @@
 
 <!-- listings section ends -->
 
+<!-- tools section starts  -->
+
+<section class="steps" style="padding: 6rem 0; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%); position: relative; overflow: hidden;">
+   
+   <!-- Background decorative elements -->
+   <div style="position: absolute; top: -50px; right: -50px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,123,255,0.08) 0%, transparent 70%); border-radius: 50%; z-index: 0;"></div>
+   <div style="position: absolute; bottom: -100px; left: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,107,107,0.08) 0%, transparent 70%); border-radius: 50%; z-index: 0;"></div>
+   
+   <style>
+      .tool-card {
+         background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+         box-shadow: 0 15px 50px rgba(0,0,0,0.1), 0 5px 20px rgba(0,0,0,0.08);
+         padding: 4rem 3rem;
+         border-radius: 20px;
+         position: relative;
+         overflow: hidden;
+         border: 1px solid rgba(0,0,0,0.05);
+         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+         height: 100%;
+         display: flex;
+         flex-direction: column;
+      }
+      .tool-card:hover {
+         transform: translateY(-10px);
+         box-shadow: 0 25px 70px rgba(0,0,0,0.15), 0 10px 30px rgba(0,0,0,0.1);
+      }
+      .tool-icon {
+         width: 80px;
+         height: 80px;
+         border-radius: 20px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         margin-bottom: 2rem;
+         box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+         transition: transform 0.3s ease;
+      }
+      .tool-card:hover .tool-icon {
+         transform: scale(1.1) rotate(5deg);
+      }
+      .tool-card::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         height: 5px;
+         background: linear-gradient(90deg, var(--main-color), #4ecdc4, #ffe66d, var(--main-color));
+         transform: scaleX(0);
+         transition: transform 0.4s ease;
+      }
+      .tool-card:hover::before {
+         transform: scaleX(1);
+      }
+   </style>
+
+   <div style="position: relative; z-index: 1; text-align: center; margin-bottom: 5rem;">
+      <h1 class="heading" style="margin-bottom: 1.5rem; position: relative; display: inline-block;">
+         <span style="display: inline-block; position: relative;">
+            Use Popular Tools
+            <span style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 120px; height: 5px; background: linear-gradient(90deg, transparent, var(--main-color), transparent); border-radius: 3px;"></span>
+         </span>
+      </h1>
+      <p style="font-size: 2rem; color: #6c757d; font-weight: 600; margin-top: 2.5rem;">Go from browsing to buying</p>
+   </div>
+
+   <div class="box-container" style="max-width: 1400px !important; margin: 0 auto !important; padding: 0 2rem !important; position: relative; z-index: 1; display: grid !important; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important; gap: 3rem !important;">
+
+      <!-- Budget Calculator -->
+      <div class="tool-card">
+         <div class="tool-icon" style="background: linear-gradient(135deg, var(--main-color), #0056b3);">
+            <i class="fas fa-calculator" style="color: white; font-size: 3.5rem;"></i>
+         </div>
+         <h3 style="font-size: 2.4rem; color: var(--black); margin-bottom: 1.5rem; font-weight: 700;">Budget Calculator</h3>
+         <p style="font-size: 1.7rem; line-height: 2; color: #6c757d; margin-bottom: 2.5rem; flex-grow: 1;">Check your affordability range for buying home</p>
+         <button onclick="openBudgetCalculator()" class="btn" style="margin-top: auto; padding: 1.2rem 2.5rem; font-size: 1.6rem; display: inline-block; text-align: center; background: linear-gradient(135deg, var(--main-color), #0056b3); border: none; box-shadow: 0 6px 20px rgba(0,123,255,0.25); transition: all 0.3s ease; cursor: pointer; width: 100%;">
+            Calculate Now <i class="fas fa-arrow-right" style="margin-left: 0.8rem;"></i>
+         </button>
+      </div>
+
+      <!-- EMI Calculator -->
+      <div class="tool-card">
+         <div class="tool-icon" style="background: linear-gradient(135deg, #28a745, #20c997);">
+            <i class="fas fa-chart-line" style="color: white; font-size: 3.5rem;"></i>
+         </div>
+         <h3 style="font-size: 2.4rem; color: var(--black); margin-bottom: 1.5rem; font-weight: 700;">EMI Calculator</h3>
+         <p style="font-size: 1.7rem; line-height: 2; color: #6c757d; margin-bottom: 2.5rem; flex-grow: 1;">Calculate your home loan EMI</p>
+         <a href="emi_calculator.html" class="btn" style="margin-top: auto; padding: 1.2rem 2.5rem; font-size: 1.6rem; display: inline-block; text-align: center; background: linear-gradient(135deg, #28a745, #20c997); border: none; box-shadow: 0 6px 20px rgba(40,167,69,0.25); transition: all 0.3s ease;">
+            Calculate Now <i class="fas fa-arrow-right" style="margin-left: 0.8rem;"></i>
+         </a>
+      </div>
+
+      <!-- Loan Eligibility -->
+      <div class="tool-card">
+         <div class="tool-icon" style="background: linear-gradient(135deg, #dc3545, #ff6b6b);">
+            <i class="fas fa-check-circle" style="color: white; font-size: 3.5rem;"></i>
+         </div>
+         <h3 style="font-size: 2.4rem; color: var(--black); margin-bottom: 1.5rem; font-weight: 700;">Loan Eligibility</h3>
+         <p style="font-size: 1.7rem; line-height: 2; color: #6c757d; margin-bottom: 2.5rem; flex-grow: 1;">Check your home loan eligibility instantly</p>
+         <a href="contact.html" class="btn" style="margin-top: auto; padding: 1.2rem 2.5rem; font-size: 1.6rem; display: inline-block; text-align: center; background: linear-gradient(135deg, #dc3545, #ff6b6b); border: none; box-shadow: 0 6px 20px rgba(220,53,69,0.25); transition: all 0.3s ease;">
+            Check Now <i class="fas fa-arrow-right" style="margin-left: 0.8rem;"></i>
+         </a>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- tools section ends -->
+
 
 
 
@@ -468,6 +578,319 @@
 
 <!-- footer section ends -->
 
+<!-- Budget Calculator Modal -->
+<div id="budgetCalculatorModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 10000; overflow-y: auto; padding: 1.5rem; animation: fadeIn 0.35s ease;">
+   <div id="modalContent" style="max-width: 650px; margin: 1rem auto; background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 22px; box-shadow: 0 25px 80px rgba(0,0,0,0.4), 0 8px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.8); padding: 2.5rem 3rem; position: relative; animation: slideDown 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid rgba(255,255,255,0.3); max-height: 95vh; overflow-y: auto;">
+      
+      <!-- Decorative top border -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--main-color) 0%, #ff6b6b 25%, #4ecdc4 50%, #ffe66d 75%, var(--main-color) 100%); border-radius: 22px 22px 0 0;"></div>
+      
+      <!-- Close Button -->
+      <button onclick="closeBudgetCalculator()" class="modal-close-btn" style="position: absolute; top: 2rem; right: 2rem; background: linear-gradient(135deg, #ffffff, #f8f9fa); border: 2px solid #e9ecef; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.6rem; color: #495057; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 12px rgba(0,0,0,0.1), 0 1px 6px rgba(0,0,0,0.05); z-index: 10;" onmouseover="this.style.background='linear-gradient(135deg, #dc3545, #c82333)'; this.style.borderColor='#c82333'; this.style.color='white'; this.style.transform='rotate(90deg) scale(1.1)'; this.style.boxShadow='0 5px 20px rgba(220,53,69,0.4)'" onmouseout="this.style.background='linear-gradient(135deg, #ffffff, #f8f9fa)'; this.style.borderColor='#e9ecef'; this.style.color='#495057'; this.style.transform='rotate(0deg) scale(1)'; this.style.boxShadow='0 3px 12px rgba(0,0,0,0.1), 0 1px 6px rgba(0,0,0,0.05)'">
+         <i class="fas fa-times"></i>
+      </button>
+      
+      <!-- Header -->
+      <div style="text-align: center; margin-bottom: 2rem; position: relative; z-index: 1;">
+         <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--main-color), #0056b3); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; box-shadow: 0 12px 30px rgba(0,123,255,0.25), 0 5px 15px rgba(0,123,255,0.15); position: relative; overflow: hidden;">
+            <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%); border-radius: 50%;"></div>
+            <i class="fas fa-calculator" style="color: white; font-size: 2.6rem; position: relative; z-index: 1;"></i>
+         </div>
+         <h2 style="font-size: 2.3rem; color: var(--black); margin-bottom: 0.5rem; font-weight: 800; background: linear-gradient(135deg, var(--main-color), #4ecdc4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: -0.2px; line-height: 1.2;">Check your home buying budget</h2>
+         <p style="font-size: 1.3rem; color: #6c757d; font-weight: 500;">Plan your purchase with our smart calculator</p>
+      </div>
+      
+      <!-- Savings Input Card -->
+      <div style="background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%); padding: 1.5rem; border-radius: 16px; margin-bottom: 1.3rem; border: 2px solid rgba(0,123,255,0.12); box-shadow: 0 6px 18px rgba(0,123,255,0.08), inset 0 1px 0 rgba(255,255,255,0.9); transition: all 0.3s ease; position: relative; z-index: 1;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 25px rgba(0,123,255,0.12), inset 0 1px 0 rgba(255,255,255,0.9)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 18px rgba(0,123,255,0.08), inset 0 1px 0 rgba(255,255,255,0.9)'">
+         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;">
+            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, var(--main-color), #0056b3); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,123,255,0.25), 0 2px 8px rgba(0,123,255,0.15); position: relative; overflow: hidden; flex-shrink: 0;">
+               <i class="fas fa-piggy-bank" style="color: white; font-size: 1.6rem; position: relative; z-index: 1;"></i>
+            </div>
+            <label style="font-size: 1.6rem; color: var(--black); font-weight: 700; flex: 1; letter-spacing: -0.1px;">
+               Savings for buying home
+            </label>
+         </div>
+         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;">
+            <span style="font-size: 1.2rem; color: #6c757d; min-width: 55px; font-weight: 600;">₹ 0</span>
+            <input type="range" id="savingsSlider" min="0" max="200000000" value="2000000" step="100000" class="custom-slider" style="flex: 1;" oninput="updateSavings(this.value)">
+            <span style="font-size: 1.2rem; color: #6c757d; min-width: 75px; text-align: right; font-weight: 600;">₹ 20 Cr</span>
+         </div>
+         <div style="text-align: center; background: linear-gradient(135deg, #ffffff, #f8f9ff); padding: 1rem 1.2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,123,255,0.1), inset 0 1px 0 rgba(255,255,255,0.9); border: 1px solid rgba(0,123,255,0.08);">
+            <span id="savingsValue" style="font-size: 2.2rem; font-weight: 900; background: linear-gradient(135deg, var(--main-color), #0056b3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; transition: all 0.3s ease; letter-spacing: -0.2px;">₹ 20,00,000</span>
+         </div>
+      </div>
+
+      <!-- EMI Input Card -->
+      <div style="background: linear-gradient(135deg, #f0fff4 0%, #e8f5e9 100%); padding: 1.5rem; border-radius: 16px; margin-bottom: 1.3rem; border: 2px solid rgba(40,167,69,0.12); box-shadow: 0 6px 18px rgba(40,167,69,0.08), inset 0 1px 0 rgba(255,255,255,0.9); transition: all 0.3s ease; position: relative; z-index: 1;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 25px rgba(40,167,69,0.12), inset 0 1px 0 rgba(255,255,255,0.9)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 18px rgba(40,167,69,0.08), inset 0 1px 0 rgba(255,255,255,0.9)'">
+         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;">
+            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #28a745, #20c997); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(40,167,69,0.25), 0 2px 8px rgba(40,167,69,0.15); position: relative; overflow: hidden; flex-shrink: 0;">
+               <i class="fas fa-chart-line" style="color: white; font-size: 1.6rem; position: relative; z-index: 1;"></i>
+            </div>
+            <label style="font-size: 1.6rem; color: var(--black); font-weight: 700; flex: 1; letter-spacing: -0.1px;">
+               EMI you can afford
+            </label>
+         </div>
+         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;">
+            <span style="font-size: 1.2rem; color: #6c757d; min-width: 75px; font-weight: 600;">₹ 1,000</span>
+            <input type="range" id="emiSlider" min="1000" max="1000000" value="20000" step="1000" class="custom-slider emi-slider" style="flex: 1;" oninput="updateEMI(this.value)">
+            <span style="font-size: 1.2rem; color: #6c757d; min-width: 75px; text-align: right; font-weight: 600;">₹ 10 Lacs</span>
+         </div>
+         <div style="text-align: center; background: linear-gradient(135deg, #ffffff, #f0fff4); padding: 1rem 1.2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(40,167,69,0.1), inset 0 1px 0 rgba(255,255,255,0.9); border: 1px solid rgba(40,167,69,0.08);">
+            <span id="emiValue" style="font-size: 2.2rem; font-weight: 900; background: linear-gradient(135deg, #28a745, #20c997); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; transition: all 0.3s ease; letter-spacing: -0.2px;">₹ 20,000</span>
+         </div>
+      </div>
+
+      <!-- Loan Tenure Card -->
+      <div style="background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%); padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem; border: 2px solid rgba(220,53,69,0.12); box-shadow: 0 6px 18px rgba(220,53,69,0.08), inset 0 1px 0 rgba(255,255,255,0.9); transition: all 0.3s ease; position: relative; z-index: 1;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 25px rgba(220,53,69,0.12), inset 0 1px 0 rgba(255,255,255,0.9)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 18px rgba(220,53,69,0.08), inset 0 1px 0 rgba(255,255,255,0.9)'">
+         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;">
+            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #dc3545, #ff6b6b); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(220,53,69,0.25), 0 2px 8px rgba(220,53,69,0.15); position: relative; overflow: hidden; flex-shrink: 0;">
+               <i class="fas fa-calendar-alt" style="color: white; font-size: 1.6rem; position: relative; z-index: 1;"></i>
+            </div>
+            <label style="font-size: 1.6rem; color: var(--black); font-weight: 700; flex: 1; letter-spacing: -0.1px;">
+               Preferred loan tenure
+            </label>
+         </div>
+         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;">
+            <span style="font-size: 1.2rem; color: #6c757d; min-width: 55px; font-weight: 600;">1 yr</span>
+            <input type="range" id="tenureSlider" min="1" max="30" value="20" step="1" class="custom-slider tenure-slider" style="flex: 1;" oninput="updateTenure(this.value)">
+            <span style="font-size: 1.2rem; color: #6c757d; min-width: 75px; text-align: right; font-weight: 600;">30 yrs</span>
+         </div>
+         <div style="text-align: center; background: linear-gradient(135deg, #ffffff, #fff5f5); padding: 1rem 1.2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(220,53,69,0.1), inset 0 1px 0 rgba(255,255,255,0.9); border: 1px solid rgba(220,53,69,0.08);">
+            <span id="tenureValue" style="font-size: 2.2rem; font-weight: 900; background: linear-gradient(135deg, #dc3545, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block; transition: all 0.3s ease; letter-spacing: -0.2px;">20 Years</span>
+         </div>
+      </div>
+
+      <!-- Note -->
+      <div style="background: linear-gradient(135deg, #fff9e6 0%, #fffbf0 100%); border-left: 4px solid #ffc107; padding: 1rem 1.3rem; border-radius: 10px; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; box-shadow: 0 3px 10px rgba(255,193,7,0.08);">
+         <i class="fas fa-info-circle" style="color: #ffc107; font-size: 1.5rem; flex-shrink: 0;"></i>
+         <p style="font-size: 1.2rem; color: #856404; margin: 0; line-height: 1.5; font-weight: 500;">
+            <strong style="font-weight: 700;">Note:</strong> Estimated budget calculated at <strong style="font-weight: 700; color: #d39e00;">8.75%</strong> interest rate
+         </p>
+      </div>
+
+      <!-- Result Card -->
+      <div style="background: linear-gradient(135deg, var(--main-color) 0%, #0056b3 50%, #0066cc 100%); padding: 2rem 1.5rem; border-radius: 16px; text-align: center; box-shadow: 0 15px 40px rgba(0,123,255,0.35), 0 5px 18px rgba(0,123,255,0.2), inset 0 1px 0 rgba(255,255,255,0.2); position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.15);">
+         <div style="position: relative; z-index: 1;">
+            <i class="fas fa-home" style="color: rgba(255,255,255,0.95); font-size: 2.4rem; margin-bottom: 1rem; display: block; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));"></i>
+            <p style="font-size: 1.3rem; color: rgba(255,255,255,0.95); margin-bottom: 1rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; text-shadow: 0 2px 6px rgba(0,0,0,0.15);">Your home budget</p>
+            <p id="budgetResult" style="font-size: 3rem; font-weight: 900; color: white; margin: 0; text-shadow: 0 4px 15px rgba(0,0,0,0.3), 0 2px 6px rgba(0,0,0,0.2); letter-spacing: 1px; transition: all 0.3s ease;">40 - 45 lacs</p>
+         </div>
+      </div>
+   </div>
+</div>
+
+<style>
+   @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+   }
+   @keyframes slideDown {
+      from { transform: translateY(-60px) scale(0.95); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+   }
+   @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.1); opacity: 1; }
+   }
+   .custom-slider {
+      height: 8px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #e0e0e0 0%, #d0d0d0 100%);
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      position: relative;
+      cursor: pointer;
+   }
+   .custom-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--main-color), #0056b3);
+      cursor: grab;
+      box-shadow: 0 3px 12px rgba(0,123,255,0.4), 0 1px 6px rgba(0,123,255,0.3), 0 0 0 3px rgba(255,255,255,0.9);
+      transition: all 0.2s ease;
+      border: none;
+   }
+   .custom-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 4px 16px rgba(0,123,255,0.5), 0 2px 8px rgba(0,123,255,0.4), 0 0 0 4px rgba(255,255,255,1);
+   }
+   .custom-slider::-webkit-slider-thumb:active {
+      cursor: grabbing;
+      transform: scale(1.1);
+   }
+   .custom-slider::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--main-color), #0056b3);
+      cursor: grab;
+      box-shadow: 0 3px 12px rgba(0,123,255,0.4), 0 1px 6px rgba(0,123,255,0.3), 0 0 0 3px rgba(255,255,255,0.9);
+      transition: all 0.2s ease;
+      border: none;
+   }
+   .custom-slider::-moz-range-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 4px 16px rgba(0,123,255,0.5), 0 2px 8px rgba(0,123,255,0.4), 0 0 0 4px rgba(255,255,255,1);
+   }
+   .custom-slider::-moz-range-thumb:active {
+      cursor: grabbing;
+      transform: scale(1.1);
+   }
+   .emi-slider::-webkit-slider-thumb {
+      background: linear-gradient(135deg, #28a745, #20c997);
+      box-shadow: 0 3px 12px rgba(40,167,69,0.4), 0 1px 6px rgba(40,167,69,0.3), 0 0 0 3px rgba(255,255,255,0.9);
+   }
+   .emi-slider::-webkit-slider-thumb:hover {
+      box-shadow: 0 4px 16px rgba(40,167,69,0.5), 0 2px 8px rgba(40,167,69,0.4), 0 0 0 4px rgba(255,255,255,1);
+   }
+   .emi-slider::-moz-range-thumb {
+      background: linear-gradient(135deg, #28a745, #20c997);
+      box-shadow: 0 3px 12px rgba(40,167,69,0.4), 0 1px 6px rgba(40,167,69,0.3), 0 0 0 3px rgba(255,255,255,0.9);
+   }
+   .emi-slider::-moz-range-thumb:hover {
+      box-shadow: 0 4px 16px rgba(40,167,69,0.5), 0 2px 8px rgba(40,167,69,0.4), 0 0 0 4px rgba(255,255,255,1);
+   }
+   .tenure-slider::-webkit-slider-thumb {
+      background: linear-gradient(135deg, #dc3545, #ff6b6b);
+      box-shadow: 0 3px 12px rgba(220,53,69,0.4), 0 1px 6px rgba(220,53,69,0.3), 0 0 0 3px rgba(255,255,255,0.9);
+   }
+   .tenure-slider::-webkit-slider-thumb:hover {
+      box-shadow: 0 4px 16px rgba(220,53,69,0.5), 0 2px 8px rgba(220,53,69,0.4), 0 0 0 4px rgba(255,255,255,1);
+   }
+   .tenure-slider::-moz-range-thumb {
+      background: linear-gradient(135deg, #dc3545, #ff6b6b);
+      box-shadow: 0 3px 12px rgba(220,53,69,0.4), 0 1px 6px rgba(220,53,69,0.3), 0 0 0 3px rgba(255,255,255,0.9);
+   }
+   .tenure-slider::-moz-range-thumb:hover {
+      box-shadow: 0 4px 16px rgba(220,53,69,0.5), 0 2px 8px rgba(220,53,69,0.4), 0 0 0 4px rgba(255,255,255,1);
+   }
+   @media (max-width: 768px) {
+      #budgetCalculatorModal {
+         padding: 1rem !important;
+      }
+      #modalContent {
+         padding: 3.5rem 2.5rem !important;
+         margin: 1rem auto !important;
+         border-radius: 25px !important;
+      }
+      .modal-close-btn {
+         top: 1.5rem !important;
+         right: 1.5rem !important;
+         width: 42px !important;
+         height: 42px !important;
+      }
+   }
+</style>
+
+<!-- Custom JavaScript for Budget Calculator -->
+<script>
+   function openBudgetCalculator() {
+      document.getElementById('budgetCalculatorModal').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      calculateBudget();
+   }
+
+   function closeBudgetCalculator() {
+      document.getElementById('budgetCalculatorModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+   }
+
+   function formatCurrency(amount) {
+      if (amount >= 10000000) {
+         return '₹ ' + (amount / 10000000).toFixed(1) + ' Cr';
+      } else if (amount >= 100000) {
+         return '₹ ' + (amount / 100000).toFixed(1) + ' Lacs';
+      } else if (amount >= 1000) {
+         return '₹ ' + (amount / 1000).toFixed(0) + ' K';
+      }
+      return '₹ ' + amount.toLocaleString('en-IN');
+   }
+
+   function formatCurrencyDisplay(amount) {
+      return '₹ ' + amount.toLocaleString('en-IN');
+   }
+
+   function updateSavings(value) {
+      const savingsEl = document.getElementById('savingsValue');
+      savingsEl.style.transform = 'scale(1.1)';
+      savingsEl.textContent = formatCurrencyDisplay(parseInt(value));
+      setTimeout(() => {
+         savingsEl.style.transform = 'scale(1)';
+      }, 200);
+      calculateBudget();
+   }
+
+   function updateEMI(value) {
+      const emiEl = document.getElementById('emiValue');
+      emiEl.style.transform = 'scale(1.1)';
+      emiEl.textContent = formatCurrencyDisplay(parseInt(value));
+      setTimeout(() => {
+         emiEl.style.transform = 'scale(1)';
+      }, 200);
+      calculateBudget();
+   }
+
+   function updateTenure(value) {
+      const tenureEl = document.getElementById('tenureValue');
+      tenureEl.style.transform = 'scale(1.1)';
+      tenureEl.textContent = value + ' Years';
+      setTimeout(() => {
+         tenureEl.style.transform = 'scale(1)';
+      }, 200);
+      calculateBudget();
+   }
+
+   function calculateBudget() {
+      const savings = parseInt(document.getElementById('savingsSlider').value);
+      const emi = parseInt(document.getElementById('emiSlider').value);
+      const tenure = parseInt(document.getElementById('tenureSlider').value);
+      const interestRate = 8.75 / 100 / 12; // Monthly interest rate
+      const months = tenure * 12;
+
+      // Calculate loan amount from EMI using EMI formula: P = EMI * [(1+r)^n - 1] / [r * (1+r)^n]
+      const loanAmount = emi * ((Math.pow(1 + interestRate, months) - 1) / (interestRate * Math.pow(1 + interestRate, months)));
+      
+      // Total home budget = Loan amount + Savings
+      const totalBudget = loanAmount + savings;
+      
+      // Display budget range (with some margin)
+      const lowerBudget = Math.round(totalBudget * 0.9);
+      const upperBudget = Math.round(totalBudget * 1.1);
+      
+      let budgetText;
+      if (lowerBudget >= 10000000) {
+         budgetText = (lowerBudget / 10000000).toFixed(1) + ' - ' + (upperBudget / 10000000).toFixed(1) + ' Cr';
+      } else if (lowerBudget >= 100000) {
+         budgetText = (lowerBudget / 100000).toFixed(0) + ' - ' + (upperBudget / 100000).toFixed(0) + ' lacs';
+      } else {
+         budgetText = (lowerBudget / 1000).toFixed(0) + ' - ' + (upperBudget / 1000).toFixed(0) + ' K';
+      }
+      
+      const budgetEl = document.getElementById('budgetResult');
+      budgetEl.style.transform = 'scale(1.05)';
+      budgetEl.style.opacity = '0.8';
+      budgetEl.textContent = budgetText;
+      setTimeout(() => {
+         budgetEl.style.transform = 'scale(1)';
+         budgetEl.style.opacity = '1';
+      }, 300);
+   }
+
+   // Close modal when clicking outside
+   window.onclick = function(event) {
+      const modal = document.getElementById('budgetCalculatorModal');
+      if (event.target == modal) {
+         closeBudgetCalculator();
+      }
+   }
+
+   // Initialize on page load
+   calculateBudget();
+</script>
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
