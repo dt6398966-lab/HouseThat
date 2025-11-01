@@ -44,6 +44,17 @@ app.get('/contact.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'contact.html'));
 });
 
+// Serve terms.html
+app.get('/terms', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'terms.html'));
+});
+
+app.get('/terms.html', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'terms.html'));
+});
+
 // Serve other HTML files (only catch .html files, not CSS/JS)
 app.get('/:page.html', (req, res) => {
   // Skip if it's not an actual HTML file request
