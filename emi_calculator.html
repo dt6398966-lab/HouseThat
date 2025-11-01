@@ -919,7 +919,7 @@
             <div class="result-value" id="totalInterest">₹ 34,31,790</div>
          </div>
 
-         <a href="contact.html" class="btn-loan">Get instant loan <i class="fas fa-arrow-right"></i></a>
+         <a href="javascript:void(0);" onclick="window.openLoanApplicationModal(); return false;" class="btn-loan" id="applyLoanBtn" style="cursor: pointer !important; pointer-events: auto !important; z-index: 1000 !important; position: relative !important;">Get instant loan <i class="fas fa-arrow-right"></i></a>
          <p style="text-align: center; margin-top: 2rem; font-size: 1.6rem; color: rgba(255,255,255,0.9); font-weight: 500; letter-spacing: 0.5px;">It's easy with HouseThat</p>
       </div>
 
@@ -1690,6 +1690,456 @@
       }
    });
 </script>
+
+<!-- Loan Application Modal -->
+<div id="loanApplicationModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 10000; overflow-y: auto; padding: 2.5rem 1rem; animation: fadeIn 0.3s ease;">
+   <div id="loanModalContent" style="max-width: 900px; margin: 1.5rem auto; background: #ffffff; border-radius: 16px; box-shadow: 0 25px 70px rgba(0,0,0,0.4), 0 10px 30px rgba(0,0,0,0.2); padding: 4rem 4.5rem; position: relative; animation: slideDown 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid rgba(255,255,255,0.1);">
+      
+      <!-- Close Button -->
+      <button onclick="window.closeLoanApplicationModal()" style="position: absolute; top: 1.8rem; right: 1.8rem; background: #f1f5f9; border: 1px solid #e2e8f0; cursor: pointer; font-size: 1.6rem; color: #64748b; transition: all 0.3s ease; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border-radius: 10px; z-index: 10;" onmouseover="this.style.background='#e2e8f0'; this.style.color='#334155'; this.style.borderColor='#cbd5e1'; this.style.transform='scale(1.1)';" onmouseout="this.style.background='#f1f5f9'; this.style.color='#64748b'; this.style.borderColor='#e2e8f0'; this.style.transform='scale(1)';">
+         <i class="fas fa-times"></i>
+      </button>
+      
+      <!-- Header -->
+      <div style="text-align: center; margin-bottom: 3.5rem; padding-top: 0.5rem;">
+         <h2 style="font-size: 2.4rem; color: #0f172a; margin-bottom: 0.5rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.5px;">We just need a few details to match you with the right home loan product</h2>
+      </div>
+      
+      <!-- Form -->
+      <form id="loanApplicationForm" onsubmit="handleLoanApplicationSubmit(event)">
+         
+         <!-- Row 1: Loan Amount, Tenure, Age -->
+         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem;">
+            <!-- Loan Amount -->
+            <div style="min-width: 0; width: 100%; overflow: hidden;">
+               <label style="display: block; font-size: 1.45rem; color: #334155; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.2px;">Loan amount</label>
+               <div style="position: relative; width: 100%; min-width: 0; max-width: 100%; box-sizing: border-box;">
+                  <span style="position: absolute; left: 1.4rem; top: 50%; transform: translateY(-50%); font-size: 1.7rem; font-weight: 700; color: #475569; z-index: 3; pointer-events: none; line-height: 1;">₹</span>
+                  <input type="text" id="modalLoanAmount" style="width: 100%; max-width: 100%; padding: 1.4rem 1.4rem 1.4rem 3.8rem; font-size: 1.6rem; border: 2px solid #e2e8f0; border-radius: 10px; background: #ffffff; color: #0f172a; font-weight: 700; box-sizing: border-box; min-height: 5.6rem; letter-spacing: 0.1px; line-height: 1.3; transition: all 0.2s ease;" placeholder="Enter loan amount" inputmode="numeric" pattern="[0-9]*" onfocus="this.style.borderColor='#2563eb'; this.style.boxShadow='0 0 0 3px rgba(37,99,235,0.1)';" onblur="this.style.borderColor='#e2e8f0'; this.style.boxShadow='none';">
+               </div>
+               <p id="loanAmountWords" style="font-size: 1.25rem; color: #94a3b8; margin-top: 0.6rem; font-weight: 400; text-align: left; min-height: 1.8rem; word-wrap: break-word; line-height: 1.4; overflow-wrap: break-word;"></p>
+            </div>
+
+            <!-- Tenure -->
+            <div style="min-width: 0; width: 100%; overflow: hidden;">
+               <label style="display: block; font-size: 1.45rem; color: #334155; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.2px;">Tenure</label>
+               <div style="display: flex; align-items: center; gap: 1rem;">
+                  <input type="number" id="modalTenure" min="1" max="30" style="flex: 1; min-width: 0; max-width: 100%; padding: 1.4rem; font-size: 2rem; border: 2px solid #e2e8f0; border-radius: 10px; background: #ffffff; color: #0f172a; font-weight: 700; cursor: text; transition: all 0.2s ease; box-sizing: border-box;" placeholder="20" onfocus="this.style.borderColor='#2563eb'; this.style.boxShadow='0 0 0 3px rgba(37,99,235,0.1)';" onblur="this.style.borderColor='#e2e8f0'; this.style.boxShadow='none';">
+                  <select style="padding: 1.4rem 3rem 1.4rem 1.2rem; font-size: 1.6rem; border: 2px solid #e2e8f0; border-radius: 10px; background: #ffffff; color: #334155; font-weight: 600; cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'8\'><path fill=\'%23475569\' d=\'M6 8L0 0h12z\'/></svg>'); background-repeat: no-repeat; background-position: right 1.2rem center; min-width: 95px; flex-shrink: 0; transition: all 0.2s ease;">
+                     <option>Years</option>
+                  </select>
+               </div>
+            </div>
+
+            <!-- Age -->
+            <div style="min-width: 0; width: 100%; overflow: hidden;">
+               <label style="display: block; font-size: 1.45rem; color: #334155; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.2px;">Your Age</label>
+               <div style="display: flex; align-items: center; gap: 1rem;">
+                  <input type="number" id="modalAge" min="18" max="70" style="flex: 1; padding: 1.4rem; font-size: 2rem; border: 2px solid #e2e8f0; border-radius: 10px; background: #ffffff; color: #0f172a; font-weight: 700; cursor: text; transition: all 0.2s ease;" placeholder="35" onfocus="this.style.borderColor='#2563eb'; this.style.boxShadow='0 0 0 3px rgba(37,99,235,0.1)';" onblur="this.style.borderColor='#e2e8f0'; this.style.boxShadow='none';">
+                  <span style="font-size: 1.6rem; font-weight: 600; color: #64748b; min-width: 75px;">Years</span>
+               </div>
+            </div>
+         </div>
+
+         <!-- Row 2: Property Identified, Property City, Property Cost -->
+         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem;">
+            <!-- Is your property identified -->
+            <div>
+               <label style="display: block; font-size: 1.45rem; color: #334155; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.2px;">Is your property identified</label>
+               <select id="modalPropertyIdentified" required style="width: 100%; padding: 1.4rem 3rem 1.4rem 1.4rem; font-size: 1.7rem; border: 2px solid #e2e8f0; border-radius: 10px; background: #ffffff; color: #0f172a; font-weight: 600; cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'8\'><path fill=\'%23475569\' d=\'M6 8L0 0h12z\'/></svg>'); background-repeat: no-repeat; background-position: right 1.2rem center; transition: all 0.2s ease;">
+                  <option value="">Select</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+               </select>
+            </div>
+
+            <!-- Property City -->
+            <div>
+               <label style="display: block; font-size: 1.45rem; color: #334155; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.2px;">Property city</label>
+               <select id="modalPropertyCity" required style="width: 100%; padding: 1.4rem 3rem 1.4rem 1.4rem; font-size: 1.7rem; border: 2px solid #e2e8f0; border-radius: 10px; background: #ffffff; color: #0f172a; font-weight: 600; cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'8\'><path fill=\'%23475569\' d=\'M6 8L0 0h12z\'/></svg>'); background-repeat: no-repeat; background-position: right 1.2rem center; transition: all 0.2s ease;">
+                  <option value="">Select</option>
+                  <option value="noida">Noida</option>
+                  <option value="gurgaon">Gurgaon</option>
+                  <option value="delhi">Delhi</option>
+                  <option value="mumbai">Mumbai</option>
+                  <option value="bangalore">Bangalore</option>
+                  <option value="pune">Pune</option>
+                  <option value="hyderabad">Hyderabad</option>
+                  <option value="chennai">Chennai</option>
+                  <option value="kolkata">Kolkata</option>
+               </select>
+            </div>
+
+            <!-- Property Cost -->
+            <div>
+               <label style="display: block; font-size: 1.45rem; color: #334155; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.2px;">Property Cost</label>
+               <div style="position: relative;">
+                  <span style="position: absolute; left: 1.4rem; top: 50%; transform: translateY(-50%); font-size: 1.7rem; font-weight: 700; color: #475569; z-index: 2;">₹</span>
+                  <input type="text" id="modalPropertyCost" required placeholder="37,50,000" style="width: 100%; padding: 1.4rem 1.4rem 1.4rem 3.8rem; font-size: 2rem; border: 2px solid #e2e8f0; border-radius: 10px; background: #ffffff; color: #0f172a; font-weight: 700; transition: all 0.2s ease;">
+               </div>
+            </div>
+         </div>
+
+         <!-- Row 3: Employment, Income, Current EMI -->
+         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem;">
+            <!-- Employment Status -->
+            <div>
+               <label style="display: block; font-size: 1.45rem; color: #334155; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.2px;">How are you currently employed</label>
+               <select id="modalEmployment" required style="width: 100%; padding: 1.4rem 3rem 1.4rem 1.4rem; font-size: 1.7rem; border: 2px solid #e2e8f0; border-radius: 10px; background: #ffffff; color: #0f172a; font-weight: 600; cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'8\'><path fill=\'%23475569\' d=\'M6 8L0 0h12z\'/></svg>'); background-repeat: no-repeat; background-position: right 1.2rem center; transition: all 0.2s ease;">
+                  <option value="">Select</option>
+                  <option value="salaried">Salaried</option>
+                  <option value="self-employed">Self-Employed</option>
+                  <option value="business">Business</option>
+               </select>
+            </div>
+
+            <!-- Your Income -->
+            <div>
+               <label style="display: block; font-size: 1.45rem; color: #334155; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.2px;">Your income</label>
+               <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="position: relative; flex: 1;">
+                     <span style="position: absolute; left: 1.4rem; top: 50%; transform: translateY(-50%); font-size: 1.7rem; font-weight: 700; color: #475569; z-index: 2;">₹</span>
+                     <input type="text" id="modalIncome" required placeholder="1,00,000" style="width: 100%; padding: 1.4rem 1.4rem 1.4rem 3.8rem; font-size: 2rem; border: 2px solid #e2e8f0; border-radius: 10px; background: #ffffff; color: #0f172a; font-weight: 700; transition: all 0.2s ease;">
+                  </div>
+                  <select id="modalIncomeType" style="padding: 1.4rem 3rem 1.4rem 1.2rem; font-size: 1.6rem; border: 2px solid #e2e8f0; border-radius: 10px; background: #ffffff; color: #334155; font-weight: 600; cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'12\' height=\'8\'><path fill=\'%23475569\' d=\'M6 8L0 0h12z\'/></svg>'); background-repeat: no-repeat; background-position: right 1.2rem center; min-width: 115px; transition: all 0.2s ease;">
+                     <option value="monthly">Monthly</option>
+                     <option value="annual">Annual</option>
+                  </select>
+               </div>
+            </div>
+
+            <!-- Current Total EMI -->
+            <div>
+               <label style="display: block; font-size: 1.45rem; color: #334155; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.2px;">Current total EMI</label>
+               <div style="display: flex; align-items: center; gap: 1rem;">
+                  <div style="position: relative; flex: 1;">
+                     <span style="position: absolute; left: 1.4rem; top: 50%; transform: translateY(-50%); font-size: 1.7rem; font-weight: 700; color: #475569; z-index: 2;">₹</span>
+                     <input type="text" id="modalCurrentEMI" required placeholder="10,000" style="width: 100%; padding: 1.4rem 1.4rem 1.4rem 3.8rem; font-size: 2rem; border: 2px solid #e2e8f0; border-radius: 10px; background: #ffffff; color: #0f172a; font-weight: 700; transition: all 0.2s ease;">
+                  </div>
+                  <span style="font-size: 1.6rem; font-weight: 600; color: #64748b; min-width: 95px;">Monthly</span>
+               </div>
+            </div>
+         </div>
+
+         <!-- Row 4: Full Name, Email, Mobile (Full Width) -->
+         <div style="margin-bottom: 2.5rem;">
+            <label style="display: block; font-size: 1.45rem; color: #334155; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.2px;">Full Name (as per PAN)</label>
+            <input type="text" id="modalFullName" required placeholder="Enter your full name" style="width: 100%; padding: 1.4rem; font-size: 1.7rem; border: 2px solid #e2e8f0; border-radius: 10px; background: #ffffff; color: #0f172a; font-weight: 500; transition: all 0.2s ease;">
+         </div>
+
+         <div style="margin-bottom: 2.5rem;">
+            <label style="display: block; font-size: 1.45rem; color: #334155; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.2px;">Your Email Id</label>
+            <input type="email" id="modalEmail" required placeholder="Enter your email address" style="width: 100%; padding: 1.4rem; font-size: 1.7rem; border: 2px solid #e2e8f0; border-radius: 10px; background: #ffffff; color: #0f172a; font-weight: 500; transition: all 0.2s ease;">
+         </div>
+
+         <div style="margin-bottom: 3rem;">
+            <label style="display: block; font-size: 1.45rem; color: #334155; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.2px;">Mobile Number<span style="font-size: 1.25rem; color: #dc2626; font-weight: 600; margin-left: 0.6rem;">(OTP verification req)</span></label>
+            <input type="tel" id="modalMobile" required placeholder="Enter your mobile number" maxlength="10" pattern="[0-9]{10}" style="width: 100%; padding: 1.4rem; font-size: 1.7rem; border: 2px solid #e2e8f0; border-radius: 10px; background: #ffffff; color: #0f172a; font-weight: 500; transition: all 0.2s ease;">
+         </div>
+
+         <!-- Consent Checkbox -->
+         <div style="margin-bottom: 3rem; padding: 2rem; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0;">
+            <label style="display: flex; align-items: flex-start; gap: 1.2rem; cursor: pointer; font-size: 1.45rem; line-height: 1.7; color: #334155;">
+               <input type="checkbox" id="modalConsent" required style="width: 20px; height: 20px; margin-top: 0.3rem; cursor: pointer; accent-color: #2563eb; flex-shrink: 0;">
+               <span>I authorize <strong>HouseThat</strong> relevant loan providers and their representatives to call, SMS or email me with reference to the application & accept HouseThat <a href="terms.html" style="color: #2563eb; text-decoration: underline; font-weight: 600;">"Terms & Conditions"</a>. This consent shall override any DNC/NDNC registration.</span>
+            </label>
+         </div>
+
+         <!-- Submit Button -->
+         <button type="submit" style="width: 100%; padding: 1.7rem 3rem; font-size: 1.8rem; font-weight: 700; color: white; background: #2563eb; border: none; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; margin-bottom: 2rem; box-shadow: 0 4px 12px rgba(37,99,235,0.3); letter-spacing: 0.3px;">
+            Submit Details
+         </button>
+
+         <!-- Disclaimer -->
+         <p style="font-size: 1.3rem; color: #64748b; text-align: center; line-height: 1.6; margin-top: 2rem;">*Please note that our privacy policy does not govern the use of your data by financial institutions once it is shared. For more information, please refer the privacy policy of related concerned bank.</p>
+      </form>
+   </div>
+</div>
+
+<script>
+   // Convert number to words (Indian numbering system) - Make globally accessible
+   window.convertNumberToWords = function(amount) {
+      const ones = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+      const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+      const teens = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+      
+      if (amount === 0) return 'Zero';
+      
+      let words = '';
+      let crore = Math.floor(amount / 10000000);
+      let lakh = Math.floor((amount % 10000000) / 100000);
+      let thousand = Math.floor((amount % 100000) / 1000);
+      let remainder = amount % 1000;
+      
+      if (crore > 0) {
+         words += window.convertHundreds(crore, ones, tens, teens) + ' Crore ';
+      }
+      if (lakh > 0) {
+         words += window.convertHundreds(lakh, ones, tens, teens) + ' Lakh ';
+      }
+      if (thousand > 0) {
+         words += window.convertHundreds(thousand, ones, tens, teens) + ' Thousand ';
+      }
+      if (remainder > 0) {
+         words += window.convertHundreds(remainder, ones, tens, teens);
+      }
+      
+      return words.trim() || 'Zero';
+   }
+   
+   window.convertHundreds = function(num, ones, tens, teens) {
+      let result = '';
+      let hundred = Math.floor(num / 100);
+      let ten = Math.floor((num % 100) / 10);
+      let one = num % 10;
+      
+      if (hundred > 0) {
+         result += ones[hundred] + ' Hundred ';
+      }
+      
+      if (ten === 1) {
+         result += teens[one] + ' ';
+      } else {
+         if (ten > 1) {
+            result += tens[ten] + ' ';
+         }
+         if (one > 0) {
+            result += ones[one] + ' ';
+         }
+      }
+      
+      return result.trim();
+   }
+
+   // Helper function to format number with Indian numbering system
+   function formatIndianNumber(num) {
+      if (!num || isNaN(num) || num === 0) return '';
+      const numStr = Math.round(num).toString();
+      if (numStr.length <= 3) return numStr;
+      if (numStr.length <= 5) return numStr.slice(0, -3) + ',' + numStr.slice(-3);
+      if (numStr.length <= 7) return numStr.slice(0, -5) + ',' + numStr.slice(-5, -3) + ',' + numStr.slice(-3);
+      const crore = numStr.slice(0, -7);
+      const lakh = numStr.slice(-7, -5);
+      const thousand = numStr.slice(-5, -3);
+      const ones = numStr.slice(-3);
+      return crore + ',' + lakh + ',' + thousand + ',' + ones;
+   }
+   
+   // Helper function to update loan amount field
+   function updateLoanAmountField(amount) {
+      const modalLoanAmount = document.getElementById('modalLoanAmount');
+      const loanAmountWords = document.getElementById('loanAmountWords');
+      
+      if (!modalLoanAmount) return;
+      
+      const formattedAmount = formatIndianNumber(amount);
+      modalLoanAmount.value = formattedAmount;
+      
+      // Update loan amount in words
+      if (loanAmountWords && amount > 0) {
+         const words = window.convertNumberToWords ? window.convertNumberToWords(amount) : '';
+         loanAmountWords.textContent = words;
+      } else if (loanAmountWords) {
+         loanAmountWords.textContent = '';
+      }
+   }
+   
+   // Handle loan amount input formatting
+   function setupLoanAmountInput() {
+      const modalLoanAmount = document.getElementById('modalLoanAmount');
+      if (!modalLoanAmount) return;
+      
+      let debounceTimer;
+      
+      modalLoanAmount.addEventListener('input', function(e) {
+         const rawValue = e.target.value.replace(/[^\d]/g, '');
+         
+         if (rawValue === '') {
+            modalLoanAmount.value = '';
+            const loanAmountWords = document.getElementById('loanAmountWords');
+            if (loanAmountWords) loanAmountWords.textContent = '';
+            return;
+         }
+         
+         const numValue = parseInt(rawValue);
+         if (isNaN(numValue) || numValue <= 0) return;
+         
+         const formatted = formatIndianNumber(numValue);
+         modalLoanAmount.value = formatted;
+         
+         // Update words with debounce
+         clearTimeout(debounceTimer);
+         debounceTimer = setTimeout(() => {
+            const loanAmountWords = document.getElementById('loanAmountWords');
+            if (loanAmountWords && window.convertNumberToWords) {
+               loanAmountWords.textContent = window.convertNumberToWords(numValue);
+            }
+         }, 300);
+      });
+      
+      // Prevent non-numeric characters
+      modalLoanAmount.addEventListener('keydown', function(e) {
+         if (!/[0-9]/.test(e.key) && !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Enter'].includes(e.key) && !(e.ctrlKey || e.metaKey)) {
+            e.preventDefault();
+         }
+      });
+      
+      // Handle paste
+      modalLoanAmount.addEventListener('paste', function(e) {
+         e.preventDefault();
+         const pastedText = (e.clipboardData || window.clipboardData).getData('text');
+         const cleanedValue = pastedText.replace(/[^\d]/g, '');
+         if (cleanedValue) {
+            const numValue = parseInt(cleanedValue);
+            if (!isNaN(numValue) && numValue > 0) {
+               modalLoanAmount.value = formatIndianNumber(numValue);
+               const loanAmountWords = document.getElementById('loanAmountWords');
+               if (loanAmountWords && window.convertNumberToWords) {
+                  loanAmountWords.textContent = window.convertNumberToWords(numValue);
+               }
+            }
+         }
+      });
+   }
+
+   // Open Loan Application Modal (Make it globally accessible)
+   window.openLoanApplicationModal = function() {
+      const modal = document.getElementById('loanApplicationModal');
+      if (!modal) {
+         console.error('Modal not found');
+         return;
+      }
+      
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      
+      try {
+         // Get values from EMI calculator
+         const loanAmountInput = document.getElementById('loanAmount');
+         const tenureSlider = document.getElementById('tenureSlider');
+         const monthlyEMIEl = document.getElementById('monthlyEMI');
+         
+         // Get loan amount (clean from input)
+         let loanAmount = 3000000; // Default
+         if (loanAmountInput) {
+            const rawValue = loanAmountInput.value.toString().replace(/[^\d]/g, '');
+            loanAmount = parseInt(rawValue) || 3000000;
+            // Clamp to valid range
+            if (loanAmount < 100000) loanAmount = 100000;
+            if (loanAmount > 50000000) loanAmount = 50000000;
+         }
+         
+         // Get tenure
+         const tenure = tenureSlider ? parseInt(tenureSlider.value) || 20 : 20;
+         
+         // Get calculated EMI from display
+         let calculatedEMI = 0;
+         if (monthlyEMIEl) {
+            const emiText = monthlyEMIEl.textContent.replace(/[^\d]/g, '');
+            calculatedEMI = parseInt(emiText) || 0;
+         }
+         
+         // Set form values
+         updateLoanAmountField(loanAmount);
+         setupLoanAmountInput();
+         
+         const modalTenure = document.getElementById('modalTenure');
+         if (modalTenure) modalTenure.value = tenure;
+         
+         // Set default age (not available in EMI calculator, use 35)
+         const modalAge = document.getElementById('modalAge');
+         if (modalAge) modalAge.value = 35;
+         
+         // Calculate property cost (typically 1.25x loan amount for 80% LTV)
+         const propertyCost = Math.round(loanAmount * 1.25);
+         const modalPropertyCost = document.getElementById('modalPropertyCost');
+         if (modalPropertyCost) modalPropertyCost.value = propertyCost > 0 ? formatIndianNumber(propertyCost) : '0';
+         
+         // Pre-fill current EMI with calculated EMI if available
+         const modalCurrentEMI = document.getElementById('modalCurrentEMI');
+         if (modalCurrentEMI && calculatedEMI > 0) {
+            modalCurrentEMI.value = formatIndianNumber(calculatedEMI);
+         }
+      } catch (error) {
+         console.error('Error pre-filling form:', error);
+      }
+   };
+
+   // Close Loan Application Modal
+   window.closeLoanApplicationModal = function() {
+      const modal = document.getElementById('loanApplicationModal');
+      if (modal) {
+         modal.style.display = 'none';
+         document.body.style.overflow = 'auto';
+      }
+   };
+
+   // Handle form submission
+   window.handleLoanApplicationSubmit = function(event) {
+      event.preventDefault();
+      
+      // Collect form data
+      const loanAmountEl = document.getElementById('modalLoanAmount');
+      const loanAmountValue = loanAmountEl ? (loanAmountEl.value || '').replace(/,/g, '') : '';
+      
+      const formData = {
+         loanAmount: loanAmountValue,
+         tenure: document.getElementById('modalTenure').value,
+         age: document.getElementById('modalAge').value,
+         propertyIdentified: document.getElementById('modalPropertyIdentified').value,
+         propertyCity: document.getElementById('modalPropertyCity').value,
+         propertyCost: document.getElementById('modalPropertyCost').value,
+         employment: document.getElementById('modalEmployment').value,
+         income: document.getElementById('modalIncome').value,
+         incomeType: document.getElementById('modalIncomeType').value,
+         currentEMI: document.getElementById('modalCurrentEMI').value,
+         fullName: document.getElementById('modalFullName').value,
+         email: document.getElementById('modalEmail').value,
+         mobile: document.getElementById('modalMobile').value,
+         consent: document.getElementById('modalConsent').checked
+      };
+      
+      console.log('Form submitted:', formData);
+      
+      // Show success message
+      alert('Thank you! Your loan application has been submitted successfully. Our team will contact you shortly.');
+      
+      // Close modal
+      window.closeLoanApplicationModal();
+   };
+
+   // Close modal when clicking outside
+   document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('loanApplicationModal');
+      if (modal) {
+         modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+               window.closeLoanApplicationModal();
+            }
+         });
+      }
+      
+      // Add click event listener to button as backup
+      const applyBtn = document.getElementById('applyLoanBtn');
+      if (applyBtn) {
+         applyBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.openLoanApplicationModal();
+         });
+      }
+   });
+</script>
+
+<style>
+   @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+   }
+   @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+   }
+</style>
 
 </body>
 </html>
