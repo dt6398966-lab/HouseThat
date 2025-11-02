@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Convert land area units across different states in India - Bigha, Acre, Hectare, Square Feet, Square Meter, and more. Easy area conversion calculator.">
+   <meta name="keywords" content="area converter, land measurement, bigha to acre, square feet converter, area calculator, land units">
+   <title>Area Converter - Land Measurement Units Calculator | HouseThat</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+   <style>
+      :root {
+         --main-color: #007bff;
+         --primary-gradient: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+         --success-color: #28a745;
+         --warning-color: #ffc107;
+         --danger-color: #dc3545;
+         --light-bg: #f8f9fa;
+         --card-shadow: 0 8px 30px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+         --card-shadow-hover: 0 12px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.06);
+      }
+      .area-converter-page {
+         padding: 5rem 0 6rem;
+         background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 15%, #f8fafb 100%);
+         min-height: 100vh;
+         position: relative;
+         overflow: hidden;
+      }
+      .area-converter-page::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         background-image: 
+            url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=200&h=200&fit=crop&q=60'),
+            url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=200&h=200&fit=crop&q=60'),
+            url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=200&h=200&fit=crop&q=60');
+         background-size: 150px, 120px, 100px;
+         background-position: 10% 10%, 90% 20%, 5% 80%;
+         background-repeat: no-repeat;
+         opacity: 0.03;
+         pointer-events: none;
+      }
+      .converter-container {
+         max-width: 1400px;
+         margin: 0 auto;
+         padding: 0 2rem;
+         position: relative;
+         z-index: 1;
+      }
+      .converter-layout {
+         display: grid;
+         grid-template-columns: 1fr 350px;
+         gap: 3rem;
+         margin-bottom: 4rem;
+      }
+      @media (max-width: 1024px) {
+         .converter-layout {
+            grid-template-columns: 1fr;
+         }
+      }
+      .breadcrumb {
+         display: flex;
+         align-items: center;
+         gap: 1rem;
+         margin-bottom: 3rem;
+         font-size: 1.45rem;
+         color: #64748b;
+         font-weight: 500;
+      }
+      .breadcrumb a {
+         color: var(--main-color);
+         text-decoration: none;
+         transition: all 0.3s ease;
+         font-weight: 600;
+         display: inline-flex;
+         align-items: center;
+         gap: 0.5rem;
+      }
+      .breadcrumb a:hover {
+         color: #0056b3;
+         text-decoration: underline;
+      }
+      .breadcrumb i {
+         font-size: 1rem;
+         color: #94a3b8;
+      }
+      .breadcrumb span {
+         color: #475569;
+         font-weight: 600;
+      }
+      .converter-card {
+         background: #ffffff;
+         border-radius: 24px;
+         box-shadow: var(--card-shadow);
+         padding: 4.5rem;
+         margin-bottom: 4rem;
+         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+         border: 1px solid rgba(0,0,0,0.04);
+         position: relative;
+         overflow: hidden;
+      }
+      .converter-card::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         height: 4px;
+         background: var(--primary-gradient);
+         transform: scaleX(0);
+         transform-origin: left;
+         transition: transform 0.4s ease;
+      }
+      .converter-card:hover {
+         box-shadow: var(--card-shadow-hover);
+         transform: translateY(-2px);
+      }
+      .converter-card:hover::before {
+         transform: scaleX(1);
+      }
+      .converter-title {
+         font-size: 3rem;
+         color: #1a1a1a;
+         font-weight: 800;
+         margin-bottom: 1.2rem;
+         text-align: left;
+         letter-spacing: -0.5px;
+         line-height: 1.2;
+         background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%);
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+         background-clip: text;
+      }
+      .converter-subtitle {
+         font-size: 1.6rem;
+         color: #64748b;
+         text-align: left;
+         margin-bottom: 3.5rem;
+         font-weight: 500;
+         line-height: 1.6;
+      }
+      .converter-form {
+         display: grid;
+         gap: 2.5rem;
+      }
+      .form-group {
+         display: flex;
+         flex-direction: column;
+         gap: 1rem;
+      }
+      .form-group label {
+         font-size: 1.5rem;
+         color: #334155;
+         font-weight: 700;
+         margin-bottom: 0.8rem;
+         display: block;
+         letter-spacing: -0.2px;
+      }
+      .form-group select {
+         padding: 1.3rem 1.6rem;
+         border: 2px solid #e2e8f0;
+         border-radius: 12px;
+         font-size: 1.5rem;
+         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+         background: #ffffff;
+         color: #1e293b;
+         font-weight: 600;
+         cursor: pointer;
+         appearance: none;
+         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8"><path fill="%23475569" d="M6 8L0 0h12z"/></svg>');
+         background-repeat: no-repeat;
+         background-position: right 1.5rem center;
+         padding-right: 4rem;
+      }
+      .form-group select:hover {
+         border-color: #cbd5e1;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      }
+      .form-group select:focus {
+         outline: none;
+         border-color: var(--main-color);
+         box-shadow: 0 0 0 4px rgba(0,123,255,0.15), 0 2px 8px rgba(0,123,255,0.1);
+         background-color: #fafbfc;
+         transform: translateY(-1px);
+      }
+      .input-with-unit {
+         display: flex;
+         align-items: center;
+         gap: 0;
+         border: 2px solid #e2e8f0;
+         border-radius: 12px;
+         padding: 0.3rem;
+         background: #ffffff;
+         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+         position: relative;
+         overflow: hidden;
+      }
+      .input-with-unit:focus-within {
+         border-color: var(--main-color);
+         box-shadow: 0 0 0 3px rgba(0,123,255,0.15), 0 2px 8px rgba(0,123,255,0.1);
+         transform: translateY(-1px);
+      }
+      .input-with-unit::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         background: linear-gradient(135deg, rgba(0,123,255,0.05) 0%, rgba(0,86,179,0.03) 100%);
+         opacity: 0;
+         transition: opacity 0.3s ease;
+         pointer-events: none;
+      }
+      .input-with-unit:focus-within {
+         border-color: var(--main-color);
+         box-shadow: 0 0 0 4px rgba(0,123,255,0.1), 0 4px 12px rgba(0,123,255,0.08);
+         transform: translateY(-1px);
+      }
+      .input-with-unit:focus-within::before {
+         opacity: 1;
+      }
+      .input-with-unit input {
+         flex: 1;
+         border: none;
+         padding: 1.3rem 1.5rem;
+         font-size: 1.6rem;
+         background: transparent;
+         outline: none;
+         width: 100%;
+         min-width: 0;
+         pointer-events: auto;
+         z-index: 1;
+         position: relative;
+         color: #1e293b;
+         font-weight: 600;
+      }
+      .input-with-unit input::placeholder {
+         color: #94a3b8;
+         font-weight: 400;
+      }
+      .input-with-unit select {
+         border: none;
+         padding: 1.3rem 3.5rem 1.3rem 1.5rem;
+         font-size: 1.5rem;
+         background: transparent;
+         outline: none;
+         cursor: pointer;
+         border-left: 1.5px solid #e2e8f0;
+         flex-shrink: 0;
+         min-width: 140px;
+         pointer-events: auto;
+         z-index: 2;
+         position: relative;
+         color: #334155;
+         font-weight: 600;
+         appearance: none;
+         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8"><path fill="%23475569" d="M6 8L0 0h12z"/></svg>');
+         background-repeat: no-repeat;
+         background-position: right 1.5rem center;
+      }
+      .input-with-unit select:focus {
+         border-left-color: var(--main-color);
+      }
+      .input-with-swap {
+         display: flex;
+         align-items: center;
+         gap: 1rem;
+         justify-content: center;
+         margin: 1rem 0;
+      }
+      .swap-button {
+         background: var(--primary-gradient);
+         color: white;
+         border: none;
+         border-radius: 50%;
+         width: 56px;
+         height: 56px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         cursor: pointer;
+         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+         font-size: 1.8rem;
+         box-shadow: 0 6px 20px rgba(0,123,255,0.25), 0 2px 8px rgba(0,123,255,0.15);
+         position: relative;
+         overflow: hidden;
+      }
+      .swap-button::before {
+         content: '';
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         width: 0;
+         height: 0;
+         border-radius: 50%;
+         background: rgba(255,255,255,0.3);
+         transform: translate(-50%, -50%);
+         transition: width 0.4s ease, height 0.4s ease;
+      }
+      .swap-button:hover::before {
+         width: 100%;
+         height: 100%;
+      }
+      .swap-button:hover {
+         transform: rotate(180deg) scale(1.08);
+         box-shadow: 0 8px 25px rgba(0,123,255,0.35), 0 4px 12px rgba(0,123,255,0.2);
+      }
+      .swap-button:active {
+         transform: rotate(180deg) scale(1.05);
+      }
+      .swap-button i {
+         position: relative;
+         z-index: 1;
+      }
+      .conversion-rate-display {
+         background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #e0f2fe 100%);
+         border: 2px solid #3b82f6;
+         border-radius: 16px;
+         padding: 2.2rem 2.5rem;
+         margin: 2.5rem 0;
+         display: none;
+         align-items: center;
+         justify-content: flex-start;
+         gap: 1.2rem;
+         box-shadow: 0 4px 16px rgba(59,130,246,0.15), inset 0 1px 0 rgba(255,255,255,0.6);
+         position: relative;
+         overflow: hidden;
+         animation: slideDown 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+         transition: all 0.3s ease;
+      }
+      .conversion-rate-display:hover {
+         box-shadow: 0 6px 20px rgba(59,130,246,0.2), inset 0 1px 0 rgba(255,255,255,0.6);
+         transform: translateY(-2px);
+      }
+      .conversion-rate-display::before {
+         content: '';
+         position: absolute;
+         top: -50%;
+         right: -50%;
+         width: 200%;
+         height: 200%;
+         background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
+         animation: pulse 3s ease-in-out infinite;
+      }
+      @keyframes slideDown {
+         from {
+            opacity: 0;
+            transform: translateY(-10px);
+         }
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+      @keyframes pulse {
+         0%, 100% {
+            transform: scale(1);
+            opacity: 0.5;
+         }
+         50% {
+            transform: scale(1.1);
+            opacity: 0.8;
+         }
+      }
+      .conversion-rate-display.active,
+      .conversion-rate-display[style*="flex"] {
+         display: flex !important;
+      }
+      .conversion-rate-display i {
+         color: #fbbf24;
+         font-size: 2rem;
+         filter: drop-shadow(0 2px 4px rgba(251,191,36,0.3));
+         animation: glow 2s ease-in-out infinite alternate;
+         position: relative;
+         z-index: 1;
+      }
+      @keyframes glow {
+         from {
+            filter: drop-shadow(0 2px 4px rgba(251,191,36,0.3));
+         }
+         to {
+            filter: drop-shadow(0 2px 8px rgba(251,191,36,0.5));
+         }
+      }
+      .conversion-rate-display .rate-text {
+         font-size: 1.65rem;
+         color: #1e293b;
+         font-weight: 500;
+         line-height: 1.6;
+         position: relative;
+         z-index: 1;
+      }
+      .conversion-rate-display .rate-highlight {
+         font-size: 1.8rem;
+         font-weight: 700;
+         color: #2563eb;
+         letter-spacing: -0.2px;
+      }
+      .conversion-rate-display .rate-state {
+         font-size: 1.4rem;
+         color: #64748b;
+         font-style: italic;
+         margin-left: 0.5rem;
+      }
+      .result-section {
+         margin-top: 3rem;
+         padding: 2.5rem;
+         background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+         border-radius: 15px;
+         border: 1px solid #e9ecef;
+      }
+      .result-label {
+         font-size: 1.4rem;
+         color: #6c757d;
+         margin-bottom: 1rem;
+      }
+      .result-value {
+         font-size: 3rem;
+         font-weight: 800;
+         color: var(--main-color);
+      }
+      .popular-conversions {
+         background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+         border-radius: 24px;
+         box-shadow: var(--card-shadow);
+         padding: 3.5rem 2.5rem;
+         position: sticky;
+         top: 2rem;
+         height: fit-content;
+         border: 1px solid rgba(0,0,0,0.04);
+         transition: all 0.3s ease;
+         position: relative;
+         overflow: hidden;
+      }
+      .popular-conversions::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         right: 0;
+         width: 200px;
+         height: 200px;
+         background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&h=400&fit=crop&q=60');
+         background-size: cover;
+         background-position: center;
+         opacity: 0.08;
+         border-radius: 50%;
+         transform: translate(30%, -30%);
+         pointer-events: none;
+      }
+      .popular-conversions:hover {
+         box-shadow: var(--card-shadow-hover);
+      }
+      .popular-conversions h3 {
+         font-size: 2.2rem;
+         color: #1a1a1a;
+         font-weight: 800;
+         margin-bottom: 2.5rem;
+         display: flex;
+         align-items: center;
+         gap: 1.2rem;
+         letter-spacing: -0.3px;
+      }
+      .popular-conversions h3 i {
+         color: var(--main-color);
+         font-size: 2rem;
+         background: linear-gradient(135deg, rgba(0,123,255,0.1) 0%, rgba(0,86,179,0.05) 100%);
+         padding: 0.8rem;
+         border-radius: 12px;
+      }
+      .popular-links {
+         display: flex;
+         flex-direction: column;
+         gap: 1rem;
+      }
+      .popular-link {
+         background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+         border: 1.5px solid #e2e8f0;
+         border-radius: 12px;
+         padding: 1.4rem 1.8rem;
+         text-decoration: none;
+         color: #475569;
+         text-align: left;
+         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+         font-weight: 600;
+         font-size: 1.45rem;
+         position: relative;
+         overflow: hidden;
+         cursor: pointer;
+         display: block;
+      }
+      .popular-link:focus {
+         outline: 2px solid var(--main-color);
+         outline-offset: 2px;
+      }
+      .popular-link::before {
+         content: '';
+         position: absolute;
+         left: 0;
+         top: 0;
+         height: 100%;
+         width: 4px;
+         background: var(--primary-gradient);
+         transform: scaleY(0);
+         transform-origin: bottom;
+         transition: transform 0.3s ease;
+      }
+      .popular-link:hover {
+         background: var(--primary-gradient);
+         color: white;
+         transform: translateX(8px);
+         box-shadow: 0 6px 20px rgba(0,123,255,0.25), 0 2px 8px rgba(0,123,255,0.15);
+         border-color: transparent;
+      }
+      .popular-link:hover::before {
+         transform: scaleY(1);
+      }
+      .about-section {
+         background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+         border-radius: 24px;
+         box-shadow: var(--card-shadow);
+         padding: 5rem 4.5rem;
+         margin-bottom: 4rem;
+         border: 1px solid rgba(0,0,0,0.04);
+         position: relative;
+         overflow: hidden;
+      }
+      .about-section::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 5px;
+         height: 100%;
+         background: var(--primary-gradient);
+      }
+      .about-section h2 {
+         font-size: 2.6rem;
+         color: #1a1a1a;
+         font-weight: 800;
+         margin-bottom: 2.5rem;
+         letter-spacing: -0.4px;
+         line-height: 1.3;
+         position: relative;
+         padding-left: 1.5rem;
+      }
+      .about-section h2::before {
+         content: '';
+         position: absolute;
+         left: 0;
+         top: 50%;
+         transform: translateY(-50%);
+         width: 5px;
+         height: 60%;
+         background: var(--primary-gradient);
+         border-radius: 3px;
+      }
+      .about-section p {
+         font-size: 1.65rem;
+         line-height: 1.95;
+         color: #475569;
+         margin-bottom: 2.5rem;
+         font-weight: 400;
+      }
+      .about-section h3 {
+         font-size: 2rem;
+         color: #1e293b;
+         font-weight: 700;
+         margin: 3rem 0 1.8rem 0;
+         letter-spacing: -0.2px;
+         display: flex;
+         align-items: center;
+         gap: 1rem;
+      }
+      .about-section h3::before {
+         content: '';
+         width: 8px;
+         height: 8px;
+         background: var(--primary-gradient);
+         border-radius: 50%;
+         display: inline-block;
+      }
+      .about-section ul {
+         list-style: none;
+         padding: 0;
+         margin: 0 0 2rem 0;
+      }
+      .about-section li {
+         font-size: 1.65rem;
+         line-height: 1.95;
+         color: #475569;
+         padding-left: 2.5rem;
+         position: relative;
+         margin-bottom: 1.2rem;
+      }
+      .about-section li::before {
+         content: '';
+         position: absolute;
+         left: 0.5rem;
+         top: 0.8rem;
+         width: 8px;
+         height: 8px;
+         background: var(--primary-gradient);
+         border-radius: 50%;
+         box-shadow: 0 2px 4px rgba(0,123,255,0.2);
+      }
+      .faq-section {
+         background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+         border-radius: 24px;
+         box-shadow: var(--card-shadow);
+         padding: 5rem 4.5rem;
+         margin-bottom: 4rem;
+         position: relative;
+         border: 1px solid rgba(0,0,0,0.04);
+      }
+      .faq-section h3 {
+         font-size: 2.6rem;
+         color: #1a1a1a;
+         font-weight: 800;
+         margin-bottom: 3.5rem;
+         letter-spacing: -0.4px;
+         position: relative;
+         padding-bottom: 1.5rem;
+      }
+      .faq-section h3::after {
+         content: '';
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         width: 80px;
+         height: 4px;
+         background: var(--primary-gradient);
+         border-radius: 2px;
+      }
+      .faq-content-wrapper {
+         display: grid;
+         grid-template-columns: 1fr 300px;
+         gap: 4rem;
+         align-items: start;
+      }
+      .faq-items {
+         flex: 1;
+      }
+      .faq-item {
+         border-bottom: 1.5px solid #e2e8f0;
+         padding: 2.2rem 0;
+         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+         border-radius: 0;
+      }
+      .faq-item:first-child {
+         padding-top: 0;
+      }
+      .faq-item:last-child {
+         border-bottom: none;
+      }
+      .faq-item:hover {
+         background: linear-gradient(90deg, rgba(0,123,255,0.02) 0%, transparent 100%);
+         padding-left: 1rem;
+         padding-right: 1rem;
+         margin-left: -1rem;
+         margin-right: -1rem;
+         border-radius: 12px;
+      }
+      .faq-question-wrapper {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         cursor: pointer;
+         user-select: none;
+         gap: 1.5rem;
+      }
+      .faq-question {
+         font-size: 1.75rem;
+         font-weight: 700;
+         color: #1e293b;
+         flex: 1;
+         padding-right: 2rem;
+         line-height: 1.5;
+         letter-spacing: -0.2px;
+         transition: color 0.3s ease;
+      }
+      .faq-item:hover .faq-question {
+         color: var(--main-color);
+      }
+      .faq-toggle {
+         width: 40px;
+         height: 40px;
+         border-radius: 50%;
+         border: 2px solid #e2e8f0;
+         background: #ffffff;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         flex-shrink: 0;
+         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+         color: #64748b;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      }
+      .faq-toggle:hover {
+         border-color: var(--main-color);
+         box-shadow: 0 4px 12px rgba(0,123,255,0.15);
+      }
+      .faq-item.active .faq-toggle {
+         border-color: var(--main-color);
+         background: var(--primary-gradient);
+         color: white;
+         box-shadow: 0 4px 16px rgba(0,123,255,0.25);
+      }
+      .faq-item.active .faq-toggle i {
+         transform: rotate(180deg);
+      }
+      .faq-answer {
+         font-size: 1.55rem;
+         color: #475569;
+         line-height: 1.85;
+         max-height: 0;
+         overflow: hidden;
+         transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease, margin 0.4s ease, opacity 0.3s ease;
+         padding: 0;
+         margin: 0;
+         opacity: 0;
+      }
+      .faq-item.active .faq-answer {
+         max-height: 500px;
+         padding-top: 1.8rem;
+         margin-top: 1.8rem;
+         opacity: 1;
+      }
+      .faq-illustration {
+         position: relative;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         min-height: 300px;
+      }
+      .faq-illustration img {
+         width: 100%;
+         height: auto;
+         filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .faq-illustration img:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+      }
+      .form-group small {
+         display: block;
+         margin-top: 0.5rem;
+         font-size: 1.25rem;
+         color: #64748b;
+         font-weight: 400;
+         line-height: 1.5;
+      }
+      .hero-image-section {
+         position: relative;
+         width: 100%;
+         height: 400px;
+         border-radius: 20px;
+         overflow: hidden;
+         margin-bottom: 4rem;
+         box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+         background: linear-gradient(135deg, rgba(102,126,234,0.9) 0%, rgba(118,75,162,0.9) 100%), url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=1400&h=500&fit=crop&q=90');
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+         background-attachment: scroll;
+      }
+      .hero-image {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+         display: block;
+         position: absolute;
+         top: 0;
+         left: 0;
+         z-index: 0;
+         min-height: 100%;
+         opacity: 1;
+      }
+      .hero-image-section:hover .hero-image {
+         transform: scale(1.03);
+      }
+      @keyframes fadeIn {
+         from { opacity: 0; transform: translateY(20px); }
+         to { opacity: 1; transform: translateY(0); }
+      }
+      .hero-content {
+         animation: fadeIn 0.8s ease-out;
+      }
+      .hero-overlay {
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.4) 100%);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         z-index: 1;
+      }
+      .hero-content {
+         text-align: center;
+         color: white;
+         padding: 2rem;
+         z-index: 1;
+      }
+      .hero-content h2 {
+         font-size: 3.5rem;
+         font-weight: 800;
+         margin-bottom: 1rem;
+         text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+         letter-spacing: -0.5px;
+      }
+      .hero-content p {
+         font-size: 1.8rem;
+         font-weight: 500;
+         opacity: 0.95;
+         max-width: 600px;
+         margin: 0 auto;
+         line-height: 1.6;
+      }
+      .converter-card {
+         position: relative;
+         overflow: visible !important;
+         animation: fadeIn 0.6s ease-out 0.2s both;
+      }
+      @keyframes slideUp {
+         from { opacity: 0; transform: translateY(30px); }
+         to { opacity: 1; transform: translateY(0); }
+      }
+      .popular-conversions {
+         animation: slideUp 0.6s ease-out 0.3s both;
+      }
+      .converter-features .feature-item {
+         animation: fadeIn 0.6s ease-out both;
+      }
+      .converter-features .feature-item:nth-child(1) { animation-delay: 0.1s; }
+      .converter-features .feature-item:nth-child(2) { animation-delay: 0.2s; }
+      .converter-features .feature-item:nth-child(3) { animation-delay: 0.3s; }
+      .about-section-image {
+         width: 100%;
+         max-width: 500px;
+         height: 300px;
+         object-fit: cover;
+         border-radius: 16px;
+         margin: 2rem 0;
+         box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+         float: right;
+         margin-left: 3rem;
+         margin-bottom: 2rem;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .about-section-image:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+      }
+      .converter-card-image-wrapper {
+         position: absolute;
+         top: -15px;
+         right: -15px;
+         width: 120px;
+         height: 120px;
+         border-radius: 16px;
+         overflow: hidden;
+         box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+         z-index: 10;
+         background-image: url('https://images.unsplash.com/photo-1558036117-15d82a90a9c6?w=400&h=400&fit=crop&q=85');
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+         background-color: #007bff;
+         display: flex !important;
+         align-items: center;
+         justify-content: center;
+         visibility: visible !important;
+         opacity: 1 !important;
+      }
+      .converter-card-image-wrapper img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         opacity: 1 !important;
+         display: block !important;
+         visibility: visible !important;
+         position: relative;
+         z-index: 2;
+         min-width: 100%;
+         min-height: 100%;
+      }
+      .popular-conversions-image {
+         width: 100%;
+         height: 200px;
+         object-fit: cover;
+         border-radius: 16px;
+         margin-bottom: 2rem;
+         box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+         transition: transform 0.3s ease;
+      }
+      .popular-conversions-image:hover {
+         transform: scale(1.03);
+      }
+      .converter-features {
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+         gap: 2rem;
+         margin: 4rem 0;
+         padding: 3rem;
+         background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+         border-radius: 20px;
+         box-shadow: var(--card-shadow);
+      }
+      .feature-item {
+         text-align: center;
+         padding: 2rem;
+      }
+      .feature-icon {
+         width: 80px;
+         height: 80px;
+         margin: 0 auto 1.5rem;
+         background: linear-gradient(135deg, rgba(0,123,255,0.1) 0%, rgba(0,86,179,0.05) 100%);
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-size: 2.5rem;
+         color: var(--main-color);
+         box-shadow: 0 4px 15px rgba(0,123,255,0.15);
+      }
+      .feature-item h4 {
+         font-size: 1.6rem;
+         color: #1a1a1a;
+         font-weight: 700;
+         margin-bottom: 0.8rem;
+      }
+      .feature-item p {
+         font-size: 1.4rem;
+         color: #64748b;
+         line-height: 1.6;
+      }
+      @media (max-width: 1024px) {
+         .faq-content-wrapper {
+            grid-template-columns: 1fr;
+         }
+         .faq-illustration {
+            display: none;
+         }
+         .about-section h3 + div {
+            grid-template-columns: 1fr !important;
+         }
+         .about-section h3 + div img {
+            margin-bottom: 1.5rem !important;
+            height: 180px !important;
+         }
+         .converter-features {
+            grid-template-columns: repeat(2, 1fr);
+         }
+      }
+      @media (max-width: 768px) {
+         .about-section-image {
+            float: none;
+            margin: 2rem auto;
+            display: block;
+            max-width: 100%;
+         }
+         .converter-features {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            padding: 2rem;
+         }
+         .converter-card-image-wrapper {
+            width: 80px;
+            height: 80px;
+            top: -10px;
+            right: -10px;
+         }
+         .popular-conversions-image {
+            height: 150px;
+         }
+         .hero-image-section {
+            height: 280px;
+         }
+         .hero-content h2 {
+            font-size: 2.5rem;
+         }
+         .hero-content p {
+            font-size: 1.5rem;
+         }
+         .converter-layout {
+            gap: 2rem;
+         }
+         .converter-card {
+            padding: 2.5rem 2rem;
+         }
+         .about-section {
+            padding: 3rem 2rem;
+         }
+         .breadcrumb {
+            font-size: 1.3rem;
+         }
+      }
+      @media (max-width: 480px) {
+         .converter-container {
+            padding: 0 1.5rem;
+         }
+         .converter-card {
+            padding: 2rem 1.5rem;
+         }
+         .hero-content h2 {
+            font-size: 2rem;
+         }
+         .hero-content p {
+            font-size: 1.3rem;
+         }
+         .converter-title {
+            font-size: 2.2rem;
+         }
+      }
+      .trending-articles-section {
+         padding: 6rem 0;
+         background: #ffffff;
+         position: relative;
+      }
+      .trending-articles-wrapper {
+         max-width: 1400px;
+         margin: 0 auto;
+         padding: 0 2rem;
+      }
+      .trending-articles-header {
+         margin-bottom: 4rem;
+      }
+      .trending-articles-header h2 {
+         font-size: 3rem;
+         color: #1a1a1a;
+         font-weight: 800;
+         margin: 0;
+         line-height: 1.2;
+         letter-spacing: -0.5px;
+      }
+      .trending-articles-container {
+         position: relative;
+         overflow-x: auto;
+         overflow-y: hidden;
+         padding: 1rem 0;
+         scroll-behavior: smooth;
+         -webkit-overflow-scrolling: touch;
+         scrollbar-width: none;
+         -ms-overflow-style: none;
+      }
+      .trending-articles-container::-webkit-scrollbar {
+         display: none;
+      }
+      .trending-articles-wrapper-inner {
+         display: inline-flex;
+         gap: 2.5rem;
+         padding: 0.5rem 0;
+      }
+      .article-card {
+         background: #ffffff;
+         border-radius: 16px;
+         overflow: hidden;
+         min-width: 300px;
+         width: 300px;
+         box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+         transition: all 0.3s ease;
+         cursor: pointer;
+         text-decoration: none;
+         color: inherit;
+         display: block;
+      }
+      .article-card:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      }
+      .article-card-image {
+         width: 100%;
+         height: 200px;
+         position: relative;
+         overflow: hidden;
+         background: linear-gradient(135deg, #e8f4f8 0%, #d1e9f5 100%);
+      }
+      .article-card-image img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         transition: transform 0.4s ease;
+      }
+      .article-card:hover .article-card-image img {
+         transform: scale(1.1);
+      }
+      .article-card-content {
+         padding: 2rem;
+      }
+      .article-card-title {
+         font-size: 1.8rem;
+         color: #1a1a1a;
+         font-weight: 700;
+         margin: 0 0 1rem 0;
+         line-height: 1.4;
+         display: -webkit-box;
+         -webkit-line-clamp: 2;
+         line-clamp: 2;
+         -webkit-box-orient: vertical;
+         overflow: hidden;
+      }
+      .article-card-date {
+         font-size: 1.3rem;
+         color: #666666;
+         margin: 0;
+         font-weight: 500;
+      }
+      .trending-articles-scroll-arrow {
+         position: absolute;
+         right: 0;
+         top: 50%;
+         transform: translateY(-50%);
+         width: 45px;
+         height: 45px;
+         background: #007bff;
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         cursor: pointer;
+         z-index: 10;
+         transition: all 0.3s ease;
+         box-shadow: 0 4px 12px rgba(0,123,255,0.3);
+      }
+      .trending-articles-scroll-arrow:hover {
+         background: #0056b3;
+         transform: translateY(-50%) scale(1.1);
+         box-shadow: 0 6px 16px rgba(0,123,255,0.4);
+      }
+      .trending-articles-scroll-arrow i {
+         font-size: 1.6rem;
+         color: white;
+      }
+      @media (max-width: 1024px) {
+         .converter-card {
+            padding: 3rem;
+         }
+         .about-section,
+         .faq-section {
+            padding: 3.5rem 2.5rem;
+         }
+      }
+       /* Header logo styling to match other pages - override blue color */
+       .header .navbar .logo,
+       .header .navbar .logo i {
+          color: #fff !important;
+       }
+       .header .navbar .logo i.fas.fa-house {
+          color: #DA2C32 !important;
+       }
+       
+       /* Footer styling to match other pages - override blue color */
+       .footer {
+          --main-color: #DA2C32 !important;
+       }
+       .footer .flex .box a i {
+          color: #DA2C32 !important;
+       }
+       .footer .credit span {
+          color: #DA2C32 !important;
+       }
+       @media (max-width: 768px) {
+          .area-converter-page {
+             padding: 3rem 0 4rem;
+          }
+          .converter-container {
+             padding: 0 1.5rem;
+          }
+          .breadcrumb {
+             margin-bottom: 2rem;
+             font-size: 1.3rem;
+          }
+          .converter-card {
+             padding: 2.5rem;
+             border-radius: 20px;
+          }
+          .converter-title {
+             font-size: 2.4rem;
+          }
+          .converter-subtitle {
+             font-size: 1.4rem;
+             margin-bottom: 2.5rem;
+          }
+          .input-with-swap {
+             flex-direction: column;
+             margin: 1.5rem 0;
+          }
+          .swap-button {
+             align-self: center;
+             width: 50px;
+             height: 50px;
+             font-size: 1.6rem;
+          }
+          .popular-conversions {
+             position: relative;
+             top: 0;
+             margin-bottom: 2rem;
+          }
+          .about-section,
+          .faq-section {
+             padding: 2.5rem 2rem;
+          }
+          .about-section h2,
+          .faq-section h3 {
+             font-size: 2.2rem;
+          }
+          .trending-articles-header h2 {
+             font-size: 2.4rem;
+          }
+          .article-card {
+             min-width: 280px;
+             width: 280px;
+          }
+          .article-card-image {
+             height: 180px;
+          }
+          .article-card-title {
+             font-size: 1.6rem;
+          }
+          .form-group label {
+             font-size: 1.4rem;
+          }
+          .input-with-unit input,
+          .input-with-unit select {
+             font-size: 1.4rem;
+             padding: 1.2rem 1.3rem;
+          }
+          .conversion-rate-display {
+             padding: 1.8rem 2rem;
+             flex-direction: column;
+             text-align: center;
+             gap: 0.8rem;
+          }
+          .conversion-rate-display .rate-text {
+             font-size: 1.5rem;
+          }
+          .conversion-rate-display .rate-highlight {
+             font-size: 1.7rem;
+          }
+       }
+   </style>
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header class="header">
+
+   <nav class="navbar nav-1">
+      <section class="flex">
+         <a href="home.html" class="logo"><i class="fas fa-house"></i>HouseThat</a>
+
+         <ul>
+            <li><a href="#">Post Property<i class="fas fa-paper-plane"></i></a></li>
+         </ul>
+      </section>
+   </nav>
+
+   <nav class="navbar nav-2">
+      <section class="flex">
+         <div id="menu-btn" class="fas fa-bars"></div>
+
+         <div class="menu">
+            <ul>
+               <li><a href="#">Buy<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="#">House</a></li>
+                     <li><a href="#">Flat</a></li>
+                     <li><a href="#">Shop</a></li>
+                     <li><a href="#">Ready to move</a></li>
+                     <li><a href="#">Furnished</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">Sell<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="#">Post Property</a></li>
+                     <li><a href="#">Dashboard</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">Rent</a>
+                  <ul>
+                     <li><a href="#">House</a></li>
+                     <li><a href="#">Flat</a></li>
+                     <li><a href="#">Shop</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">Help<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="about.html">About Us</a></li>
+                     <li><a href="contact.html">Contact Us</a></li>
+                     <li><a href="contact.html#faq">FAQ</a></li>
+                     <li><a href="blogs.html">Blogs</a></li>
+                  </ul>
+               </li>
+               <li><a href="blogs.html">Blogs</a></li>
+            </ul>
+         </div>
+
+         <ul>
+            <li><a href="#">Saved <i class="far fa-heart"></i></a></li>
+            <li><a href="#">Account <i class="fas fa-angle-down"></i></a>
+               <ul>
+                  <li><a href="login.html">Login</a></li>
+                  <li><a href="register.html">Register</a></li>
+               </ul>
+            </li>
+         </ul>
+      </section>
+   </nav>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- area converter page starts -->
+
+<section class="area-converter-page">
+   
+   <div class="converter-container">
+      
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+         <a href="home.html">Home</a>
+         <i class="fas fa-chevron-right"></i>
+         <span id="breadcrumbConversion">Area Converter</span>
+      </div>
+
+      <!-- Hero Image Section -->
+      <div class="hero-image-section">
+         <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=1400&h=500&fit=crop&q=90" alt="Land measurement and property surveying" class="hero-image" loading="eager">
+         <div class="hero-overlay">
+            <div class="hero-content">
+               <h2>Accurate Land Area Conversion</h2>
+               <p>Convert between traditional and international land measurement units with precision</p>
+            </div>
+         </div>
+      </div>
+
+      <!-- Converter Layout -->
+      <div class="converter-layout">
+         <!-- Converter Card -->
+         <div class="converter-card">
+            <!-- <div class="converter-card-image-wrapper" style="position: absolute !important; top: -15px !important; right: -15px !important; width: 120px !important; height: 120px !important; display: flex !important; visibility: visible !important; opacity: 1 !important; z-index: 10 !important;">
+               <img src="https://images.unsplash.com/photo-1558036117-15d82a90a9c6?w=400&h=400&fit=crop&q=85" alt="Area Converter Tool" loading="eager" style="opacity: 1 !important; display: block !important; visibility: visible !important; width: 100% !important; height: 100% !important; object-fit: cover !important;" onload="this.style.opacity='1'; this.style.display='block'; this.style.visibility='visible';" onerror="console.error('Image failed to load');">
+            </div> -->
+            <h1 class="converter-title" id="converterTitle">Area Converter</h1>
+            <p class="converter-subtitle">Enter the value and select desired unit</p>
+
+         <form class="converter-form" onsubmit="event.preventDefault(); convertArea(); return false;">
+            <!-- State Selection -->
+            <div class="form-group">
+               <label for="stateSelect">State</label>
+               <select id="stateSelect">
+                  <option value="">Select State</option>
+                  <option value="uttar pradesh">Uttar Pradesh</option>
+                  <option value="haryana">Haryana</option>
+                  <option value="punjab">Punjab</option>
+                  <option value="rajasthan">Rajasthan</option>
+                  <option value="gujarat">Gujarat</option>
+                  <option value="maharashtra">Maharashtra</option>
+                  <option value="karnataka">Karnataka</option>
+                  <option value="tamil nadu">Tamil Nadu</option>
+                  <option value="west bengal">West Bengal</option>
+                  <option value="bihar">Bihar</option>
+                  <option value="odisha">Odisha</option>
+                  <option value="madhya pradesh">Madhya Pradesh</option>
+               </select>
+               <small style="color: #6c757d; font-size: 1.3rem; margin-top: -0.5rem;">States use different units of measurements like - bigha, cent, etc.</small>
+            </div>
+
+            <!-- From Unit with Value -->
+            <div class="form-group">
+               <label for="fromValue">From</label>
+               <div class="input-with-unit">
+                  <input type="text" id="areaValue" placeholder="Enter value" inputmode="numeric" pattern="[0-9.]*" autocomplete="off">
+                  <select id="fromUnit">
+                     <option value="">Select unit</option>
+                  </select>
+               </div>
+            </div>
+
+            <!-- Swap Button -->
+            <div class="input-with-swap">
+               <button type="button" class="swap-button" onclick="swapUnits()" title="Swap units">
+                  <i class="fas fa-exchange-alt"></i>
+               </button>
+            </div>
+
+            <!-- To Unit with Value -->
+            <div class="form-group">
+               <label for="toValue">To</label>
+               <div class="input-with-unit">
+                  <input type="text" id="toValue" placeholder="0" readonly style="background: #f8f9fa; cursor: not-allowed;">
+                  <select id="toUnit">
+                     <option value="">Select unit</option>
+                  </select>
+               </div>
+            </div>
+
+            <!-- Conversion Rate Display -->
+            <div class="conversion-rate-display" id="conversionRateDisplay" style="display: none;">
+               <i class="fas fa-lightbulb" style="color: #fbbf24; font-size: 1.8rem; margin-right: 1rem;"></i>
+               <span class="rate-text">
+                  <span class="rate-highlight" id="rateValue">1 cent = 0.0161 bigha</span>
+                  <span class="rate-state" id="rateState"></span>
+               </span>
+            </div>
+
+            <!-- Result -->
+            <div class="result-section" id="resultSection" style="display: none;">
+               <div class="result-label">Converted Value</div>
+               <div class="result-value" id="resultValue">0</div>
+            </div>
+
+            <div style="text-align: left; margin-top: 2.5rem; padding: 1.5rem 2rem; background: linear-gradient(135deg, #fff7ed 0%, #fffbeb 100%); border-left: 4px solid #f59e0b; border-radius: 8px;">
+               <p style="margin: 0; font-size: 1.35rem; color: #92400e; font-weight: 500; display: flex; align-items: center; gap: 0.8rem;">
+                  <i class="fas fa-info-circle" style="color: #f59e0b; font-size: 1.6rem;"></i>
+                  <span>*This tool is for informational purposes only</span>
+               </p>
+            </div>
+         </form>
+         </div>
+
+         <!-- Popular Conversions Sidebar -->
+         <div class="popular-conversions">
+            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=300&fit=crop&q=80" alt="Popular Conversions" class="popular-conversions-image">
+            <h3><i class="fas fa-th"></i> Popular Area Conversions</h3>
+            <div class="popular-links">
+               <a href="#" class="popular-link" onclick="setPopularConversion('hectare', 'acre'); return false;">Hectare to Acre</a>
+               <a href="#" class="popular-link" onclick="setPopularConversion('acre', 'hectare'); return false;">Acre to Hectare</a>
+               <a href="#" class="popular-link" onclick="setPopularConversion('square feet', 'cent'); return false;">Square Feet to Cent</a>
+               <a href="#" class="popular-link" onclick="setPopularConversion('square feet', 'square meter'); return false;">Square Feet to Square Meter</a>
+               <a href="#" class="popular-link" onclick="setPopularConversion('square feet', 'square yard'); return false;">Square Feet to Square Yard</a>
+               <a href="#" class="popular-link" onclick="setPopularConversion('square feet', 'gaj'); return false;">Square Feet to Gaj</a>
+            </div>
+         </div>
+      </div>
+
+      <!-- Features Section -->
+      <div class="converter-features">
+         <div class="feature-item">
+            <div class="feature-icon">
+               <i class="fas fa-calculator"></i>
+            </div>
+            <h4>Accurate Conversion</h4>
+            <p>Get precise conversions between all land measurement units used across India</p>
+         </div>
+         <div class="feature-item">
+            <div class="feature-icon">
+               <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <h4>State-Specific</h4>
+            <p>Conversion rates that account for regional variations in measurement units</p>
+         </div>
+         <div class="feature-item">
+            <div class="feature-icon">
+               <i class="fas fa-clock"></i>
+            </div>
+            <h4>Instant Results</h4>
+            <p>Real-time conversion as you type, no waiting required</p>
+         </div>
+      </div>
+
+      <!-- About Land Measurement Units Section -->
+      <div class="about-section">
+         <h2>About Land Measurement Units</h2>
+         <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=500&fit=crop&q=80" alt="Land measurement and surveying" class="about-section-image">
+         <p>Land measurement in India has always been done using various local and native measurement units such as Bigha, Ground, Kanal, etc, depending upon the state. These are locally set benchmarks, which have been in usage for a long time. These unit measurements vary greatly across regions, which is why converting them to international standard units, or globally accepted units, also known as SI units is of paramount importance. In addition, to understand the exact area of land as well as to calculate the value of land, converting local units into SI units, using a land area calculator, is advisable.</p>
+         <p>Some of the common land measurement units across India are hectares, acres, square meters, square yards. Other than this, Bigha, Marla, Cent, Guntha, Ground are regional units and their size varies from state to state.</p>
+         
+         <div style="clear: both;"></div>
+         
+         <h3>Land area measurement units used in North India</h3>
+         <div style="display: grid; grid-template-columns: 1fr 280px; gap: 2.5rem; align-items: center; margin-bottom: 2.5rem; padding: 2rem; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+            <ul style="margin: 0;">
+               <li style="font-size: 1.65rem; line-height: 1.95; color: #475569; padding-left: 2.5rem; position: relative; margin-bottom: 1.2rem;">
+                  <span style="position: absolute; left: 0.5rem; top: 0.8rem; width: 8px; height: 8px; background: var(--primary-gradient); border-radius: 50%; box-shadow: 0 2px 4px rgba(0,123,255,0.2);"></span>
+                  Bigha, Biswa, Biswansi, Killa, Ghumaon, Kanal are popular land area measurement units used in Haryana, Uttar Pradesh, Uttarakhand, Punjab, etc. To convert these local units into SI units, use the area conversion calculator.
+               </li>
+            </ul>
+            <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=450&fit=crop&q=85" alt="North India land measurement" style="width: 100%; height: 220px; object-fit: cover; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.12); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+         </div>
+
+         <h3>Land area measurement units used in South India</h3>
+         <div style="display: grid; grid-template-columns: 280px 1fr; gap: 2.5rem; align-items: center; margin-bottom: 2.5rem; padding: 2rem; background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+            <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=600&h=450&fit=crop&q=85" alt="South India land measurement" style="width: 100%; height: 220px; object-fit: cover; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.12); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+            <ul style="margin: 0;">
+               <li style="font-size: 1.65rem; line-height: 1.95; color: #475569; padding-left: 2.5rem; position: relative; margin-bottom: 1.2rem;">
+                  <span style="position: absolute; left: 0.5rem; top: 0.8rem; width: 8px; height: 8px; background: var(--primary-gradient); border-radius: 50%; box-shadow: 0 2px 4px rgba(0,123,255,0.2);"></span>
+                  Ankanam, Cent, Ground, Guntha, Kuncham are popular land measurement units used in states such as Tamil Nadu, Andhra Pradesh, Kerala, Karnataka, etc. Convert these local units into globally accepted measurement units using the area calculator.
+               </li>
+            </ul>
+         </div>
+
+         <h3>Land area measurement units used in East India</h3>
+         <div style="display: grid; grid-template-columns: 1fr 280px; gap: 2.5rem; align-items: center; margin-bottom: 2.5rem; padding: 2rem; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+            <ul style="margin: 0;">
+               <li style="font-size: 1.65rem; line-height: 1.95; color: #475569; padding-left: 2.5rem; position: relative; margin-bottom: 1.2rem;">
+                  <span style="position: absolute; left: 0.5rem; top: 0.8rem; width: 8px; height: 8px; background: var(--primary-gradient); border-radius: 50%; box-shadow: 0 2px 4px rgba(0,123,255,0.2);"></span>
+                  Chatak, Decimal, Dhur, Kattha, Lecha are popular land measurement units mostly used in West Bengal, Assam, Bihar, Tripura, Jharkhand, etc. For area conversion to other internationally recognized units, use the land area calculator.
+               </li>
+            </ul>
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&h=450&fit=crop&q=85" alt="East India land measurement" style="width: 100%; height: 220px; object-fit: cover; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.12); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+         </div>
+
+         <h3>Land area measurement units used in West India</h3>
+         <div style="display: grid; grid-template-columns: 280px 1fr; gap: 2.5rem; align-items: center; margin-bottom: 2.5rem; padding: 2rem; background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=450&fit=crop&q=85" alt="West India land measurement" style="width: 100%; height: 220px; object-fit: cover; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.12); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+            <ul style="margin: 0;">
+               <li style="font-size: 1.65rem; line-height: 1.95; color: #475569; padding-left: 2.5rem; position: relative; margin-bottom: 1.2rem;">
+                  <span style="position: absolute; left: 0.5rem; top: 0.8rem; width: 8px; height: 8px; background: var(--primary-gradient); border-radius: 50%; box-shadow: 0 2px 4px rgba(0,123,255,0.2);"></span>
+                  Bigha, Biswa and Biswansi are popular land area measurement units used in lower parts of Rajasthan and Gujarat. Convert these local units into globally used measurement units using an area calculator.
+               </li>
+            </ul>
+         </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="faq-section">
+         <h3>FAQS ON AREA MEASUREMENT UNITS</h3>
+         <div class="faq-content-wrapper">
+            <div class="faq-items">
+               <div class="faq-item active">
+                  <div class="faq-question-wrapper" onclick="toggleFaq(this)">
+                     <div class="faq-question">Which land measurement units are used in North India?</div>
+                     <div class="faq-toggle">
+                        <i class="fas fa-minus"></i>
+                     </div>
+                  </div>
+                  <div class="faq-answer">Some of the popular land measurement units used in North India are Bigha, Biswa, Killa, Ghumaon, Biswansi, Kanal and many more.</div>
+               </div>
+
+               <div class="faq-item">
+                  <div class="faq-question-wrapper" onclick="toggleFaq(this)">
+                     <div class="faq-question">Which land measurement units are used in East India?</div>
+                     <div class="faq-toggle">
+                        <i class="fas fa-plus"></i>
+                     </div>
+                  </div>
+                  <div class="faq-answer">In East India, people usually use Chatak, Dhur, Kattha, Lacha for land measurement purposes.</div>
+               </div>
+
+               <div class="faq-item">
+                  <div class="faq-question-wrapper" onclick="toggleFaq(this)">
+                     <div class="faq-question">Which land measurement units are used in West India?</div>
+                     <div class="faq-toggle">
+                        <i class="fas fa-plus"></i>
+                     </div>
+                  </div>
+                  <div class="faq-answer">Bigha, Biswa, Biswansi are some of the commonly used land measurement units in West India.</div>
+               </div>
+
+               <div class="faq-item">
+                  <div class="faq-question-wrapper" onclick="toggleFaq(this)">
+                     <div class="faq-question">Which land measurement units are used in Central India?</div>
+                     <div class="faq-toggle">
+                        <i class="fas fa-plus"></i>
+                     </div>
+                  </div>
+                  <div class="faq-answer">People mostly use Bigha and Kattha in Central India for measuring land parcels.</div>
+               </div>
+
+               <div class="faq-item">
+                  <div class="faq-question-wrapper" onclick="toggleFaq(this)">
+                     <div class="faq-question">Which land measurement units are used in South India?</div>
+                     <div class="faq-toggle">
+                        <i class="fas fa-plus"></i>
+                     </div>
+                  </div>
+                  <div class="faq-answer">For land measurement purposes, people use Ankanam, Cent, Ground, Guntha, Kuncham, etc. in South India.</div>
+               </div>
+            </div>
+
+            <div class="faq-illustration">
+               <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=600&fit=crop&q=85" alt="Frequently Asked Questions" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 8px 25px rgba(0,0,0,0.12); object-fit: cover; max-height: 400px;">
+            </div>
+         </div>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- Trending Articles section starts -->
+
+<section class="trending-articles-section">
+   <div class="trending-articles-wrapper">
+      <div class="trending-articles-header">
+         <h2>Trending Real estate Articles</h2>
+      </div>
+      <div class="trending-articles-container" id="trendingArticlesContainer">
+         <div class="trending-articles-wrapper-inner">
+            <!-- Article 1 -->
+            <a href="why-property-prices-same-locality-vary.html" class="article-card">
+               <div class="article-card-image">
+                  <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&h=400&fit=crop&q=80" alt="City skyline with multiple residential buildings">
+               </div>
+               <div class="article-card-content">
+                  <h3 class="article-card-title">Why do flat prices in the same locality vary?</h3>
+                  <p class="article-card-date">Oct 16, 2025</p>
+               </div>
+            </a>
+            <!-- Article 2 -->
+            <a href="blogs.html" class="article-card">
+               <div class="article-card-image">
+                  <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop&q=80" alt="Highway infrastructure and road construction">
+               </div>
+               <div class="article-card-content">
+                  <h3 class="article-card-title">GDA road plan and its impact on homebuyers</h3>
+                  <p class="article-card-date">Sep 22, 2025</p>
+               </div>
+            </a>
+            <!-- Article 3 -->
+            <a href="blogs.html" class="article-card">
+               <div class="article-card-image">
+                  <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop&q=80" alt="Modern residential construction and buildings">
+               </div>
+               <div class="article-card-content">
+                  <h3 class="article-card-title">Venus Star Construction: Legacy and beyond</h3>
+                  <p class="article-card-date">Sep 18, 2025</p>
+               </div>
+            </a>
+            <!-- Article 4 -->
+            <a href="blogs.html" class="article-card">
+               <div class="article-card-image">
+                  <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop&q=80" alt="Residential plots and land development">
+               </div>
+               <div class="article-card-content">
+                  <h3 class="article-card-title">No OC for homes on 1,200 sq ft plus plots</h3>
+                  <p class="article-card-date">Sep 11, 2025</p>
+               </div>
+            </a>
+         </div>
+         <div class="trending-articles-scroll-arrow" onclick="scrollTrendingArticlesRight()">
+            <i class="fas fa-chevron-right"></i>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- Trending Articles section ends -->
+
+<!-- area converter page ends -->
+
+<!-- footer section starts  -->
+
+<footer class="footer">
+
+   <section class="flex">
+
+      <div class="box">
+         <a href="tel:9696968030"><i class="fas fa-phone"></i><span>+91 9696968030</span></a>
+         <a href="tel:7840803090"><i class="fas fa-phone"></i><span>+91 7840803090</span></a>
+         <a href="mailto:Info@HouseThat.co.in"><i class="fas fa-envelope"></i><span>Info@HouseThat.co.in</span></a>
+         <a href="#"><i class="fas fa-map-marker-alt"></i><span>B-34, 3rd Floor, Sector 67, Noida,
+            Uttar Pradesh 201301</span></a>
+      </div>
+
+      <div class="box">
+         <a href="home.html"><span>Home</span></a>
+         <a href="about.html"><span>About Us</span></a>
+         <a href="contact.html"><span>Contact Us</span></a>
+         <a href="listings.html"><span>All Listings</span></a>
+         <a href="blogs.html"><span>Blogs</span></a>
+         <a href="area_converter.html"><span>Area Converter</span></a>
+         <a href="terms.html"><span>Terms & Conditions</span></a>
+      </div>
+
+      <div class="box">
+         <a href="https://www.facebook.com/housethat.ind/"><span>Facebook</span><i class="fab fa-facebook-f"></i></a>
+         <a href="https://x.com/HouseThat35250"><span>Twitter</span><i class="fab fa-twitter"></i></a>
+         <a href="https://in.linkedin.com/company/housethat"><span>Linkedin</span><i class="fab fa-linkedin"></i></a>
+         <a href="https://www.instagram.com/housethat.co.in/"><span>Instagram</span><i class="fab fa-instagram"></i></a>
+
+      </div>
+
+   </section>
+
+   <div class="credit">
+      <p style="margin: 0 0 0.5rem 0; line-height: 1.6;">© 2025 Marketed by <span>HouseThat</span>. All rights reserved.</p>
+      <p style="margin: 0; font-size: 1.6rem; opacity: 0.9;">RERA Registered Channel Partner: <span style="font-weight: 600;">UPRERAAGT13108</span></p>
+   </div>
+
+</footer>
+<!-- footer section ends -->
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+<script>
+   // Area conversion units (in square meters)
+   const units = {
+      'square meter': 1,
+      'square feet': 0.092903,
+      'square yard': 0.836127,
+      'square inch': 0.00064516,
+      'hectare': 10000,
+      'acre': 4046.86,
+      'square kilometer': 1000000,
+      'bigha': 0, // State-specific, will be calculated
+      'cent': 40.4686,
+      'gaj': 0.836127,
+      'guntha': 101.171,
+      'ground': 222.967,
+      'marla': 25.2929,
+      'katha': 66.8903,
+      'biswa': 125.42,
+      'kanal': 505.857,
+      'ghumaon': 4046.86
+   };
+
+   // State-specific Bigha conversions (in square meters)
+   const bighaByState = {
+      'uttar pradesh': 2508.38,
+      'haryana': 2529.29,
+      'punjab': 2529.29,
+      'rajasthan': 2530.29,
+      'gujarat': 1618.74,
+      'maharashtra': 1337.8,
+      'karnataka': 1337.8,
+      'tamil nadu': 1337.8,
+      'west bengal': 1337.8,
+      'bihar': 2529.29,
+      'odisha': 1337.8,
+      'madhya pradesh': 2529.29
+   };
+
+   // Common units available for all states
+   const commonUnits = ['square meter', 'square feet', 'square yard', 'hectare', 'acre', 'square kilometer', 'cent', 'gaj', 'guntha', 'ground', 'marla', 'katha', 'biswa', 'kanal'];
+
+   // State-specific units
+   const stateUnits = {
+      'uttar pradesh': ['bigha'],
+      'haryana': ['bigha'],
+      'punjab': ['bigha'],
+      'rajasthan': ['bigha'],
+      'gujarat': ['bigha'],
+      'maharashtra': ['bigha'],
+      'karnataka': ['bigha'],
+      'tamil nadu': ['bigha'],
+      'west bengal': ['bigha'],
+      'bihar': ['bigha'],
+      'odisha': ['bigha'],
+      'madhya pradesh': ['bigha']
+   };
+
+   function updateUnitsByState() {
+      const state = document.getElementById('stateSelect').value.toLowerCase();
+      const fromUnit = document.getElementById('fromUnit');
+      const toUnit = document.getElementById('toUnit');
+
+      // Clear existing options
+      fromUnit.innerHTML = '<option value="">Select unit</option>';
+      toUnit.innerHTML = '<option value="">Select unit</option>';
+
+      // Add common units
+      commonUnits.forEach(unit => {
+         const option1 = document.createElement('option');
+         option1.value = unit;
+         option1.textContent = unit.charAt(0).toUpperCase() + unit.slice(1).replace(/([A-Z])/g, ' $1');
+         fromUnit.appendChild(option1);
+
+         const option2 = document.createElement('option');
+         option2.value = unit;
+         option2.textContent = unit.charAt(0).toUpperCase() + unit.slice(1).replace(/([A-Z])/g, ' $1');
+         toUnit.appendChild(option2);
+      });
+
+      // Add state-specific units
+      if (state && stateUnits[state]) {
+         stateUnits[state].forEach(unit => {
+            const option1 = document.createElement('option');
+            option1.value = unit;
+            option1.textContent = unit.charAt(0).toUpperCase() + unit.slice(1);
+            fromUnit.appendChild(option1);
+
+            const option2 = document.createElement('option');
+            option2.value = unit;
+            option2.textContent = unit.charAt(0).toUpperCase() + unit.slice(1);
+            toUnit.appendChild(option2);
+         });
+      }
+
+      updateConversionRate();
+   }
+
+   function getUnitFactor(unit, state) {
+      if (unit === 'bigha' && state && bighaByState[state]) {
+         return bighaByState[state];
+      }
+      return units[unit] || 1;
+   }
+
+   function convertArea() {
+      const areaValueInput = document.getElementById('areaValue');
+      const valueStr = areaValueInput.value.replace(/,/g, ''); // Remove commas if any
+      const value = parseFloat(valueStr);
+      const fromUnit = document.getElementById('fromUnit').value;
+      const toUnit = document.getElementById('toUnit').value;
+      const state = document.getElementById('stateSelect').value.toLowerCase();
+
+      // Validate inputs
+      if (!valueStr || valueStr === '' || isNaN(value) || value < 0) {
+         document.getElementById('toValue').value = '';
+         return;
+      }
+      
+      if (!fromUnit || !toUnit) {
+         document.getElementById('toValue').value = '';
+         return;
+      }
+
+      const fromFactor = getUnitFactor(fromUnit, state);
+      const toFactor = getUnitFactor(toUnit, state);
+
+      // Convert to square meters first, then to target unit
+      const valueInSquareMeters = value * fromFactor;
+      const convertedValue = valueInSquareMeters / toFactor;
+
+      // Display result in the "To" input field
+      document.getElementById('toValue').value = convertedValue.toLocaleString('en-IN', {
+         maximumFractionDigits: 4
+      });
+
+      updateConversionRate();
+      updateBreadcrumb();
+      updateTitle();
+   }
+
+   function swapUnits() {
+      const fromUnit = document.getElementById('fromUnit');
+      const toUnit = document.getElementById('toUnit');
+      const areaValue = document.getElementById('areaValue');
+      const toValue = document.getElementById('toValue');
+      
+      // Swap units
+      const temp = fromUnit.value;
+      fromUnit.value = toUnit.value;
+      toUnit.value = temp;
+      
+      // Swap values (remove commas for numeric input)
+      const tempValue = areaValue.value.replace(/,/g, '');
+      const toValueNum = toValue.value.replace(/,/g, '');
+      
+      areaValue.value = toValueNum || '';
+      toValue.value = '';
+      
+      // Always update conversion rate first
+      updateConversionRate();
+      
+      // Recalculate if there's a value after swap
+      if (areaValue.value && fromUnit.value && toUnit.value) {
+         convertArea();
+      }
+      
+      updateBreadcrumb();
+      updateTitle();
+   }
+
+   function setPopularConversion(from, to) {
+      const fromUnit = document.getElementById('fromUnit');
+      const toUnit = document.getElementById('toUnit');
+      const areaValue = document.getElementById('areaValue');
+      
+      // Set values
+      fromUnit.value = from;
+      toUnit.value = to;
+      
+      // Trigger change events to ensure all handlers fire
+      const changeEvent = new Event('change', { bubbles: true });
+      fromUnit.dispatchEvent(changeEvent);
+      toUnit.dispatchEvent(changeEvent);
+      
+      // Update conversion rate (this should happen via change event, but ensure it)
+      updateConversionRate();
+      
+      // Trigger conversion if value exists
+      if (areaValue.value && from && to) {
+         convertArea();
+      }
+      
+      updateBreadcrumb();
+      updateTitle();
+   }
+
+   function updateConversionRate() {
+      const fromUnit = document.getElementById('fromUnit');
+      const toUnit = document.getElementById('toUnit');
+      const stateSelect = document.getElementById('stateSelect');
+      const rateDisplay = document.getElementById('conversionRateDisplay');
+      const rateValue = document.getElementById('rateValue');
+      const rateState = document.getElementById('rateState');
+      
+      if (!fromUnit || !toUnit || !rateValue) {
+         return;
+      }
+      
+      const fromUnitVal = fromUnit.value;
+      const toUnitVal = toUnit.value;
+      const state = stateSelect ? stateSelect.value.toLowerCase() : '';
+
+      // Hide display if units are not selected
+      if (!fromUnitVal || !toUnitVal) {
+         if (rateDisplay) rateDisplay.style.display = 'none';
+         return;
+      }
+
+      const fromFactor = getUnitFactor(fromUnitVal, state);
+      const toFactor = getUnitFactor(toUnitVal, state);
+      
+      if (toFactor === 0 || fromFactor === 0) {
+         if (rateDisplay) rateDisplay.style.display = 'none';
+         return;
+      }
+      
+      const rate = fromFactor / toFactor;
+
+      // Format unit names properly
+      const fromUnitDisplay = formatUnitName(fromUnitVal);
+      const toUnitDisplay = formatUnitName(toUnitVal);
+      
+      // Update rate text - format: "1 unit = X unit"
+      const rateText = `1 ${fromUnitDisplay.toLowerCase()} = ${rate.toLocaleString('en-IN', {
+         maximumFractionDigits: 6,
+         minimumFractionDigits: 0
+      })} ${toUnitDisplay.toLowerCase()}`;
+      
+      rateValue.textContent = rateText;
+      
+      // Update state display
+      if (state && rateState) {
+         const stateName = state.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+         rateState.textContent = `in ${stateName}`;
+      } else if (rateState) {
+         rateState.textContent = '';
+      }
+
+      // Show the display
+      if (rateDisplay) {
+         rateDisplay.style.display = 'flex';
+      }
+   }
+   
+   function formatUnitName(unit) {
+      // Handle special cases for unit names
+      const unitMap = {
+         'square meter': 'Square Meter',
+         'square feet': 'Square Feet',
+         'square yard': 'Square Yard',
+         'square inch': 'Square Inch',
+         'square kilometer': 'Square Kilometer'
+      };
+      
+      if (unitMap[unit]) {
+         return unitMap[unit];
+      }
+      
+      // Capitalize first letter and add spaces before capitals
+      return unit.charAt(0).toUpperCase() + unit.slice(1).replace(/([A-Z])/g, ' $1').trim();
+   }
+
+   function updateBreadcrumb() {
+      const fromUnit = document.getElementById('fromUnit').value;
+      const toUnit = document.getElementById('toUnit').value;
+      
+      if (fromUnit && toUnit) {
+         const fromFormatted = fromUnit.charAt(0).toUpperCase() + fromUnit.slice(1).replace(/([A-Z])/g, ' $1');
+         const toFormatted = toUnit.charAt(0).toUpperCase() + toUnit.slice(1).replace(/([A-Z])/g, ' $1');
+         document.getElementById('breadcrumbConversion').textContent = `${fromFormatted} to ${toFormatted}`;
+      } else {
+         document.getElementById('breadcrumbConversion').textContent = 'Area Converter';
+      }
+   }
+
+   function updateTitle() {
+      const fromUnit = document.getElementById('fromUnit').value;
+      const toUnit = document.getElementById('toUnit').value;
+      
+      if (fromUnit && toUnit) {
+         const fromFormatted = fromUnit.charAt(0).toUpperCase() + fromUnit.slice(1).replace(/([A-Z])/g, ' $1');
+         const toFormatted = toUnit.charAt(0).toUpperCase() + toUnit.slice(1).replace(/([A-Z])/g, ' $1');
+         document.getElementById('converterTitle').textContent = `${fromFormatted} to ${toFormatted} Calculator`;
+      } else {
+         document.getElementById('converterTitle').textContent = 'Area Converter';
+      }
+   }
+
+   function toggleFaq(element) {
+      const faqItem = element.parentElement;
+      const isActive = faqItem.classList.contains('active');
+      
+      // Close all FAQ items
+      document.querySelectorAll('.faq-item').forEach(item => {
+         item.classList.remove('active');
+         const toggle = item.querySelector('.faq-toggle i');
+         toggle.className = 'fas fa-plus';
+      });
+      
+      // Open clicked item if it wasn't active
+      if (!isActive) {
+         faqItem.classList.add('active');
+         const toggle = faqItem.querySelector('.faq-toggle i');
+         toggle.className = 'fas fa-minus';
+      }
+   }
+
+   function scrollTrendingArticlesRight() {
+      const container = document.getElementById('trendingArticlesContainer');
+      container.scrollBy({
+         left: 320,
+         behavior: 'smooth'
+      });
+   }
+
+   // Initialize event listeners and functionality
+   document.addEventListener('DOMContentLoaded', function() {
+      const fromUnit = document.getElementById('fromUnit');
+      const toUnit = document.getElementById('toUnit');
+      const areaValue = document.getElementById('areaValue');
+      
+      // From unit change handler
+      fromUnit.addEventListener('change', function() {
+         // Always update conversion rate when unit changes
+         updateConversionRate();
+         
+         if (areaValue.value && this.value && toUnit.value) {
+            convertArea();
+         }
+         
+         updateBreadcrumb();
+         updateTitle();
+      });
+      
+      // To unit change handler
+      toUnit.addEventListener('change', function() {
+         // Always update conversion rate when unit changes
+         updateConversionRate();
+         
+         if (areaValue.value && fromUnit.value && this.value) {
+            convertArea();
+         }
+         
+         updateBreadcrumb();
+         updateTitle();
+      });
+      
+      // Area value input handler - auto conversion
+      areaValue.addEventListener('input', function(e) {
+         // Allow only numbers and decimal point
+         let value = this.value.replace(/[^0-9.]/g, '');
+         
+         // Prevent multiple decimal points
+         const parts = value.split('.');
+         if (parts.length > 2) {
+            value = parts[0] + '.' + parts.slice(1).join('');
+         }
+         
+         this.value = value;
+         
+         if (value && fromUnit.value && toUnit.value) {
+            convertArea();
+         } else {
+            document.getElementById('toValue').value = '';
+         }
+      });
+      
+      // Prevent paste of non-numeric content
+      areaValue.addEventListener('paste', function(e) {
+         e.preventDefault();
+         const paste = (e.clipboardData || window.clipboardData).getData('text');
+         const numericValue = paste.replace(/[^0-9.]/g, '');
+         const parts = numericValue.split('.');
+         const cleanValue = parts.length > 2 ? parts[0] + '.' + parts.slice(1).join('') : numericValue;
+         this.value = cleanValue;
+         if (cleanValue && fromUnit.value && toUnit.value) {
+            convertArea();
+         }
+      });
+      
+      // State selection handler - update units and trigger conversion if needed
+      const stateSelect = document.getElementById('stateSelect');
+      stateSelect.addEventListener('change', function() {
+         updateUnitsByState();
+         // Update conversion rate after units are updated
+         setTimeout(() => {
+            updateConversionRate();
+            if (areaValue.value && fromUnit.value && toUnit.value) {
+               convertArea();
+            }
+         }, 100);
+      });
+      
+      // Initialize first FAQ as active
+      const firstFaq = document.querySelector('.faq-item');
+      if (firstFaq && firstFaq.classList.contains('active')) {
+         const toggle = firstFaq.querySelector('.faq-toggle i');
+         if (toggle) toggle.className = 'fas fa-minus';
+      }
+      
+      // Trigger conversion rate update on initial load if units are already selected
+      setTimeout(function() {
+         if (fromUnit.value && toUnit.value) {
+            updateConversionRate();
+         }
+      }, 100);
+      
+      // Force converter card image wrapper to be visible immediately
+      const converterImageWrapper = document.querySelector('.converter-card-image-wrapper');
+      if (converterImageWrapper) {
+         converterImageWrapper.style.position = 'absolute';
+         converterImageWrapper.style.top = '-15px';
+         converterImageWrapper.style.right = '-15px';
+         converterImageWrapper.style.width = '120px';
+         converterImageWrapper.style.height = '120px';
+         converterImageWrapper.style.display = 'flex';
+         converterImageWrapper.style.visibility = 'visible';
+         converterImageWrapper.style.opacity = '1';
+         converterImageWrapper.style.zIndex = '10';
+      }
+      
+      // Image loading optimization (exclude converter card image which should always be visible)
+      const images = document.querySelectorAll('img:not(.converter-card-image-wrapper img)');
+      const converterImage = document.querySelector('.converter-card-image-wrapper img');
+      
+      // Ensure converter card image is always visible
+      if (converterImage) {
+         converterImage.style.setProperty('opacity', '1', 'important');
+         converterImage.style.setProperty('display', 'block', 'important');
+         converterImage.style.setProperty('visibility', 'visible', 'important');
+         converterImage.style.setProperty('width', '100%', 'important');
+         converterImage.style.setProperty('height', '100%', 'important');
+         converterImage.style.setProperty('object-fit', 'cover', 'important');
+         
+         converterImage.addEventListener('load', function() {
+            this.style.setProperty('opacity', '1', 'important');
+            this.style.setProperty('display', 'block', 'important');
+            this.style.setProperty('visibility', 'visible', 'important');
+            console.log('Converter image loaded successfully');
+         });
+         converterImage.addEventListener('error', function() {
+            console.error('Converter card image failed to load:', this.src);
+            // Keep the background gradient visible
+            if (converterImageWrapper) {
+               converterImageWrapper.style.background = 'linear-gradient(135deg, #007bff 0%, #0056b3 100%)';
+            }
+         });
+         
+         // If already loaded, set immediately
+         if (converterImage.complete) {
+            converterImage.style.setProperty('opacity', '1', 'important');
+            converterImage.style.setProperty('display', 'block', 'important');
+            converterImage.style.setProperty('visibility', 'visible', 'important');
+         }
+      }
+      
+      // Apply fade-in to other images
+      images.forEach(img => {
+         if (img.complete) {
+            img.style.opacity = '1';
+         } else {
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.3s ease';
+            img.addEventListener('load', function() {
+               this.style.opacity = '1';
+            });
+            img.addEventListener('error', function() {
+               this.style.opacity = '0.7';
+               console.warn('Image failed to load:', this.src);
+            });
+         }
+      });
+   });
+</script>
+
+</body>
+</html>
