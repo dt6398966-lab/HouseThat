@@ -121,6 +121,50 @@ app.get('/homebuying-trends-post-covid-19.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'homebuying-trends-post-covid-19.html'));
 });
 
+// Serve homebuying-in-2021-and-expectations.html
+app.get('/homebuying-in-2021-and-expectations', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'homebuying-in-2021-and-expectations.html'));
+});
+
+app.get('/homebuying-in-2021-and-expectations.html', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'homebuying-in-2021-and-expectations.html'));
+});
+
+// Serve work-from-home-changing-homebuying-preferences.html
+app.get('/work-from-home-changing-homebuying-preferences', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'work-from-home-changing-homebuying-preferences.html'));
+});
+
+app.get('/work-from-home-changing-homebuying-preferences.html', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'work-from-home-changing-homebuying-preferences.html'));
+});
+
+// Serve festive-fervour-drives-homebuying-sentiment.html
+app.get('/festive-fervour-drives-homebuying-sentiment', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'festive-fervour-drives-homebuying-sentiment.html'));
+});
+
+app.get('/festive-fervour-drives-homebuying-sentiment.html', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'festive-fervour-drives-homebuying-sentiment.html'));
+});
+
+// Serve covid-19-effect-millennials-homebuying.html
+app.get('/covid-19-effect-millennials-homebuying', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'covid-19-effect-millennials-homebuying.html'));
+});
+
+app.get('/covid-19-effect-millennials-homebuying.html', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'covid-19-effect-millennials-homebuying.html'));
+});
+
 // Serve other HTML files (only catch .html files, not CSS/JS)
 app.get('/:page.html', (req, res) => {
   // Skip if it's not an actual HTML file request
