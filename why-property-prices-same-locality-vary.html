@@ -50,14 +50,15 @@
       }
       .article-main-card {
          background: #ffffff;
-         border-radius: 20px;
-         box-shadow: 0 10px 40px rgba(0,0,0,0.08), 0 2px 10px rgba(0,0,0,0.04);
+         border-radius: 16px;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
          padding: 4rem;
          margin-bottom: 3rem;
-         transition: box-shadow 0.3s ease;
+         transition: all 0.3s ease;
+         border: 1px solid #e9ecef;
       }
       .article-main-card:hover {
-         box-shadow: 0 12px 50px rgba(0,0,0,0.12), 0 4px 15px rgba(0,0,0,0.06);
+         box-shadow: 0 4px 16px rgba(0,0,0,0.08);
       }
       .article-header {
          margin-bottom: 4rem;
@@ -142,23 +143,26 @@
          color: var(--main-color);
       }
       .article-content {
-         font-size: 1.6rem;
-         line-height: 2.3;
+         font-size: 1.65rem;
+         line-height: 1.85;
          color: #334155;
          margin-bottom: 4rem;
+         font-weight: 400;
+         text-align: justify;
       }
       .article-content-wrapper {
          padding: 3rem 0;
       }
       .article-content h2 {
-         font-size: 2.6rem;
+         font-size: 2.7rem;
          color: #1a1a1a;
          font-weight: 800;
-         margin: 4rem 0 2rem 0;
+         margin: 4.5rem 0 2.5rem 0;
          padding-top: 2.5rem;
          border-top: 3px solid #e9ecef;
          position: relative;
-         letter-spacing: -0.2px;
+         letter-spacing: -0.3px;
+         line-height: 1.3;
       }
       .article-content h2:first-of-type {
          margin-top: 2rem;
@@ -166,16 +170,38 @@
          border-top: none;
       }
       .article-content h3 {
-         font-size: 2rem;
+         font-size: 2.1rem;
          color: #1a1a1a;
          font-weight: 700;
-         margin: 3rem 0 1.5rem 0;
-         padding-left: 1.5rem;
-         border-left: 4px solid var(--main-color);
+         margin: 2.5rem 0 2rem 0;
+         padding-left: 1.8rem;
+         border-left: 3px solid #dc3545;
          letter-spacing: -0.1px;
+         line-height: 1.4;
+         position: relative;
+      }
+      .feature-content h3 {
+         margin-top: 0;
+         padding-left: 1.8rem;
+         border-left: 4px solid #dc3545;
+         width: 100%;
+         margin-bottom: 2rem;
+         position: relative;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         gap: 2rem;
+         flex-wrap: wrap;
+         line-height: 1.4;
+         font-size: 2rem;
+      }
+      .feature-content h3 span {
+         flex: 1;
+         min-width: 0;
       }
       .article-content p {
-         margin-bottom: 2rem;
+         margin-bottom: 2.2rem;
+         letter-spacing: 0.01em;
       }
       .article-content strong {
          color: #1a1a1a;
@@ -192,110 +218,145 @@
          padding: 2.5rem;
          border-radius: 12px;
          margin: 3rem 0;
-         box-shadow: 0 2px 10px rgba(0,123,255,0.08);
+         box-shadow: 0 2px 8px rgba(0,123,255,0.06);
+         transition: box-shadow 0.3s ease;
+      }
+      .highlight-box:hover {
+         box-shadow: 0 4px 12px rgba(0,123,255,0.1);
       }
       .highlight-box p {
          font-size: 1.6rem;
-         line-height: 2.3;
+         line-height: 1.85;
          margin: 0;
+         text-align: justify;
       }
       .article-image {
          width: 100%;
-         border-radius: 15px;
-         margin: 3rem 0;
-         box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-         transition: transform 0.3s ease;
+         border-radius: 16px;
+         margin: 4rem 0;
+         box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+         transition: all 0.3s ease;
+         min-height: 400px;
+         object-fit: cover;
       }
       .article-image:hover {
-         transform: scale(1.02);
+         transform: scale(1.01);
+         box-shadow: 0 12px 40px rgba(0,0,0,0.2);
       }
       .content-image-wrapper {
          position: relative;
-         margin: 3rem 0;
-         border-radius: 15px;
+         margin: 4rem 0;
+         border-radius: 16px;
          overflow: hidden;
-         box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+         box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+         transition: all 0.3s ease;
+      }
+      .content-image-wrapper:hover {
+         box-shadow: 0 12px 40px rgba(0,0,0,0.2);
       }
       .content-image {
          width: 100%;
          height: auto;
          display: block;
          transition: transform 0.5s ease;
+         min-height: 450px;
+         object-fit: cover;
       }
       .content-image-wrapper:hover .content-image {
-         transform: scale(1.05);
+         transform: scale(1.03);
       }
       .image-caption {
-         background: rgba(0,0,0,0.7);
+         background: rgba(0,0,0,0.75);
          color: white;
-         padding: 1rem 1.5rem;
-         font-size: 1.3rem;
+         padding: 1.2rem 1.8rem;
+         font-size: 1.4rem;
          text-align: center;
          position: absolute;
          bottom: 0;
          left: 0;
          right: 0;
          margin: 0;
+         font-weight: 500;
+         letter-spacing: 0.3px;
       }
       .feature-box {
-         background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-         border: 2px solid #e9ecef;
-         border-radius: 15px;
-         padding: 3rem;
-         margin: 3rem 0;
-         display: flex;
-         gap: 2rem;
-         align-items: center;
-         box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+         background: #ffffff;
+         border: 1px solid #e9ecef;
+         border-radius: 16px;
+         padding: 4rem;
+         margin: 4rem 0;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+         transition: all 0.3s ease;
+         position: relative;
       }
-      .feature-box.reverse {
-         flex-direction: row-reverse;
+      .feature-box:hover {
+         box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+         border-color: #dee2e6;
       }
       .feature-image {
-         flex: 1;
-         min-width: 300px;
-         border-radius: 12px;
-         overflow: hidden;
-         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      }
-      .feature-image img {
-         width: 100%;
-         height: auto;
-         display: block;
-         transition: transform 0.5s ease;
-      }
-      .feature-box:hover .feature-image img {
-         transform: scale(1.1);
+         display: none;
       }
       .feature-content {
-         flex: 1;
+         width: 100%;
+         position: relative;
+         display: flex;
+         flex-direction: column;
+         align-items: flex-start;
+         padding-top: 0;
+         padding-left: 5.5rem;
       }
       .feature-content p {
-         font-size: 1.6rem;
-         line-height: 2.3;
-         margin-bottom: 1.5rem;
+         font-size: 1.65rem;
+         line-height: 1.85;
+         margin-bottom: 2rem;
+         color: #334155;
+         width: 100%;
+         text-align: justify;
       }
       .number-badge {
-         display: inline-block;
-         width: 50px;
-         height: 50px;
-         background: linear-gradient(135deg, var(--main-color), #0056b3);
+         position: relative;
+         width: 60px;
+         height: 60px;
+         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
          color: white;
          border-radius: 50%;
          display: flex;
          align-items: center;
          justify-content: center;
-         font-size: 2rem;
+         font-size: 2.2rem;
          font-weight: 700;
-         margin-bottom: 1.5rem;
-         box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+         box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+         z-index: 10;
+         flex-shrink: 0;
       }
       @media (max-width: 768px) {
          .feature-box {
-            flex-direction: column;
+            padding: 2.5rem 1.8rem;
+            margin: 2.5rem 0;
          }
-         .feature-image {
-            min-width: 100%;
+         .feature-content {
+            padding-left: 4rem;
+            padding-right: 0;
+            width: 100%;
+         }
+         .feature-content h3 {
+            font-size: 1.8rem;
+            padding-left: 1.5rem;
+            gap: 1.5rem;
+         }
+         .content-image {
+            min-height: 300px;
+         }
+         .number-badge {
+            width: 50px;
+            height: 50px;
+            font-size: 1.8rem;
+         }
+         .article-main-card {
+            padding: 2.5rem 1.8rem;
+         }
+         .highlight-box {
+            padding: 2rem 1.5rem;
          }
       }
       .article-content ul {
@@ -306,13 +367,13 @@
          margin-bottom: 1.5rem;
       }
       .author-section {
-         background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+         background: #ffffff;
          padding: 3.5rem;
-         border-radius: 20px;
+         border-radius: 16px;
          margin: 4rem 0;
          border: 1px solid #e9ecef;
-         border-left: 5px solid var(--main-color);
-         box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+         border-left: 4px solid var(--main-color);
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       }
       .author-info {
          display: flex;
@@ -342,6 +403,80 @@
          color: #6c757d;
          margin: 0;
       }
+      .contents-section {
+         background: #ffffff;
+         border-radius: 14px;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+         padding: 2.8rem;
+         margin-bottom: 3rem;
+         border: 1px solid #e9ecef;
+      }
+      .contents-header {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         cursor: pointer;
+         user-select: none;
+         margin-bottom: 1.5rem;
+      }
+      .contents-title {
+         font-size: 1.8rem;
+         font-weight: 700;
+         color: #1a1a1a;
+         margin: 0;
+      }
+      .contents-toggle {
+         color: #6c757d;
+         font-size: 1.4rem;
+         transition: transform 0.3s ease;
+      }
+      .contents-section.collapsed .contents-toggle {
+         transform: rotate(180deg);
+      }
+      .contents-list {
+         padding: 0;
+         margin: 0;
+         overflow: hidden;
+         transition: max-height 0.3s ease, opacity 0.3s ease;
+         max-height: 1000px;
+         opacity: 1;
+      }
+      .contents-section.collapsed .contents-list {
+         max-height: 0;
+         opacity: 0;
+      }
+      .contents-list li {
+         margin-bottom: 1rem;
+         font-size: 1.5rem;
+         line-height: 1.6;
+      }
+      .contents-list li a {
+         color: #007bff;
+         text-decoration: none;
+         transition: color 0.2s ease;
+      }
+      .contents-list li a:hover {
+         color: #0056b3;
+         text-decoration: underline;
+      }
+      .contents-list ol {
+         margin-top: 0.5rem;
+      }
+      .contents-list ol li {
+         margin-left: 0;
+         margin-bottom: 0.8rem;
+         font-size: 1.4rem;
+      }
+      .contents-divider {
+         height: 1px;
+         background: #e9ecef;
+         margin: 2rem 0;
+      }
+      .contents-section.collapsed .contents-divider,
+      .contents-section.collapsed .faq-section-title,
+      .contents-section.collapsed .faq-link-list {
+         display: none;
+      }
       .faq-section {
          margin: 4rem 0;
          padding: 0;
@@ -349,6 +484,30 @@
          border-radius: 0;
          border: none;
          box-shadow: none;
+      }
+      .faq-section-title {
+         font-size: 1.8rem;
+         font-weight: 700;
+         color: #1a1a1a;
+         margin: 0 0 1.5rem 0;
+      }
+      .faq-link-list {
+         list-style: none;
+         padding: 0;
+         margin: 0;
+      }
+      .faq-link-list li {
+         margin-bottom: 1rem;
+         font-size: 1.5rem;
+      }
+      .faq-link-list li a {
+         color: #007bff;
+         text-decoration: none;
+         transition: color 0.2s ease;
+      }
+      .faq-link-list li a:hover {
+         color: #0056b3;
+         text-decoration: underline;
       }
       .faq-section h2 {
          font-size: 2.4rem;
@@ -435,17 +594,18 @@
       .related-article-card {
          background: #ffffff;
          border: 1px solid #e9ecef;
-         border-radius: 12px;
-         padding: 2rem;
+         border-radius: 14px;
+         padding: 2.5rem;
          margin-bottom: 2rem;
          transition: all 0.3s ease;
          text-decoration: none;
          color: inherit;
          display: block;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       }
       .related-article-card:hover {
-         box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-         transform: translateY(-3px);
+         box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+         border-color: #dee2e6;
       }
       .related-article-title {
          font-size: 1.8rem;
@@ -523,13 +683,17 @@
       .social-btn.linkedin { background: #0a66c2; }
       .social-btn.whatsapp { background: #25d366; }
       .email-signup {
-         background: linear-gradient(135deg, var(--main-color), #0056b3);
+         background: linear-gradient(135deg, var(--main-color) 0%, #0056b3 50%, #667eea 100%);
          padding: 4rem 3rem;
-         border-radius: 20px;
+         border-radius: 16px;
          text-align: center;
          color: white;
          margin: 4rem 0;
-         box-shadow: 0 10px 40px rgba(0,123,255,0.3);
+         box-shadow: 0 4px 16px rgba(0,123,255,0.2);
+         transition: all 0.3s ease;
+      }
+      .email-signup:hover {
+         box-shadow: 0 6px 24px rgba(0,123,255,0.3);
       }
       .email-signup h3 {
          font-size: 2rem;
@@ -602,6 +766,24 @@
          }
          .faq-answer {
             font-size: 1.5rem;
+         }
+         .contents-section {
+            padding: 2rem;
+         }
+         .contents-title {
+            font-size: 1.6rem;
+         }
+         .contents-list li {
+            font-size: 1.4rem;
+         }
+         .contents-list ol li {
+            font-size: 1.3rem;
+         }
+         .faq-section-title {
+            font-size: 1.6rem;
+         }
+         .faq-link-list li {
+            font-size: 1.4rem;
          }
       }
    </style>
@@ -745,6 +927,37 @@
          </div>
       </div>
 
+      <!-- Contents Section -->
+      <div class="article-main-card">
+      <div class="contents-section" id="contentsSection">
+         <div class="contents-header" onclick="toggleContents()">
+            <h3 class="contents-title">Contents</h3>
+            <i class="fas fa-chevron-up contents-toggle"></i>
+         </div>
+         <ol class="contents-list" style="padding-left: 2.5rem;">
+            <li>
+               <a href="#why-prices-vary">Why do prices vary between projects in the same location?</a>
+               <ol style="padding-left: 2rem; margin-top: 0.5rem;">
+                  <li><a href="#builders-equity">The builder's market equity</a></li>
+                  <li><a href="#construction-quality">Construction quality and the material grade</a></li>
+                  <li><a href="#density-layout">Density and layout efficiency</a></li>
+                  <li><a href="#ecosystem-upkeep">The upkeep of the ecosystem</a></li>
+                  <li><a href="#property-age">The age of the property</a></li>
+                  <li><a href="#legal-clarity">Legal clarity and track record</a></li>
+                  <li><a href="#micro-location">Micro-location perks</a></li>
+               </ol>
+            </li>
+         </ol>
+         <div class="contents-divider"></div>
+         <h3 class="faq-section-title">Frequently Asked Questions</h3>
+         <ul class="faq-link-list">
+            <li><a href="#faq-layout">Does a better layout really affect pricing that much?</a></li>
+            <li><a href="#faq-branded-developer">Is it worth paying more for a branded developer?</a></li>
+            <li><a href="#faq-loading-factor">What is loading factor and does it impact a project's pricing?</a></li>
+         </ul>
+      </div>
+      </div>
+
       <!-- Article Content -->
       <div class="article-main-card">
       <div class="article-content">
@@ -766,17 +979,16 @@
 
          <p>So what really makes one project pricier than the one right beside it? Let's unpack the seven key reasons.</p>
 
-         <h2>Why do prices vary between projects in the same location?</h2>
+         <h2 id="why-prices-vary">Why do prices vary between projects in the same location?</h2>
 
          <p>From brand to build quality, let's peel back the layers to understand why the project next door comes with a higher or lower ticket size:</p>
 
          <div class="feature-box">
-            <div class="feature-image">
-               <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&q=80" alt="Reputed builder construction project">
-            </div>
             <div class="feature-content">
-               <div class="number-badge">1</div>
-               <h3 style="margin-top: 0; font-size: 2rem; color: #1a1a1a; font-weight: 700; margin-bottom: 1.5rem;">The builder's market equity</h3>
+               <h3 id="builders-equity" style="margin-top: 0; color: #1a1a1a; font-weight: 700;">
+                  <span>The builder's market equity</span>
+                  <div class="number-badge">1</div>
+               </h3>
                <p>What are the top two things on your homebuying checklist? For many, it's usually the location and the builder's brand value. When you look for a brand that you can trust, you're essentially hoping for quality, smooth handover, and consistent post-sale assistance.</p>
                <p>Thus, call it the "trust tax", but a reputed builder known for its clean track record, timely delivery, and solid resale value will easily command Rs 500 - 1000 per sq ft, if not more, compared to the other projects in the same sector.</p>
             </div>
@@ -786,70 +998,65 @@
             <p><strong>Take Jaypee Aman and Ace Starlit, for example.</strong> Located within walking distances of each other, Jaypee Aman by Jaypee Infratech is priced at Rs 7,350 per sq ft, whereas Starlit by Ace Developers are currently trending at Rs 13,800/ sq ft. Same view, same locality, but with a Rs 6,450 per sq ft difference.</p>
          </div>
 
-         <p><em>Also Read: How to check a builder's credibility?</em></p>
+         <p style="margin-top: 1.5rem;"><a href="#" style="color: #dc3545; text-decoration: none; font-weight: 600; font-style: italic; transition: color 0.2s ease;" onmouseover="this.style.color='#c82333'" onmouseout="this.style.color='#dc3545'">Also Read: How to check a builder's credibility?</a></p>
 
-         <div class="feature-box reverse">
-            <div class="feature-image">
-               <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&h=600&fit=crop&q=80" alt="High-quality construction materials">
-            </div>
+         <div class="feature-box">
             <div class="feature-content">
-               <div class="number-badge">2</div>
-               <h3 style="margin-top: 0; font-size: 2rem; color: #1a1a1a; font-weight: 700; margin-bottom: 1.5rem;">Construction quality and the material grade</h3>
+               <h3 id="construction-quality" style="margin-top: 0; color: #1a1a1a; font-weight: 700;">
+                  <span>Construction quality and the material grade</span>
+                  <div class="number-badge">2</div>
+               </h3>
                <p>Back in the early 2000s, construction of high-rise structures often took twice the time that it takes today. The problem was long construction tenure, and the solution came in the form of Mivan shuttering. First introduced in India by reputed builders Larson & Turbo, this construction method slashed the construction timeline by 30 to 50 percent.</p>
                <p>What's more? This framework of refabricated aluminium forms started casting entire concrete blocks at once, rather than building brick by brick, which made the walls stronger and more durable in the process.</p>
                <p>Apart from build quality, branded materials also play a role in determining the unit's ask price. For example, a builder offering Jaquar faucets in the kitchen and bathroom will any day ask for a higher per sq ft price, compared to one offering local fittings and fixtures.</p>
-               <p><em>Also Read: How to check the construction quality of your new home?</em></p>
+               <p style="margin-top: 1.5rem;"><a href="#" style="color: #dc3545; text-decoration: none; font-weight: 600; font-style: italic; transition: color 0.2s ease;" onmouseover="this.style.color='#c82333'" onmouseout="this.style.color='#dc3545'">Also Read: How to check the construction quality of your new home?</a></p>
             </div>
          </div>
 
          <div class="feature-box">
-            <div class="feature-image">
-               <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop&q=80" alt="Low density residential project layout">
-            </div>
             <div class="feature-content">
-               <div class="number-badge">3</div>
-               <h3 style="margin-top: 0; font-size: 2rem; color: #1a1a1a; font-weight: 700; margin-bottom: 1.5rem;">Density and layout efficiency</h3>
+               <h3 id="density-layout" style="margin-top: 0; color: #1a1a1a; font-weight: 700;">
+                  <span>Density and layout efficiency</span>
+                  <div class="number-badge">3</div>
+               </h3>
                <p>Two towers might face the same park, but one could have only four units per floor while the other has eight. A project's density or population has a lot to do with the pressure it puts on common infrastructure like lifts and clubhouses. Thus, the lower the density, the more exclusive the project is.</p>
                <p>The project density can also be mapped by the total area the project covers as opposed to the number of units it offers. For instance, projects with 69 units per acre are broadly categorised as low-density, although this definition may vary based on the project type or location. Apart from that, layout plans with wider corridors, better ventilation, or larger balconies also play an essential role in determining their final price.</p>
             </div>
          </div>
 
          <div class="feature-box">
-            <div class="feature-image">
-               <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop&q=80" alt="Luxury amenities and maintenance">
-            </div>
             <div class="feature-content">
-               <div class="number-badge">4</div>
-               <h3 style="margin-top: 0; font-size: 2rem; color: #1a1a1a; font-weight: 700; margin-bottom: 1.5rem;">The upkeep of the ecosystem</h3>
+               <h3 id="ecosystem-upkeep" style="margin-top: 0; color: #1a1a1a; font-weight: 700;">
+                  <span>The upkeep of the ecosystem</span>
+                  <div class="number-badge">4</div>
+               </h3>
                <p>A rooftop pool, co-working pods, and landscaped gardens sound great, but the question is: who's maintaining them? Projects with robust maintenance teams, gated security, and active Resident Welfare Associations (RWAs) tend to retain value better. Thus, when comparing projects, buyers are often willing to pay more for a lifestyle that actually works, not just looks good on brochures.</p>
                <p>But here's the thing: A project that hosts a lot of amenities requires a larger maintenance team, which means you'll probably end up paying more for monthly maintenance. So, before being swept up in the upkeep of the ecosystem, do check whether the recurring monthly expenses are cutting into your budget.</p>
-               <p><em>Also Read: What's included in your society's monthly maintenance cost?</em></p>
-            </div>
-         </div>
-
-         <div class="feature-box reverse">
-            <div class="feature-image">
-               <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop&q=80" alt="New vs old property comparison">
-            </div>
-            <div class="feature-content">
-               <div class="number-badge">5</div>
-               <h3 style="margin-top: 0; font-size: 2rem; color: #1a1a1a; font-weight: 700; margin-bottom: 1.5rem;">The age of the property</h3>
-               <p>A 10-year old housing society is more likely to have ash brick construction, leading to most structures struggling with everyday wear and tear. Older ready-to-move projects, in comparison to new launches, may also feel outdated in terms of amenities or design. For instance, double-heighted entry lobbies and infinity pools are currently trending, but you would hardly find an old housing society sporting these features.</p>
-               <p>Another major consideration here is the price appreciation potential of a project. Prices in older housing societies have already appreciated and hence, the scope for further growth is limited. On the other hand, the under-construction project next door, holds immense price appreciation potential.</p>
-               <p><em>Also Read: Under-construction vs ready-to-move- Which is a better buy?</em></p>
+               <p style="margin-top: 1.5rem;"><a href="#" style="color: #dc3545; text-decoration: none; font-weight: 600; font-style: italic; transition: color 0.2s ease;" onmouseover="this.style.color='#c82333'" onmouseout="this.style.color='#dc3545'">Also Read: What's included in your society's monthly maintenance cost?</a></p>
             </div>
          </div>
 
          <div class="feature-box">
-            <div class="feature-image">
-               <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop&q=80" alt="Legal documents and approvals">
-            </div>
             <div class="feature-content">
-               <div class="number-badge">6</div>
-               <h3 style="margin-top: 0; font-size: 2rem; color: #1a1a1a; font-weight: 700; margin-bottom: 1.5rem;">Legal clarity and track record</h3>
+               <h3 id="property-age" style="margin-top: 0; color: #1a1a1a; font-weight: 700;">
+                  <span>The age of the property</span>
+                  <div class="number-badge">5</div>
+               </h3>
+               <p>A 10-year old housing society is more likely to have ash brick construction, leading to most structures struggling with everyday wear and tear. Older ready-to-move projects, in comparison to new launches, may also feel outdated in terms of amenities or design. For instance, double-heighted entry lobbies and infinity pools are currently trending, but you would hardly find an old housing society sporting these features.</p>
+               <p>Another major consideration here is the price appreciation potential of a project. Prices in older housing societies have already appreciated and hence, the scope for further growth is limited. On the other hand, the under-construction project next door, holds immense price appreciation potential.</p>
+               <p style="margin-top: 1.5rem;"><a href="#" style="color: #dc3545; text-decoration: none; font-weight: 600; font-style: italic; transition: color 0.2s ease;" onmouseover="this.style.color='#c82333'" onmouseout="this.style.color='#dc3545'">Also Read: Under-construction vs ready-to-move- Which is a better buy?</a></p>
+            </div>
+         </div>
+
+         <div class="feature-box">
+            <div class="feature-content">
+               <h3 id="legal-clarity" style="margin-top: 0; color: #1a1a1a; font-weight: 700;">
+                  <span>Legal clarity and track record</span>
+                  <div class="number-badge">6</div>
+               </h3>
                <p>A clean title holds much more power than a glossy brochure or a flashy launch. Buyers may get swayed by price drops, festive schemes, or marketing buzz. However, if the land title isn't clear or the project has a history of litigation, that "deal" can quickly turn into a long-term headache. Banks hesitate to finance such properties, resale becomes tricky, and possession timelines stretch endlessly.</p>
                <p>In contrast, a project with all approvals in place, zero disputes, and a clean RERA record can command a premium, and rightly so. You're not just paying for the flat; you're paying for your peace of mind, future liquidity, and the ability to sleep easy knowing your investment won't get stuck.</p>
-               <p><em>Also Read: How to check if the property is legally safe?</em></p>
+               <p style="margin-top: 1.5rem;"><a href="#" style="color: #dc3545; text-decoration: none; font-weight: 600; font-style: italic; transition: color 0.2s ease;" onmouseover="this.style.color='#c82333'" onmouseout="this.style.color='#dc3545'">Also Read: How to check if the property is legally safe?</a></p>
             </div>
          </div>
 
@@ -858,13 +1065,12 @@
             <p class="image-caption">Micro-location advantages like proximity to metro, schools, and markets affect pricing</p>
          </div>
 
-         <div class="feature-box reverse">
-            <div class="feature-image">
-               <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop&q=80" alt="Strategic property location">
-            </div>
+         <div class="feature-box">
             <div class="feature-content">
-               <div class="number-badge">7</div>
-               <h3 style="margin-top: 0; font-size: 2rem; color: #1a1a1a; font-weight: 700; margin-bottom: 1.5rem;">Micro-location perks</h3>
+               <h3 id="micro-location" style="margin-top: 0; color: #1a1a1a; font-weight: 700;">
+                  <span>Micro-location perks</span>
+                  <div class="number-badge">7</div>
+               </h3>
                <p>Micro-location isn't about the sector or even the street, it's about the exact spot your building sits on. Two projects might face the same lake or park, but one could be right on the main road while the other sits 300 meters inside, down a narrower lane. One might have a smoother entry point, better approach road width, or easier access to daily conveniences like grocery stores, schools, or metro stations, even if both technically share the same pincode.</p>
                <p>These subtle differences in positioning affect not just daily conveniences, but also buyer perception and resale potential. Developers factor this in while pricing. So, while the view may be identical, the living experience may drive a difference in the price tag.</p>
             </div>
@@ -872,11 +1078,11 @@
 
          <p><strong>Price differences aren't just numbers—they reveal what the market values most: certainty, convenience, and confidence. Sometimes paying more isn't about luxury, it's about avoiding hidden headaches. The smarter move? Look beyond walls and views; weigh what you're actually buying before signing on the dotted line.</strong></p>
 
-         <div style="text-align: center; margin: 4rem 0; padding: 3rem; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); border-radius: 15px; border: 1px solid #e9ecef;">
-            <p style="font-size: 1.6rem; color: #495057; margin-bottom: 2rem; font-weight: 700;"><strong>Could the article help you understand the topic?</strong></p>
+         <div style="text-align: center; margin: 4rem 0; padding: 3rem; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); border-radius: 14px; border: 1px solid #e9ecef; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+            <p style="font-size: 1.7rem; color: #1a1a1a; margin-bottom: 2.5rem; font-weight: 700; letter-spacing: -0.2px;">Could the article help you understand the topic?</p>
             <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-               <button style="padding: 1.2rem 3rem; background: linear-gradient(135deg, var(--main-color), #0056b3); color: white; border: none; border-radius: 10px; font-size: 1.5rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(0,123,255,0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,123,255,0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,123,255,0.3)'">Yes</button>
-               <button style="padding: 1.2rem 3rem; background: #ffffff; color: #495057; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1.5rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--main-color)'; this.style.color='var(--main-color)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.color='#495057'; this.style.transform='translateY(0)'">No</button>
+               <button style="padding: 1.3rem 3.5rem; background: linear-gradient(135deg, var(--main-color), #0056b3); color: white; border: none; border-radius: 10px; font-size: 1.5rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(0,123,255,0.25); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,123,255,0.35)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,123,255,0.25)'">Yes</button>
+               <button style="padding: 1.3rem 3.5rem; background: #ffffff; color: #495057; border: 1.5px solid #e9ecef; border-radius: 10px; font-size: 1.5rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--main-color)'; this.style.color='var(--main-color)'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,123,255,0.1)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.color='#495057'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">No</button>
             </div>
          </div>
 
@@ -888,7 +1094,7 @@
       <div class="faq-section">
          <h2>Frequently Asked Questions</h2>
 
-         <div class="faq-item">
+         <div class="faq-item" id="faq-layout">
             <div class="faq-question-wrapper" onclick="toggleFaq(this)">
                <div class="faq-question">Q. Does a better layout really affect pricing that much?</div>
                <div class="faq-toggle">
@@ -898,7 +1104,7 @@
             <div class="faq-answer">A. In most cases, yes. Zero-wastage layouts, larger balconies, and corner units can command a premium even within the same project or tower.</div>
          </div>
 
-         <div class="faq-item">
+         <div class="faq-item" id="faq-branded-developer">
             <div class="faq-question-wrapper" onclick="toggleFaq(this)">
                <div class="faq-question">Q. Is it worth paying more for a branded developer?</div>
                <div class="faq-toggle">
@@ -908,7 +1114,7 @@
             <div class="faq-answer">A. It's more about studying the developer's track record than just chasing a big name. Consistency, delivery, and post-handover support matter more than branding alone.</div>
          </div>
 
-         <div class="faq-item">
+         <div class="faq-item" id="faq-loading-factor">
             <div class="faq-question-wrapper" onclick="toggleFaq(this)">
                <div class="faq-question">Q. What is loading factor and does it impact a project's pricing?</div>
                <div class="faq-toggle">
@@ -920,16 +1126,7 @@
       </div>
       </div>
 
-      <!-- Disclaimer -->
-      <div class="article-main-card">
-         <div style="background: #f8f9fa; padding: 2.5rem; border-radius: 12px; margin: 0; border-left: 4px solid #6c757d;">
-            <p style="font-size: 1.5rem; line-height: 2; color: #495057; margin: 0; font-style: italic;">
-               <strong>Disclaimer:</strong> The views expressed above are for informational purposes only based on industry reports and related news stories. HouseThat does not guarantee the accuracy, completeness, or reliability of the information and shall not be held responsible for any action taken based on the published information.
-            </p>
-         </div>
-      </div>
-
-      <!-- Author Section -->
+      <!-- Author Section with Compact Disclaimer -->
       <div class="article-main-card">
       <div class="author-section">
          <div class="author-info">
@@ -942,6 +1139,13 @@
          <p style="font-size: 1.6rem; line-height: 1.8; color: #495057; margin: 0;">
             Putting her 7+ years of experience into creating words that make an impact, HouseThat Editorial is an accomplished property market expert with a keen understanding of the market trends. Channeling her expertise in residential and commercial real estate, she aims to simplify the complexities involved with the property buying and selling process.
          </p>
+         
+         <!-- Compact Disclaimer -->
+         <div style="margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid #e9ecef;">
+            <p style="font-size: 1.2rem; line-height: 1.6; color: #6c757d; margin: 0; font-style: normal;">
+               <strong style="color: #495057;">Disclaimer:</strong> The views expressed above are for informational purposes only based on industry reports and related news stories. HouseThat does not guarantee the accuracy, completeness, or reliability of the information and shall not be held responsible for any action taken based on the published information.
+            </p>
+         </div>
       </div>
       </div>
 
@@ -1055,6 +1259,28 @@
          faqItem.classList.add('active');
       }
    }
+
+   function toggleContents() {
+      const contentsSection = document.getElementById('contentsSection');
+      contentsSection.classList.toggle('collapsed');
+   }
+
+   // Smooth scroll for anchor links
+   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+         const href = this.getAttribute('href');
+         if (href !== '#' && href.length > 1) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+               target.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+               });
+            }
+         }
+      });
+   });
 </script>
 
 </body>

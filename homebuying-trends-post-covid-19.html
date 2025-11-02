@@ -50,14 +50,15 @@
       }
       .article-main-card {
          background: #ffffff;
-         border-radius: 20px;
-         box-shadow: 0 10px 40px rgba(0,0,0,0.08), 0 2px 10px rgba(0,0,0,0.04);
+         border-radius: 16px;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
          padding: 4rem;
          margin-bottom: 3rem;
-         transition: box-shadow 0.3s ease;
+         transition: all 0.3s ease;
+         border: 1px solid #e9ecef;
       }
       .article-main-card:hover {
-         box-shadow: 0 12px 50px rgba(0,0,0,0.12), 0 4px 15px rgba(0,0,0,0.06);
+         box-shadow: 0 4px 16px rgba(0,0,0,0.08);
       }
       .article-header {
          margin-bottom: 4rem;
@@ -93,7 +94,7 @@
          font-size: 1.3rem;
          font-weight: 600;
          margin-bottom: 2rem;
-         box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+         box-shadow: 0 2px 8px rgba(0,123,255,0.25);
       }
       .article-title {
          font-size: 3.2rem;
@@ -121,8 +122,7 @@
       }
       .article-tag:hover {
          background: linear-gradient(135deg, #d1e9ff 0%, #b8daff 100%);
-         transform: translateY(-2px);
-         box-shadow: 0 4px 12px rgba(0,123,255,0.2);
+         box-shadow: 0 2px 8px rgba(0,123,255,0.15);
       }
       .article-meta {
          display: flex;
@@ -142,10 +142,12 @@
          color: var(--main-color);
       }
       .article-content {
-         font-size: 1.6rem;
-         line-height: 2.3;
+         font-size: 1.65rem;
+         line-height: 1.85;
          color: #334155;
          margin-bottom: 4rem;
+         font-weight: 400;
+         text-align: justify;
       }
       .article-content h2 {
          font-size: 2.6rem;
@@ -172,7 +174,8 @@
          letter-spacing: -0.1px;
       }
       .article-content p {
-         margin-bottom: 2rem;
+         margin-bottom: 2.2rem;
+         letter-spacing: 0.01em;
       }
       .article-content strong {
          color: #1a1a1a;
@@ -186,18 +189,18 @@
       .content-image-wrapper {
          position: relative;
          margin: 3rem 0;
-         border-radius: 15px;
+         border-radius: 16px;
          overflow: hidden;
-         box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+         box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       }
       .content-image {
          width: 100%;
          height: auto;
          display: block;
-         transition: transform 0.5s ease;
+         transition: transform 0.3s ease;
       }
       .content-image-wrapper:hover .content-image {
-         transform: scale(1.05);
+         transform: scale(1.02);
       }
       .image-caption {
          background: rgba(0,0,0,0.7);
@@ -212,20 +215,20 @@
          margin: 0;
       }
       .trend-box {
-         background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-         border: 2px solid #e9ecef;
-         border-radius: 15px;
+         background: #ffffff;
+         border: 1px solid #e9ecef;
+         border-radius: 16px;
          padding: 3rem;
          margin: 3rem 0;
          display: flex;
          gap: 2rem;
          align-items: flex-start;
-         box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
          transition: all 0.3s ease;
       }
       .trend-box:hover {
-         box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-         transform: translateY(-3px);
+         box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+         border-color: #dee2e6;
       }
       .trend-icon {
          width: 70px;
@@ -238,7 +241,7 @@
          justify-content: center;
          font-size: 2.5rem;
          flex-shrink: 0;
-         box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+         box-shadow: 0 2px 8px rgba(0,123,255,0.25);
       }
       .trend-content {
          flex: 1;
@@ -247,11 +250,16 @@
          padding-left: 0;
          border-left: none;
          margin-top: 0;
+         font-size: 2rem;
+         color: #1a1a1a;
+         font-weight: 700;
+         margin-bottom: 1.5rem;
       }
       .trend-content p {
-         font-size: 1.6rem;
-         line-height: 2.3;
+         font-size: 1.65rem;
+         line-height: 1.85;
          margin-bottom: 1.5rem;
+         text-align: justify;
       }
       .highlight-box {
          background: linear-gradient(135deg, #f0f7ff 0%, #e6f3ff 100%);
@@ -259,12 +267,17 @@
          padding: 2.5rem;
          border-radius: 12px;
          margin: 3rem 0;
-         box-shadow: 0 2px 10px rgba(0,123,255,0.08);
+         box-shadow: 0 2px 8px rgba(0,123,255,0.06);
+         transition: box-shadow 0.3s ease;
+      }
+      .highlight-box:hover {
+         box-shadow: 0 4px 12px rgba(0,123,255,0.1);
       }
       .highlight-box p {
          font-size: 1.6rem;
-         line-height: 2.3;
+         line-height: 1.85;
          margin: 0;
+         text-align: justify;
       }
       @media (max-width: 768px) {
          .trend-box {
@@ -282,13 +295,13 @@
          margin-bottom: 1.5rem;
       }
       .author-section {
-         background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+         background: #ffffff;
          padding: 3.5rem;
-         border-radius: 20px;
+         border-radius: 16px;
          margin: 4rem 0;
          border: 1px solid #e9ecef;
-         border-left: 5px solid var(--main-color);
-         box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+         border-left: 4px solid var(--main-color);
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       }
       .author-info {
          display: flex;
@@ -324,11 +337,11 @@
          gap: 3rem;
          margin: 3rem 0;
          padding: 2.5rem;
-         background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+         background: #ffffff;
          border-radius: 15px;
          flex-wrap: wrap;
          border: 1px solid #e9ecef;
-         box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       }
       .stat-item {
          display: flex;
@@ -348,9 +361,11 @@
          gap: 1.5rem;
          margin: 2.5rem 0;
          padding: 2rem;
-         background: #f8f9fa;
+         background: #ffffff;
+         border: 1px solid #e9ecef;
          border-radius: 12px;
          flex-wrap: wrap;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       }
       .social-share-label {
          font-size: 1.5rem;
@@ -375,21 +390,25 @@
          box-shadow: 0 4px 10px rgba(0,0,0,0.15);
       }
       .social-btn:hover {
-         transform: translateY(-3px);
-         box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+         transform: translateY(-2px);
+         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       }
       .social-btn.facebook { background: #1877f2; }
       .social-btn.twitter { background: #1da1f2; }
       .social-btn.linkedin { background: #0a66c2; }
       .social-btn.whatsapp { background: #25d366; }
       .email-signup {
-         background: linear-gradient(135deg, var(--main-color), #0056b3);
+         background: linear-gradient(135deg, var(--main-color) 0%, #0056b3 50%, #667eea 100%);
          padding: 4rem 3rem;
-         border-radius: 20px;
+         border-radius: 16px;
          text-align: center;
          color: white;
          margin: 4rem 0;
-         box-shadow: 0 10px 40px rgba(0,123,255,0.3);
+         box-shadow: 0 4px 16px rgba(0,123,255,0.2);
+         transition: all 0.3s ease;
+      }
+      .email-signup:hover {
+         box-shadow: 0 6px 24px rgba(0,123,255,0.3);
       }
       .email-signup h3 {
          font-size: 2rem;
@@ -425,8 +444,8 @@
          transition: all 0.3s ease;
       }
       .email-input-group button:hover {
-         transform: translateY(-2px);
-         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+         opacity: 0.9;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.15);
       }
       .related-articles {
          margin: 5rem 0;
@@ -442,17 +461,18 @@
       .related-article-card {
          background: #ffffff;
          border: 1px solid #e9ecef;
-         border-radius: 12px;
-         padding: 2rem;
+         border-radius: 14px;
+         padding: 2.5rem;
          margin-bottom: 2rem;
          transition: all 0.3s ease;
          text-decoration: none;
          color: inherit;
          display: block;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       }
       .related-article-card:hover {
-         box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-         transform: translateY(-3px);
+         box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+         border-color: #dee2e6;
       }
       .related-article-title {
          font-size: 1.8rem;
@@ -470,13 +490,14 @@
             height: 250px;
          }
          .article-main-card {
-            padding: 2.5rem;
+            padding: 2.5rem 1.8rem;
          }
          .article-title {
             font-size: 2.4rem;
          }
          .article-content {
             font-size: 1.5rem;
+            line-height: 1.8;
          }
          .article-content h2 {
             font-size: 2rem;
@@ -488,6 +509,15 @@
          }
          .article-meta {
             font-size: 1.3rem;
+         }
+         .highlight-box {
+            padding: 2rem 1.5rem;
+         }
+         .author-section {
+            padding: 2.5rem 1.8rem;
+         }
+         .trend-box {
+            padding: 2rem 1.5rem;
          }
       }
    </style>
@@ -580,7 +610,7 @@
          <div class="breadcrumb">
             <a href="home.html">Home</a>
             <i class="fas fa-chevron-right"></i>
-            <a href="area_converter.html">Area Converter</a>
+            <a href="blogs.html">Blogs</a>
             <i class="fas fa-chevron-right"></i>
             <span>Articles</span>
          </div>
@@ -600,9 +630,9 @@
             <span><i class="far fa-calendar"></i> Apr 01, 2021</span>
          </div>
 
-         <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px; margin: 2rem 0; border-left: 4px solid var(--main-color);">
-            <p style="margin: 0; font-size: 1.6rem; color: #495057;"><strong>By Karan Shah</strong></p>
-            <p style="margin: 0.5rem 0 0 0; font-size: 1.4rem; color: #6c757d;">Director- Sales and Marketing, Urban Space Realty</p>
+         <div style="background: #ffffff; padding: 2rem; border-radius: 12px; margin: 2rem 0; border: 1px solid #e9ecef; border-left: 4px solid var(--main-color);">
+            <p style="margin: 0; font-size: 1.6rem; color: #495057;"><strong>By HouseThat</strong></p>
+            <p style="margin: 0.5rem 0 0 0; font-size: 1.4rem; color: #6c757d;">Real Estate Knowledge Platform</p>
          </div>
 
          <div class="article-stats">
@@ -683,11 +713,11 @@
             <p><strong>While Mumbai and MMR region may not be a yardstick to measure India's overall real estate scenario,</strong> the financial capital figures provide glimpses of the far-reaching changes brought about by the pandemic. Mumbai, which has been the worst affected by the virus, is an ideal case in point for estimating the real estate market's overall direction. Whether the virus sees another surge or not, the rise in the real estate market has gained momentum, driven by the fundamental changes in customer perception about home.</p>
          </div>
 
-         <div style="text-align: center; margin: 4rem 0; padding: 3rem; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); border-radius: 15px; border: 1px solid #e9ecef;">
+         <div style="text-align: center; margin: 4rem 0; padding: 3rem; background: #ffffff; border-radius: 15px; border: 1px solid #e9ecef; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
             <p style="font-size: 1.6rem; color: #495057; margin-bottom: 2rem; font-weight: 700;"><strong>Could the article help you understand the topic?</strong></p>
             <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-               <button style="padding: 1.2rem 3rem; background: linear-gradient(135deg, var(--main-color), #0056b3); color: white; border: none; border-radius: 10px; font-size: 1.5rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 15px rgba(0,123,255,0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,123,255,0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,123,255,0.3)'">Yes</button>
-               <button style="padding: 1.2rem 3rem; background: #ffffff; color: #495057; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1.5rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--main-color)'; this.style.color='var(--main-color)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.color='#495057'; this.style.transform='translateY(0)'">No</button>
+               <button style="padding: 1.2rem 3rem; background: linear-gradient(135deg, var(--main-color), #0056b3); color: white; border: none; border-radius: 10px; font-size: 1.5rem; font-weight: 600; cursor: pointer; box-shadow: 0 2px 8px rgba(0,123,255,0.25); transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,123,255,0.35)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,123,255,0.25)'">Yes</button>
+               <button style="padding: 1.2rem 3rem; background: #ffffff; color: #495057; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1.5rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--main-color)'; this.style.color='var(--main-color)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.color='#495057'">No</button>
             </div>
          </div>
 
@@ -708,8 +738,8 @@
       <div class="article-main-card">
       <div class="related-articles">
          <h2>More from Knowledge Centre</h2>
-         <p style="font-size: 1.5rem; line-height: 2.2; color: #495057; margin-bottom: 2.5rem;">Stay updated on the latest developments in the Indian real estate industry by following HouseThat Knowledge Centre. Our platform offers valuable insights, news, and updates, along with informative articles, expert opinions, and market reports. With reliable and accurate information, it's a go-to destination for anyone seeking knowledge about the Indian real estate sector.</p>
-         <p style="font-size: 1.4rem; line-height: 2; color: #6c757d; margin-bottom: 3rem;">For inquiries or to get in touch with the HouseThat Editorial Team, please write to us at <a href="mailto:Info@HouseThat.co.in" style="color: var(--main-color); text-decoration: none; font-weight: 600;">Info@HouseThat.co.in</a>.</p>
+         <p style="font-size: 1.5rem; line-height: 1.85; color: #495057; margin-bottom: 2.5rem; text-align: justify;">Stay updated on the latest developments in the Indian real estate industry by following HouseThat Knowledge Centre. Our platform offers valuable insights, news, and updates, along with informative articles, expert opinions, and market reports. With reliable and accurate information, it's a go-to destination for anyone seeking knowledge about the Indian real estate sector.</p>
+         <p style="font-size: 1.4rem; line-height: 1.85; color: #6c757d; margin-bottom: 3rem;">For inquiries or to get in touch with the HouseThat Editorial Team, please write to us at <a href="mailto:Info@HouseThat.co.in" style="color: var(--main-color); text-decoration: none; font-weight: 600; transition: color 0.2s ease;" onmouseover="this.style.color='#0056b3'" onmouseout="this.style.color='var(--main-color)'">Info@HouseThat.co.in</a>.</p>
 
          <a href="why-property-prices-same-locality-vary.html" class="related-article-card">
             <div class="related-article-title">Why do flat prices in the same locality vary?</div>
@@ -740,8 +770,8 @@
 
       <!-- Disclaimer -->
       <div class="article-main-card">
-         <div style="background: #f8f9fa; padding: 2.5rem; border-radius: 12px; margin: 0; border-left: 4px solid #6c757d;">
-            <p style="font-size: 1.5rem; line-height: 2; color: #495057; margin: 0; font-style: italic;">
+         <div style="background: #ffffff; padding: 2.5rem; border-radius: 12px; margin: 0; border: 1px solid #e9ecef; border-left: 4px solid #6c757d;">
+            <p style="font-size: 1.5rem; line-height: 1.85; color: #6c757d; margin: 0; font-style: italic;">
                <strong>Disclaimer:</strong> The views expressed above are for informational purposes only based on industry reports and related news stories. HouseThat does not guarantee the accuracy, completeness, or reliability of the information and shall not be held responsible for any action taken based on the published information.
             </p>
          </div>
@@ -751,14 +781,14 @@
       <div class="article-main-card">
       <div class="author-section">
          <div class="author-info">
-            <div class="author-avatar">KS</div>
+            <div class="author-avatar">HT</div>
             <div class="author-details">
-               <h3>Karan Shah</h3>
-               <p>Director- Sales and Marketing</p>
+               <h3>HouseThat</h3>
+               <p>Real Estate Knowledge Platform</p>
             </div>
          </div>
-         <p style="font-size: 1.6rem; line-height: 1.8; color: #495057; margin: 0;">
-            Karan is an MBA in Marketing from MET Institute of Technology. With impeccable academic credentials as an Engineer and MBA, he brings technical know-how along with management abilities. His leadership boasts an excellent track record in liquidating real estate assets and setting a benchmark in the industry.
+         <p style="font-size: 1.6rem; line-height: 1.85; color: #495057; margin: 0;">
+            HouseThat is a leading real estate platform that connects buyers, sellers, and investors in the Indian property market. With a focus on providing reliable property information, market insights, and expert knowledge, HouseThat aims to simplify the real estate journey for everyone. Our Knowledge Centre offers valuable insights, expert opinions, and comprehensive articles to help make informed property decisions.
          </p>
       </div>
       </div>
