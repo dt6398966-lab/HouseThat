@@ -88,6 +88,39 @@ app.get('/loan_eligibility.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'loan_eligibility.html'));
 });
 
+// Serve area_converter.html
+app.get('/area-converter', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'area_converter.html'));
+});
+
+app.get('/area_converter.html', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'area_converter.html'));
+});
+
+// Serve why-property-prices-same-locality-vary.html
+app.get('/why-property-prices-same-locality-vary', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'why-property-prices-same-locality-vary.html'));
+});
+
+app.get('/why-property-prices-same-locality-vary.html', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'why-property-prices-same-locality-vary.html'));
+});
+
+// Serve homebuying-trends-post-covid-19.html
+app.get('/homebuying-trends-post-covid-19', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'homebuying-trends-post-covid-19.html'));
+});
+
+app.get('/homebuying-trends-post-covid-19.html', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.sendFile(path.join(__dirname, 'homebuying-trends-post-covid-19.html'));
+});
+
 // Serve other HTML files (only catch .html files, not CSS/JS)
 app.get('/:page.html', (req, res) => {
   // Skip if it's not an actual HTML file request

@@ -418,109 +418,264 @@
 
 <!-- tools section starts  -->
 
-<section class="steps" style="padding: 6rem 0; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%); position: relative; overflow: hidden;">
-   
-   <!-- Background decorative elements -->
-   <div style="position: absolute; top: -50px; right: -50px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,123,255,0.08) 0%, transparent 70%); border-radius: 50%; z-index: 0;"></div>
-   <div style="position: absolute; bottom: -100px; left: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,107,107,0.08) 0%, transparent 70%); border-radius: 50%; z-index: 0;"></div>
+<section class="tools-section" style="padding: 5rem 0; background: linear-gradient(180deg, #e8f4f8 0%, #ffffff 100%); position: relative; overflow: hidden;">
    
    <style>
-      .tool-card {
-         background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
-         box-shadow: 0 15px 50px rgba(0,0,0,0.1), 0 5px 20px rgba(0,0,0,0.08);
-         padding: 4rem 3rem;
-         border-radius: 20px;
-         position: relative;
-         overflow: hidden;
-         border: 1px solid rgba(0,0,0,0.05);
-         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-         height: 100%;
+      .tools-wrapper {
+         max-width: 1400px;
+         margin: 0 auto;
+         padding: 0 2rem;
+      }
+      .tools-header {
          display: flex;
-         flex-direction: column;
+         justify-content: space-between;
+         align-items: flex-start;
+         margin-bottom: 2.5rem;
+         flex-wrap: wrap;
+         gap: 1.5rem;
       }
-      .tool-card:hover {
-         transform: translateY(-10px);
-         box-shadow: 0 25px 70px rgba(0,0,0,0.15), 0 10px 30px rgba(0,0,0,0.1);
+      .tools-header-left {
+         display: flex;
+         align-items: flex-start;
+         gap: 1.2rem;
       }
-      .tool-icon {
-         width: 80px;
-         height: 80px;
-         border-radius: 20px;
+      .tools-header-icon {
+         width: 50px;
+         height: 50px;
+         background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+         border-radius: 14px;
          display: flex;
          align-items: center;
          justify-content: center;
-         margin-bottom: 2rem;
-         box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-         transition: transform 0.3s ease;
+         flex-shrink: 0;
+         position: relative;
       }
-      .tool-card:hover .tool-icon {
-         transform: scale(1.1) rotate(5deg);
-      }
-      .tool-card::before {
+      .tools-header-icon::before {
          content: '';
          position: absolute;
-         top: 0;
-         left: 0;
-         right: 0;
-         height: 5px;
-         background: linear-gradient(90deg, var(--main-color), #4ecdc4, #ffe66d, var(--main-color));
-         transform: scaleX(0);
-         transition: transform 0.4s ease;
+         top: -6px;
+         right: -6px;
+         width: 20px;
+         height: 20px;
+         background: #ff8c42;
+         border-radius: 50%;
+         border: 2.5px solid #ffffff;
       }
-      .tool-card:hover::before {
-         transform: scaleX(1);
+      .tools-header-icon i {
+         color: white;
+         font-size: 2rem;
+         z-index: 1;
+      }
+      .tools-header-text h2 {
+         font-size: 2.6rem;
+         color: #1a1a1a;
+         font-weight: 700;
+         margin: 0 0 0.4rem 0;
+         line-height: 1.2;
+      }
+      .tools-header-text p {
+         font-size: 1.4rem;
+         color: #666666;
+         margin: 0;
+         font-weight: 500;
+      }
+      .view-all-btn {
+         padding: 0.9rem 1.8rem;
+         font-size: 1.4rem;
+         font-weight: 600;
+         color: #007bff;
+         background: #ffffff;
+         border: 2px solid #007bff;
+         border-radius: 10px;
+         text-decoration: none;
+         transition: all 0.3s ease;
+         white-space: nowrap;
+      }
+      .view-all-btn:hover {
+         background: #007bff;
+         color: white;
+         transform: translateY(-2px);
+         box-shadow: 0 4px 12px rgba(0,123,255,0.3);
+      }
+      .tools-cards-container {
+         position: relative;
+         overflow-x: auto;
+         overflow-y: hidden;
+         padding: 1rem 0;
+         scroll-behavior: smooth;
+         -webkit-overflow-scrolling: touch;
+         scrollbar-width: none;
+         -ms-overflow-style: none;
+      }
+      .tools-cards-container::-webkit-scrollbar {
+         display: none;
+      }
+      .tools-cards-wrapper {
+         display: inline-flex;
+         gap: 2.5rem;
+         padding: 1rem 0.5rem;
+      }
+      .tool-card-new {
+         background: #ffffff;
+         border-radius: 16px;
+         padding: 2.5rem;
+         min-width: 280px;
+         width: 280px;
+         box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+         transition: all 0.3s ease;
+         cursor: pointer;
+         text-decoration: none;
+         color: inherit;
+         display: block;
+      }
+      .tool-card-new:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      }
+      .tool-icon-circle {
+         width: 70px;
+         height: 70px;
+         border-radius: 50%;
+         background: #fff4e6;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         margin-bottom: 1.8rem;
+      }
+      .tool-icon-circle i {
+         font-size: 2.8rem;
+         color: #ff8c42;
+      }
+      .tool-card-new h3 {
+         font-size: 1.9rem;
+         color: #1a1a1a;
+         font-weight: 700;
+         margin: 0 0 0.8rem 0;
+         line-height: 1.3;
+      }
+      .tool-card-new p {
+         font-size: 1.4rem;
+         color: #666666;
+         margin: 0;
+         line-height: 1.6;
+      }
+      .scroll-arrow {
+         position: absolute;
+         right: 0;
+         top: 50%;
+         transform: translateY(-50%);
+         width: 40px;
+         height: 40px;
+         background: #f0f0f0;
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         cursor: pointer;
+         z-index: 10;
+         transition: all 0.3s ease;
+      }
+      .scroll-arrow:hover {
+         background: #007bff;
+         color: white;
+      }
+      .scroll-arrow i {
+         font-size: 1.4rem;
+         color: #666666;
+      }
+      .scroll-arrow:hover i {
+         color: white;
+      }
+      @media (max-width: 768px) {
+         .tools-header {
+            flex-direction: column;
+         }
+         .tools-header-text h2 {
+            font-size: 2.4rem;
+         }
+         .tools-header-text p {
+            font-size: 1.4rem;
+         }
+         .view-all-btn {
+            padding: 0.8rem 1.6rem;
+            font-size: 1.3rem;
+         }
+         .tool-card-new {
+            min-width: 260px;
+            width: 260px;
+         }
       }
    </style>
 
-   <div style="position: relative; z-index: 1; text-align: center; margin-bottom: 5rem;">
-      <h1 class="heading" style="margin-bottom: 1.5rem; position: relative; display: inline-block;">
-         <span style="display: inline-block; position: relative;">
-            Use Popular Tools
-            <span style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 120px; height: 5px; background: linear-gradient(90deg, transparent, var(--main-color), transparent); border-radius: 3px;"></span>
-         </span>
-      </h1>
-      <p style="font-size: 2rem; color: #6c757d; font-weight: 600; margin-top: 2.5rem;">Go from browsing to buying</p>
+   <div class="tools-wrapper">
+      <!-- Header -->
+      <div class="tools-header">
+         <div class="tools-header-left">
+            <div class="tools-header-icon">
+               <i class="fas fa-lightbulb"></i>
+            </div>
+            <div class="tools-header-text">
+               <h2>Use popular tools</h2>
+               <p>Go from browsing to buying</p>
+            </div>
+         </div>
+         <a href="#" class="view-all-btn">View all Insights</a>
+      </div>
+
+      <!-- Cards Container -->
+      <div class="tools-cards-container" id="toolsCardsContainer">
+         <div class="tools-cards-wrapper">
+            <!-- Budget Calculator -->
+            <a href="javascript:void(0);" onclick="openBudgetCalculator()" class="tool-card-new">
+               <div class="tool-icon-circle">
+                  <i class="fas fa-calculator"></i>
+               </div>
+               <h3>Budget Calculator</h3>
+               <p>Check your affordability range for buying home</p>
+            </a>
+
+            <!-- EMI Calculator -->
+            <a href="emi_calculator.html" class="tool-card-new">
+               <div class="tool-icon-circle">
+                  <i class="fas fa-chart-line"></i>
+               </div>
+               <h3>EMI Calculator</h3>
+               <p>Calculate your home loan EMI</p>
+            </a>
+
+            <!-- Loan Eligibility -->
+            <a href="loan_eligibility.html" class="tool-card-new">
+               <div class="tool-icon-circle">
+                  <i class="fas fa-hand-holding-usd"></i>
+               </div>
+               <h3>Loan Eligibility</h3>
+               <p>See what you can borrow for your home</p>
+            </a>
+
+            <!-- Area Converter -->
+            <a href="area_converter.html" class="tool-card-new">
+               <div class="tool-icon-circle">
+                  <i class="fas fa-ruler-combined"></i>
+               </div>
+               <h3>Area Converter</h3>
+               <p>Convert land area measurements between different units</p>
+            </a>
+         </div>
+         <div class="scroll-arrow" onclick="scrollToolsRight()">
+            <i class="fas fa-chevron-right"></i>
+         </div>
+      </div>
    </div>
 
-   <div class="box-container" style="max-width: 1400px !important; margin: 0 auto !important; padding: 0 2rem !important; position: relative; z-index: 1; display: grid !important; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important; gap: 3rem !important;">
-
-      <!-- Budget Calculator -->
-      <div class="tool-card">
-         <div class="tool-icon" style="background: linear-gradient(135deg, var(--main-color), #0056b3);">
-            <i class="fas fa-calculator" style="color: white; font-size: 3.5rem;"></i>
-         </div>
-         <h3 style="font-size: 2.4rem; color: var(--black); margin-bottom: 1.5rem; font-weight: 700;">Budget Calculator</h3>
-         <p style="font-size: 1.7rem; line-height: 2; color: #6c757d; margin-bottom: 2.5rem; flex-grow: 1;">Check your affordability range for buying home</p>
-         <button onclick="openBudgetCalculator()" class="btn" style="margin-top: auto; padding: 1.2rem 2.5rem; font-size: 1.6rem; display: inline-block; text-align: center; background: linear-gradient(135deg, var(--main-color), #0056b3); border: none; box-shadow: 0 6px 20px rgba(0,123,255,0.25); transition: all 0.3s ease; cursor: pointer; width: 100%;">
-            Calculate Now <i class="fas fa-arrow-right" style="margin-left: 0.8rem;"></i>
-         </button>
-      </div>
-
-      <!-- EMI Calculator -->
-      <div class="tool-card">
-         <div class="tool-icon" style="background: linear-gradient(135deg, #28a745, #20c997);">
-            <i class="fas fa-chart-line" style="color: white; font-size: 3.5rem;"></i>
-         </div>
-         <h3 style="font-size: 2.4rem; color: var(--black); margin-bottom: 1.5rem; font-weight: 700;">EMI Calculator</h3>
-         <p style="font-size: 1.7rem; line-height: 2; color: #6c757d; margin-bottom: 2.5rem; flex-grow: 1;">Calculate your home loan EMI</p>
-         <a href="emi_calculator.html" class="btn" style="margin-top: auto; padding: 1.2rem 2.5rem; font-size: 1.6rem; display: inline-block; text-align: center; background: linear-gradient(135deg, #28a745, #20c997); border: none; box-shadow: 0 6px 20px rgba(40,167,69,0.25); transition: all 0.3s ease;">
-            Calculate Now <i class="fas fa-arrow-right" style="margin-left: 0.8rem;"></i>
-         </a>
-      </div>
-
-      <!-- Loan Eligibility -->
-      <div class="tool-card">
-         <div class="tool-icon" style="background: linear-gradient(135deg, #dc3545, #ff6b6b);">
-            <i class="fas fa-check-circle" style="color: white; font-size: 3.5rem;"></i>
-         </div>
-         <h3 style="font-size: 2.4rem; color: var(--black); margin-bottom: 1.5rem; font-weight: 700;">Loan Eligibility</h3>
-         <p style="font-size: 1.7rem; line-height: 2; color: #6c757d; margin-bottom: 2.5rem; flex-grow: 1;">Check your home loan eligibility instantly</p>
-         <a href="loan_eligibility.html" class="btn" style="margin-top: auto; padding: 1.2rem 2.5rem; font-size: 1.6rem; display: inline-block; text-align: center; background: linear-gradient(135deg, #dc3545, #ff6b6b); border: none; box-shadow: 0 6px 20px rgba(220,53,69,0.25); transition: all 0.3s ease;">
-            Check Now <i class="fas fa-arrow-right" style="margin-left: 0.8rem;"></i>
-         </a>
-      </div>
-
-   </div>
+   <script>
+      function scrollToolsRight() {
+         const container = document.getElementById('toolsCardsContainer');
+         container.scrollBy({
+            left: 300,
+            behavior: 'smooth'
+         });
+      }
+   </script>
 
 </section>
 
