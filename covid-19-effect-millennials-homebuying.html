@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Discover why millennials are buying homes post-COVID-19 - financial benefits, location preferences, and smart home features.">
+   <meta name="keywords" content="millennials homebuying, COVID-19 real estate, millennial property buyers, home buying trends">
+   <title>COVID-19 Effect: Millennials to Go for Homebuying | HouseThat</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+   <style>
+      .article-page {
+         padding: 2rem 0 5rem;
+         background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 10%);
+         min-height: 100vh;
+      }
+      .article-hero {
+         width: 100%;
+         height: 350px;
+         background: linear-gradient(135deg, rgba(0,123,255,0.85) 0%, rgba(0,86,179,0.9) 100%), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=600&fit=crop&q=80');
+         background-size: cover;
+         background-position: center;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         position: relative;
+         margin-bottom: 0;
+      }
+      .article-hero::before {
+         content: '';
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         height: 100px;
+         background: linear-gradient(to bottom, transparent, #ffffff);
+      }
+      .article-container {
+         max-width: 900px;
+         margin: -80px auto 0;
+         padding: 0 2rem;
+         position: relative;
+         z-index: 2;
+      }
+      .article-main-card {
+         background: #ffffff;
+         border-radius: 16px;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+         padding: 4rem;
+         margin-bottom: 3rem;
+         transition: all 0.3s ease;
+         border: 1px solid #e9ecef;
+      }
+      .article-main-card:hover {
+         box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      }
+      .article-header {
+         margin-bottom: 4rem;
+         padding-bottom: 3rem;
+         border-bottom: 1px solid #e9ecef;
+      }
+      .breadcrumb {
+         display: flex;
+         align-items: center;
+         gap: 1rem;
+         margin-bottom: 2rem;
+         font-size: 1.4rem;
+         color: #6c757d;
+      }
+      .breadcrumb a {
+         color: var(--main-color);
+         text-decoration: none;
+         transition: color 0.3s ease;
+      }
+      .breadcrumb a:hover {
+         color: #0056b3;
+      }
+      .breadcrumb i {
+         font-size: 1rem;
+         color: #adb5bd;
+      }
+      .article-category {
+         display: inline-block;
+         background: linear-gradient(135deg, var(--main-color), #0056b3);
+         color: white;
+         padding: 0.8rem 2rem;
+         border-radius: 30px;
+         font-size: 1.3rem;
+         font-weight: 600;
+         margin-bottom: 2rem;
+         box-shadow: 0 2px 8px rgba(0,123,255,0.25);
+      }
+      .article-title {
+         font-size: 3.2rem;
+         color: #1a1a1a;
+         font-weight: 800;
+         line-height: 1.3;
+         margin: 0 0 2rem 0;
+         letter-spacing: -0.3px;
+      }
+      .article-tags {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 1rem;
+         margin-bottom: 2rem;
+      }
+      .article-tag {
+         background: linear-gradient(135deg, #e7f3ff 0%, #d1e9ff 100%);
+         color: var(--main-color);
+         padding: 0.6rem 1.4rem;
+         border-radius: 25px;
+         font-size: 1.3rem;
+         font-weight: 600;
+         border: 1px solid rgba(0,123,255,0.1);
+         transition: all 0.3s ease;
+      }
+      .article-tag:hover {
+         background: linear-gradient(135deg, #d1e9ff 0%, #b8daff 100%);
+         box-shadow: 0 2px 8px rgba(0,123,255,0.15);
+      }
+      .article-meta {
+         display: flex;
+         align-items: center;
+         gap: 2rem;
+         flex-wrap: wrap;
+         font-size: 1.4rem;
+         color: #6c757d;
+         margin-bottom: 2rem;
+      }
+      .article-meta span {
+         display: flex;
+         align-items: center;
+         gap: 0.5rem;
+      }
+      .article-meta i {
+         color: var(--main-color);
+      }
+      .article-content {
+         font-size: 1.65rem;
+         line-height: 1.85;
+         color: #334155;
+         margin-bottom: 4rem;
+         font-weight: 400;
+         text-align: justify;
+      }
+      .article-content h2 {
+         font-size: 2.6rem;
+         color: #1a1a1a;
+         font-weight: 800;
+         margin: 4rem 0 2rem 0;
+         padding-top: 2.5rem;
+         border-top: 3px solid #e9ecef;
+         position: relative;
+         letter-spacing: -0.2px;
+      }
+      .article-content h2:first-of-type {
+         margin-top: 2rem;
+         padding-top: 0;
+         border-top: none;
+      }
+      .article-content h3 {
+         font-size: 2rem;
+         color: #1a1a1a;
+         font-weight: 700;
+         margin: 3rem 0 1.5rem 0;
+         padding-left: 1.5rem;
+         border-left: 4px solid var(--main-color);
+         letter-spacing: -0.1px;
+      }
+      .article-content p {
+         margin-bottom: 2.2rem;
+         letter-spacing: 0.01em;
+      }
+      .article-content strong {
+         color: #1a1a1a;
+         font-weight: 700;
+      }
+      .article-content em {
+         color: var(--main-color);
+         font-style: normal;
+         font-weight: 600;
+      }
+      .content-image-wrapper {
+         position: relative;
+         margin: 3rem 0;
+         border-radius: 16px;
+         overflow: hidden;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      }
+      .content-image {
+         width: 100%;
+         height: auto;
+         display: block;
+         transition: transform 0.3s ease;
+      }
+      .content-image-wrapper:hover .content-image {
+         transform: scale(1.02);
+      }
+      .image-caption {
+         background: rgba(0,0,0,0.7);
+         color: white;
+         padding: 1rem 1.5rem;
+         font-size: 1.3rem;
+         text-align: center;
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         margin: 0;
+      }
+      .highlight-box {
+         background: linear-gradient(135deg, #f0f7ff 0%, #e6f3ff 100%);
+         border-left: 4px solid var(--main-color);
+         padding: 2.5rem;
+         border-radius: 12px;
+         margin: 3rem 0;
+         box-shadow: 0 2px 8px rgba(0,123,255,0.06);
+         transition: box-shadow 0.3s ease;
+      }
+      .highlight-box:hover {
+         box-shadow: 0 4px 12px rgba(0,123,255,0.1);
+      }
+      .highlight-box p {
+         font-size: 1.6rem;
+         line-height: 1.85;
+         margin: 0;
+         text-align: justify;
+      }
+      .calculation-box {
+         background: #ffffff;
+         border: 1px solid #e9ecef;
+         border-radius: 16px;
+         padding: 3rem;
+         margin: 3rem 0;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      }
+      .calculation-box h3 {
+         padding-left: 0;
+         border-left: none;
+         margin-top: 0;
+         margin-bottom: 1.5rem;
+         color: var(--main-color);
+         font-size: 2rem;
+         font-weight: 700;
+      }
+      .calculation-box ul {
+         list-style: none;
+         padding: 0;
+         margin: 2rem 0 0 0;
+      }
+      .calculation-box li {
+         padding: 1rem 0;
+         border-bottom: 1px solid #e9ecef;
+         font-size: 1.65rem;
+         line-height: 1.85;
+      }
+      .calculation-box li:last-child {
+         border-bottom: none;
+      }
+      .calculation-box li strong {
+         color: #1a1a1a;
+      }
+      .preference-box {
+         background: #ffffff;
+         border: 1px solid #e9ecef;
+         border-radius: 16px;
+         padding: 3rem;
+         margin: 3rem 0;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+         transition: all 0.3s ease;
+      }
+      .preference-box:hover {
+         box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+         border-color: #dee2e6;
+      }
+      .preference-box h3 {
+         padding-left: 0;
+         border-left: none;
+         margin-top: 0;
+         margin-bottom: 1.5rem;
+         font-size: 2rem;
+         color: #1a1a1a;
+         font-weight: 700;
+      }
+      .preference-box p {
+         font-size: 1.65rem;
+         line-height: 1.85;
+         margin-bottom: 1.5rem;
+         text-align: justify;
+      }
+      .article-stats {
+         display: flex;
+         align-items: center;
+         gap: 3rem;
+         margin: 3rem 0;
+         padding: 2.5rem;
+         background: #ffffff;
+         border-radius: 15px;
+         flex-wrap: wrap;
+         border: 1px solid #e9ecef;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      }
+      .stat-item {
+         display: flex;
+         align-items: center;
+         gap: 1rem;
+         font-size: 1.5rem;
+         color: #495057;
+         font-weight: 600;
+      }
+      .stat-item i {
+         color: var(--main-color);
+         font-size: 1.8rem;
+      }
+      .social-share {
+         display: flex;
+         align-items: center;
+         gap: 1.5rem;
+         margin: 2.5rem 0;
+         padding: 2rem;
+         background: #ffffff;
+         border: 1px solid #e9ecef;
+         border-radius: 12px;
+         flex-wrap: wrap;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      }
+      .social-share-label {
+         font-size: 1.5rem;
+         color: #495057;
+         font-weight: 600;
+      }
+      .social-share-buttons {
+         display: flex;
+         gap: 1rem;
+      }
+      .social-btn {
+         width: 45px;
+         height: 45px;
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         color: white;
+         font-size: 1.6rem;
+         text-decoration: none;
+         transition: all 0.3s ease;
+         box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      }
+      .social-btn:hover {
+         transform: translateY(-2px);
+         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      }
+      .social-btn.facebook { background: #1877f2; }
+      .social-btn.twitter { background: #1da1f2; }
+      .social-btn.linkedin { background: #0a66c2; }
+      .social-btn.whatsapp { background: #25d366; }
+      .email-signup {
+         background: linear-gradient(135deg, var(--main-color) 0%, #0056b3 50%, #667eea 100%);
+         padding: 4rem 3rem;
+         border-radius: 16px;
+         text-align: center;
+         color: white;
+         margin: 4rem 0;
+         box-shadow: 0 4px 16px rgba(0,123,255,0.2);
+         transition: all 0.3s ease;
+      }
+      .email-signup:hover {
+         box-shadow: 0 6px 24px rgba(0,123,255,0.3);
+      }
+      .email-signup h3 {
+         font-size: 2rem;
+         margin-bottom: 1.5rem;
+      }
+      .email-signup p {
+         font-size: 1.5rem;
+         margin-bottom: 2rem;
+         opacity: 0.9;
+      }
+      .email-input-group {
+         display: flex;
+         gap: 1rem;
+         max-width: 500px;
+         margin: 0 auto;
+      }
+      .email-input-group input {
+         flex: 1;
+         padding: 1.2rem 1.5rem;
+         border: none;
+         border-radius: 8px;
+         font-size: 1.4rem;
+      }
+      .email-input-group button {
+         padding: 1.2rem 2.5rem;
+         background: white;
+         color: var(--main-color);
+         border: none;
+         border-radius: 8px;
+         font-size: 1.4rem;
+         font-weight: 700;
+         cursor: pointer;
+         transition: all 0.3s ease;
+      }
+      .email-input-group button:hover {
+         opacity: 0.9;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      }
+      .related-articles {
+         margin: 5rem 0;
+         padding: 3rem 0;
+         border-top: 2px solid #e9ecef;
+      }
+      .related-articles h2 {
+         font-size: 2.4rem;
+         color: #1a1a1a;
+         font-weight: 700;
+         margin-bottom: 3rem;
+      }
+      .related-article-card {
+         background: #ffffff;
+         border: 1px solid #e9ecef;
+         border-radius: 14px;
+         padding: 2.5rem;
+         margin-bottom: 2rem;
+         transition: all 0.3s ease;
+         text-decoration: none;
+         color: inherit;
+         display: block;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      }
+      .related-article-card:hover {
+         box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+         border-color: #dee2e6;
+      }
+      .related-article-title {
+         font-size: 1.8rem;
+         color: #1a1a1a;
+         font-weight: 700;
+         margin-bottom: 1rem;
+         line-height: 1.4;
+      }
+      .related-article-meta {
+         font-size: 1.3rem;
+         color: #6c757d;
+      }
+      .author-section {
+         background: #ffffff;
+         padding: 3.5rem;
+         border-radius: 16px;
+         margin: 4rem 0;
+         border: 1px solid #e9ecef;
+         border-left: 4px solid var(--main-color);
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      }
+      .author-info {
+         display: flex;
+         align-items: center;
+         gap: 2rem;
+         margin-bottom: 1.5rem;
+      }
+      .author-avatar {
+         width: 60px;
+         height: 60px;
+         background: linear-gradient(135deg, var(--main-color), #0056b3);
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         color: white;
+         font-size: 2.4rem;
+         font-weight: 700;
+      }
+      .author-details h3 {
+         font-size: 2rem;
+         color: #1a1a1a;
+         margin: 0 0 0.5rem 0;
+      }
+      .author-details p {
+         font-size: 1.5rem;
+         color: #6c757d;
+         margin: 0;
+      }
+      @media (max-width: 768px) {
+         .article-hero {
+            height: 250px;
+         }
+         .article-main-card {
+            padding: 2.5rem 1.8rem;
+         }
+         .article-title {
+            font-size: 2.4rem;
+         }
+         .article-content {
+            font-size: 1.5rem;
+            line-height: 1.8;
+         }
+         .article-content h2 {
+            font-size: 2rem;
+            margin-top: 3rem;
+         }
+         .article-content h3 {
+            font-size: 1.8rem;
+            padding-left: 1rem;
+         }
+         .article-meta {
+            font-size: 1.3rem;
+         }
+         .highlight-box {
+            padding: 2rem 1.5rem;
+         }
+         .author-section {
+            padding: 2.5rem 1.8rem;
+         }
+         .calculation-box {
+            padding: 2rem 1.5rem;
+         }
+         .preference-box {
+            padding: 2rem 1.5rem;
+         }
+      }
+   </style>
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header class="header">
+
+   <nav class="navbar nav-1">
+      <section class="flex">
+         <a href="home.html" class="logo"><i class="fas fa-house"></i>HouseThat</a>
+
+         <ul>
+            <li><a href="#">Post Property<i class="fas fa-paper-plane"></i></a></li>
+         </ul>
+      </section>
+   </nav>
+
+   <nav class="navbar nav-2">
+      <section class="flex">
+         <div id="menu-btn" class="fas fa-bars"></div>
+
+         <div class="menu">
+            <ul>
+               <li><a href="#">Buy<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="#">House</a></li>
+                     <li><a href="#">Flat</a></li>
+                     <li><a href="#">Shop</a></li>
+                     <li><a href="#">Ready to move</a></li>
+                     <li><a href="#">Furnished</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">Sell<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="#">Post Property</a></li>
+                     <li><a href="#">Dashboard</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">Rent</a>
+                  <ul>
+                     <li><a href="#">House</a></li>
+                     <li><a href="#">Flat</a></li>
+                     <li><a href="#">Shop</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">Help<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="about.html">About Us</a></li>
+                     <li><a href="contact.html">Contact Us</a></li>
+                     <li><a href="contact.html#faq">FAQ</a></li>
+                     <li><a href="blogs.html">Blogs</a></li>
+                  </ul>
+               </li>
+               <li><a href="blogs.html">Blogs</a></li>
+            </ul>
+         </div>
+
+         <ul>
+            <li><a href="#">Saved <i class="far fa-heart"></i></a></li>
+            <li><a href="#">Account <i class="fas fa-angle-down"></i></a>
+               <ul>
+                  <li><a href="login.html">Login</a></li>
+                  <li><a href="register.html">Register</a></li>
+               </ul>
+            </li>
+         </ul>
+      </section>
+   </nav>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- article page starts -->
+
+<section class="article-page">
+   
+   <!-- Hero Image -->
+   <div class="article-hero">
+   </div>
+   
+   <div class="article-container">
+      
+      <div class="article-main-card">
+         <!-- Breadcrumb -->
+         <div class="breadcrumb">
+            <a href="home.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="blogs.html">Blogs</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Articles</span>
+         </div>
+
+         <!-- Article Header -->
+         <div class="article-header">
+         <div class="article-category">Knowledge Centre</div>
+         <h1 class="article-title">COVID-19 effect: Millennials to go for homebuying</h1>
+         
+         <div class="article-tags">
+            <span class="article-tag">#Coronavirus</span>
+            <span class="article-tag">#Coronavirus Columns</span>
+            <span class="article-tag">#Investment</span>
+            <span class="article-tag">#Property Punditz</span>
+         </div>
+
+         <div class="article-meta">
+            <span><i class="far fa-clock"></i> 3 min read</span>
+            <span><i class="far fa-calendar"></i> Jun 10, 2021</span>
+         </div>
+
+         <div style="background: #ffffff; padding: 2rem; border-radius: 12px; margin: 2rem 0; border: 1px solid #e9ecef; border-left: 4px solid var(--main-color);">
+            <p style="margin: 0; font-size: 1.6rem; color: #495057;"><strong>By HouseThat</strong></p>
+            <p style="margin: 0.5rem 0 0 0; font-size: 1.4rem; color: #6c757d;">Real Estate Knowledge Platform</p>
+         </div>
+
+         <div class="article-stats">
+            <div class="stat-item">
+               <i class="fas fa-eye"></i>
+               <span>454 Views</span>
+            </div>
+            <div class="stat-item">
+               <i class="fas fa-share-alt"></i>
+               <span>1 Times shared</span>
+            </div>
+         </div>
+
+         <!-- Social Share -->
+         <div class="social-share">
+            <span class="social-share-label">Share:</span>
+            <div class="social-share-buttons">
+               <a href="#" class="social-btn facebook" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+               <a href="#" class="social-btn twitter" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+               <a href="#" class="social-btn linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+               <a href="#" class="social-btn whatsapp" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+         </div>
+      </div>
+      </div>
+
+      <!-- Article Content -->
+      <div class="article-main-card">
+      <div class="article-content">
+         <p>A year after the Coronavirus pandemic struck, millennials have emerged as the biggest home-buying segment. Why are they opting to buy homes now? And what do millennials want in a home? We break it down. <strong>Millennials know exactly what they want. And right now, in the COVID era, it is a home of their own.</strong></p>
+
+         <p>Survey after survey has documented this changing paradigm. But, just why did this formerly 'no-strings-attached' generation choose to commit to the rigour of home loan EMIs? No other reason but plain old pragmatism and sound financial sense, or what the Millennials would call 'Adulting'.</p>
+
+         <h2>The pandemic reality check</h2>
+
+         <p>Up until now, millennials preferred to live on rent. This gave them the flexibility of location and budget with the opportunity to live among friends. The COVID-19 pandemic saw people trapped indoors for months on end. Work-from-home became the norm. Personal space came at a premium.</p>
+
+         <div class="content-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=600&fit=crop&q=80" alt="Millennial homebuyers" class="content-image">
+            <p class="image-caption">Millennials are now the biggest home-buying segment post-COVID-19</p>
+         </div>
+
+         <p>Caught in the turbulence of a worldwide pandemic, tanking economies and uncertain job markets, this generation newly appreciated the need to create physical assets to ensure a roof over their heads. Owning a home had suddenly become critical.</p>
+
+         <h2>Financial reality check</h2>
+
+         <p>The pandemic also saw the emergence of a Buyer's market in real estate. Stagnant property prices, historically low home loan interest rates and tax benefits made real estate a financially attractive option again.</p>
+
+         <div class="calculation-box">
+            <h3>How so? Take a look at the numbers:</h3>
+            <ul>
+               <li><strong>Apartment Cost</strong> = Rs 1,00,00,000</li>
+               <li><strong>Home Loan</strong> = Rs 80,00,000</li>
+               <li><strong>Monthly EMI</strong> @ 6.75 percent for 30 Years = Rs 51,888</li>
+               <li><strong>Tax deductions</strong> under 80C* and 24B** = Rs 21,949 per month</li>
+               <li><strong>Total cost of Home</strong> (less tax savings) = Rs 29,939 per month</li>
+            </ul>
+         </div>
+
+         <p>Consider a 28-year-old earning Rs 12 lakh per annum and paying Rs 35,000 monthly as rent for a 1 BHK flat. The money paid as rent is a pure expense. It merely enables the person to pay for a month's shelter.</p>
+
+         <div class="highlight-box">
+            <p><strong>This homeowner can now avail tax savings up to Rs 21,949 per month</strong> under section 80C and 24B (under the old tax regime). This brings the monthly expense (after taxes) down to Rs 29,939 per month, which is Rs 5,061 lesser than what the person would pay as rent. Add to this the equity he is building in an asset that is already worth Rs 1 crore. And if the homeowner is a woman, the tax benefits are even higher in some states. All of which makes immense sense to the financially savvy Millennial. Hence, the rush to buy a home.</p>
+         </div>
+
+         <h2>But what is it that Millennials look for when they buy a home?</h2>
+
+         <p>Millennials have grown up with digital devices that bundle communication, entertainment, shopping, and education. The world is truly, their oyster. Compared to their elders, they also have higher income levels and access to better infrastructure. All this means that this generation has a very evolved sense of who they are and what they want. This echoes in their homes which reflect their personalities.</p>
+
+         <div class="preference-box">
+            <h3>The good life at a good price</h3>
+            <p>Millennials are tight on budgets but they do not compromise on what matters to them. They prioritise location, amenities, good designs and finishes over the size of the apartment or the number of rooms.</p>
+         </div>
+
+         <div class="preference-box">
+            <h3>Location</h3>
+            <p>Location was one of the key reasons Millennials preferred to rent in pre-Covid times, and it is still a favoured criterion for a home purchase. Thus, you will find they are willing to shell out big bucks for homes that allow them to 'walk to work' or are located in prime residential locations near a commercial hub. Stagnant property prices and new supply have made such locations more affordable now.</p>
+         </div>
+
+         <div class="preference-box">
+            <h3>Multifunction spaces</h3>
+            <p>Multifunction spaces are In. Traditional 1/2/3 BHK houses and open-plan homes are out. Millennial buyers are demanding 'optimised' homes that cater to one's well-being, such as spaces for meditating, workout areas, expansive kitchens, and an eco-friendly environment.</p>
+         </div>
+
+         <div class="preference-box">
+            <h3>Smart homes</h3>
+            <p>Wi-fi enabled homes are now considered a basic amenity, and this generation expects homes powered by Alexa, Google or other home technology solutions. Many developers have already started offering home technology solutions in their projects.</p>
+         </div>
+
+         <div class="preference-box">
+            <h3>Smart design</h3>
+            <p>The home has become more than a mere living space in the Covid era. It is now a space where you also work, play, study and entertain. Not surprisingly, new homebuyers are looking for smartly designed layouts that are flexible as opposed to structured living, dining, waiting or storage areas.</p>
+         </div>
+
+         <div class="preference-box">
+            <h3>Lifestyle amenities</h3>
+            <p>Millennials are very socially active, and they like to keep their friends close. Hence, external amenities like a clubhouse, gym or a lawn to host parties are a big draw with this buyer segment.</p>
+         </div>
+
+         <div class="preference-box">
+            <h3>Experiences</h3>
+            <p>This is a generation that thrives on 'experiences'. Millennials covet experiences the way their parents coveted goods. Thus, you will see a preference for homes with quality fittings built by branded developers, a demand for transparency and a deep pride in homeownership.</p>
+         </div>
+
+         <div class="highlight-box">
+            <p><strong>To conclude, this is a homebuyer who knows his/her mind.</strong> They might appear fastidious and difficult to please, but that is because they are very serious about their dream home.</p>
+         </div>
+
+         <div style="text-align: center; margin: 4rem 0; padding: 3rem; background: #ffffff; border-radius: 15px; border: 1px solid #e9ecef; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+            <p style="font-size: 1.6rem; color: #495057; margin-bottom: 2rem; font-weight: 700;"><strong>Could the article help you understand the topic?</strong></p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+               <button style="padding: 1.2rem 3rem; background: linear-gradient(135deg, var(--main-color), #0056b3); color: white; border: none; border-radius: 10px; font-size: 1.5rem; font-weight: 600; cursor: pointer; box-shadow: 0 2px 8px rgba(0,123,255,0.25); transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,123,255,0.35)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,123,255,0.25)'">Yes</button>
+               <button style="padding: 1.2rem 3rem; background: #ffffff; color: #495057; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1.5rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--main-color)'; this.style.color='var(--main-color)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.color='#495057'">No</button>
+            </div>
+         </div>
+
+      </div>
+      </div>
+
+      <!-- Email Signup -->
+      <div class="email-signup">
+         <h3>Get real estate updates delivered to your inbox!</h3>
+         <p>Stay informed about the latest market trends, property news, and investment opportunities.</p>
+         <div class="email-input-group">
+            <input type="email" placeholder="Email address">
+            <button>Subscribe</button>
+         </div>
+      </div>
+
+      <!-- More from Knowledge Centre -->
+      <div class="article-main-card">
+      <div class="related-articles">
+         <h2>More from Knowledge Centre</h2>
+         <p style="font-size: 1.5rem; line-height: 1.85; color: #495057; margin-bottom: 2.5rem; text-align: justify;">Stay updated on the latest developments in the Indian real estate industry by following HouseThat Knowledge Centre. Our platform offers valuable insights, news, and updates, along with informative articles, expert opinions, and market reports. With reliable and accurate information, it's a go-to destination for anyone seeking knowledge about the Indian real estate sector.</p>
+         <p style="font-size: 1.4rem; line-height: 1.85; color: #6c757d; margin-bottom: 3rem;">For inquiries or to get in touch with the HouseThat Editorial Team, please write to us at <a href="mailto:Info@HouseThat.co.in" style="color: var(--main-color); text-decoration: none; font-weight: 600; transition: color 0.2s ease;" onmouseover="this.style.color='#0056b3'" onmouseout="this.style.color='var(--main-color)'">Info@HouseThat.co.in</a>.</p>
+
+         <a href="why-property-prices-same-locality-vary.html" class="related-article-card">
+            <div class="related-article-title">Why do flat prices in the same locality vary?</div>
+            <div class="related-article-meta">#Buyers #Indian Real Estate #Investors • 4 min read • Oct 16, 2025</div>
+         </a>
+
+         <a href="homebuying-trends-post-covid-19.html" class="related-article-card">
+            <div class="related-article-title">Homebuying trends in the post-COVID-19 era</div>
+            <div class="related-article-meta">#Property Punditz #Residential • 2 min read • Apr 01, 2021</div>
+         </a>
+
+         <a href="homebuying-in-2021-and-expectations.html" class="related-article-card">
+            <div class="related-article-title">Homebuying in 2021 and the expectations ahead</div>
+            <div class="related-article-meta">#Property Punditz #Residential • 2 min read • Dec 30, 2021</div>
+         </a>
+
+         <a href="festive-fervour-drives-homebuying-sentiment.html" class="related-article-card">
+            <div class="related-article-title">Festive fervour drives the homebuying sentiment</div>
+            <div class="related-article-meta">#Property Punditz #Purchase #Residential • 2 min read • Sep 24, 2021</div>
+         </a>
+
+         <a href="work-from-home-changing-homebuying-preferences.html" class="related-article-card">
+            <div class="related-article-title">Work from home changing homebuying preferences</div>
+            <div class="related-article-meta">#Commercial #Property Punditz #Residential • 3 min read • Sep 30, 2020</div>
+         </a>
+      </div>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="article-main-card">
+         <div style="background: #ffffff; padding: 2.5rem; border-radius: 12px; margin: 0; border: 1px solid #e9ecef; border-left: 4px solid #6c757d;">
+            <p style="font-size: 1.5rem; line-height: 1.85; color: #6c757d; margin: 0; font-style: italic;">
+               <strong>Disclaimer:</strong> The views expressed above are for informational purposes only based on industry reports and related news stories. HouseThat does not guarantee the accuracy, completeness, or reliability of the information and shall not be held responsible for any action taken based on the published information.
+            </p>
+         </div>
+      </div>
+
+      <!-- Author Section -->
+      <div class="article-main-card">
+      <div class="author-section">
+         <div class="author-info">
+            <div class="author-avatar">HT</div>
+            <div class="author-details">
+               <h3>HouseThat</h3>
+               <p>Real Estate Knowledge Platform</p>
+            </div>
+         </div>
+         <p style="font-size: 1.6rem; line-height: 1.85; color: #495057; margin: 0;">
+            HouseThat is a leading real estate platform that connects buyers, sellers, and investors in the Indian property market. With a focus on providing reliable property information, market insights, and expert knowledge, HouseThat aims to simplify the real estate journey for everyone. Our Knowledge Centre offers valuable insights, expert opinions, and comprehensive articles to help make informed property decisions.
+         </p>
+      </div>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- article page ends -->
+
+<!-- footer section starts  -->
+
+<footer class="footer">
+
+   <section class="flex">
+
+      <div class="box">
+         <a href="tel:9696968030"><i class="fas fa-phone"></i><span>+91 9696968030</span></a>
+         <a href="tel:7840803090"><i class="fas fa-phone"></i><span>+91 7840803090</span></a>
+         <a href="mailto:Info@HouseThat.co.in"><i class="fas fa-envelope"></i><span>Info@HouseThat.co.in</span></a>
+         <a href="#"><i class="fas fa-map-marker-alt"></i><span>B-34, 3rd Floor, Sector 67, Noida,
+            Uttar Pradesh 201301</span></a>
+      </div>
+
+      <div class="box">
+         <a href="home.html"><span>Home</span></a>
+         <a href="about.html"><span>About Us</span></a>
+         <a href="contact.html"><span>Contact Us</span></a>
+         <a href="listings.html"><span>All Listings</span></a>
+         <a href="blogs.html"><span>Blogs</span></a>
+         <a href="terms.html"><span>Terms & Conditions</span></a>
+      </div>
+
+      <div class="box">
+         <a href="https://www.facebook.com/housethat.ind/"><span>Facebook</span><i class="fab fa-facebook-f"></i></a>
+         <a href="https://x.com/HouseThat35250"><span>Twitter</span><i class="fab fa-twitter"></i></a>
+         <a href="https://in.linkedin.com/company/housethat"><span>Linkedin</span><i class="fab fa-linkedin"></i></a>
+         <a href="https://www.instagram.com/housethat.co.in/"><span>Instagram</span><i class="fab fa-instagram"></i></a>
+
+      </div>
+
+   </section>
+
+   <div class="credit">
+      <p style="margin: 0 0 0.5rem 0; line-height: 1.6;">© 2025 Marketed by <span>HouseThat</span>. All rights reserved.</p>
+      <p style="margin: 0; font-size: 1.6rem; opacity: 0.9;">RERA Registered Channel Partner: <span style="font-weight: 600;">UPRERAAGT13108</span></p>
+   </div>
+
+</footer>
+
+<!-- footer section ends -->
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
+

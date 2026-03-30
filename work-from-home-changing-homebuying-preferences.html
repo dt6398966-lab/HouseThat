@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Discover how work from home is changing homebuying preferences - space requirements, outdoor amenities, and design-focused developers.">
+   <meta name="keywords" content="work from home, homebuying preferences, real estate trends, home office, property buying">
+   <title>Work from Home Changing Homebuying Preferences | HouseThat</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+
+   <style>
+      .article-page {
+         padding: 2rem 0 5rem;
+         background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 10%);
+         min-height: 100vh;
+      }
+      .article-hero {
+         width: 100%;
+         height: 350px;
+         background: linear-gradient(135deg, rgba(0,123,255,0.85) 0%, rgba(0,86,179,0.9) 100%), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&h=600&fit=crop&q=80');
+         background-size: cover;
+         background-position: center;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         position: relative;
+         margin-bottom: 0;
+      }
+      .article-hero::before {
+         content: '';
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         height: 100px;
+         background: linear-gradient(to bottom, transparent, #ffffff);
+      }
+      .article-container {
+         max-width: 900px;
+         margin: -80px auto 0;
+         padding: 0 2rem;
+         position: relative;
+         z-index: 2;
+      }
+      .article-main-card {
+         background: #ffffff;
+         border-radius: 16px;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+         padding: 4rem;
+         margin-bottom: 3rem;
+         transition: all 0.3s ease;
+         border: 1px solid #e9ecef;
+      }
+      .article-main-card:hover {
+         box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      }
+      .article-header {
+         margin-bottom: 4rem;
+         padding-bottom: 3rem;
+         border-bottom: 1px solid #e9ecef;
+      }
+      .breadcrumb {
+         display: flex;
+         align-items: center;
+         gap: 1rem;
+         margin-bottom: 2rem;
+         font-size: 1.4rem;
+         color: #6c757d;
+      }
+      .breadcrumb a {
+         color: var(--main-color);
+         text-decoration: none;
+         transition: color 0.3s ease;
+      }
+      .breadcrumb a:hover {
+         color: #0056b3;
+      }
+      .breadcrumb i {
+         font-size: 1rem;
+         color: #adb5bd;
+      }
+      .article-category {
+         display: inline-block;
+         background: linear-gradient(135deg, var(--main-color), #0056b3);
+         color: white;
+         padding: 0.8rem 2rem;
+         border-radius: 30px;
+         font-size: 1.3rem;
+         font-weight: 600;
+         margin-bottom: 2rem;
+         box-shadow: 0 2px 8px rgba(0,123,255,0.25);
+      }
+      .article-title {
+         font-size: 3.2rem;
+         color: #1a1a1a;
+         font-weight: 800;
+         line-height: 1.3;
+         margin: 0 0 2rem 0;
+         letter-spacing: -0.3px;
+      }
+      .article-tags {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 1rem;
+         margin-bottom: 2rem;
+      }
+      .article-tag {
+         background: linear-gradient(135deg, #e7f3ff 0%, #d1e9ff 100%);
+         color: var(--main-color);
+         padding: 0.6rem 1.4rem;
+         border-radius: 25px;
+         font-size: 1.3rem;
+         font-weight: 600;
+         border: 1px solid rgba(0,123,255,0.1);
+         transition: all 0.3s ease;
+      }
+      .article-tag:hover {
+         background: linear-gradient(135deg, #d1e9ff 0%, #b8daff 100%);
+         box-shadow: 0 2px 8px rgba(0,123,255,0.15);
+      }
+      .article-meta {
+         display: flex;
+         align-items: center;
+         gap: 2rem;
+         flex-wrap: wrap;
+         font-size: 1.4rem;
+         color: #6c757d;
+         margin-bottom: 2rem;
+      }
+      .article-meta span {
+         display: flex;
+         align-items: center;
+         gap: 0.5rem;
+      }
+      .article-meta i {
+         color: var(--main-color);
+      }
+      .article-content {
+         font-size: 1.65rem;
+         line-height: 1.85;
+         color: #334155;
+         margin-bottom: 4rem;
+         font-weight: 400;
+         text-align: justify;
+      }
+      .article-content h2 {
+         font-size: 2.6rem;
+         color: #1a1a1a;
+         font-weight: 800;
+         margin: 4rem 0 2rem 0;
+         padding-top: 2.5rem;
+         border-top: 3px solid #e9ecef;
+         position: relative;
+         letter-spacing: -0.2px;
+      }
+      .article-content h2:first-of-type {
+         margin-top: 2rem;
+         padding-top: 0;
+         border-top: none;
+      }
+      .article-content h3 {
+         font-size: 2rem;
+         color: #1a1a1a;
+         font-weight: 700;
+         margin: 3rem 0 1.5rem 0;
+         padding-left: 1.5rem;
+         border-left: 4px solid var(--main-color);
+         letter-spacing: -0.1px;
+      }
+      .article-content p {
+         margin-bottom: 2.2rem;
+         letter-spacing: 0.01em;
+      }
+      .article-content strong {
+         color: #1a1a1a;
+         font-weight: 700;
+      }
+      .article-content em {
+         color: var(--main-color);
+         font-style: normal;
+         font-weight: 600;
+      }
+      .content-image-wrapper {
+         position: relative;
+         margin: 3rem 0;
+         border-radius: 16px;
+         overflow: hidden;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      }
+      .content-image {
+         width: 100%;
+         height: auto;
+         display: block;
+         transition: transform 0.3s ease;
+      }
+      .content-image-wrapper:hover .content-image {
+         transform: scale(1.02);
+      }
+      .image-caption {
+         background: rgba(0,0,0,0.7);
+         color: white;
+         padding: 1rem 1.5rem;
+         font-size: 1.3rem;
+         text-align: center;
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         margin: 0;
+      }
+      .highlight-box {
+         background: linear-gradient(135deg, #f0f7ff 0%, #e6f3ff 100%);
+         border-left: 4px solid var(--main-color);
+         padding: 2.5rem;
+         border-radius: 12px;
+         margin: 3rem 0;
+         box-shadow: 0 2px 8px rgba(0,123,255,0.06);
+         transition: box-shadow 0.3s ease;
+      }
+      .highlight-box:hover {
+         box-shadow: 0 4px 12px rgba(0,123,255,0.1);
+      }
+      .highlight-box p {
+         font-size: 1.6rem;
+         line-height: 1.85;
+         margin: 0;
+         text-align: justify;
+      }
+      .article-stats {
+         display: flex;
+         align-items: center;
+         gap: 3rem;
+         margin: 3rem 0;
+         padding: 2.5rem;
+         background: #ffffff;
+         border-radius: 15px;
+         flex-wrap: wrap;
+         border: 1px solid #e9ecef;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      }
+      .stat-item {
+         display: flex;
+         align-items: center;
+         gap: 1rem;
+         font-size: 1.5rem;
+         color: #495057;
+         font-weight: 600;
+      }
+      .stat-item i {
+         color: var(--main-color);
+         font-size: 1.8rem;
+      }
+      .social-share {
+         display: flex;
+         align-items: center;
+         gap: 1.5rem;
+         margin: 2.5rem 0;
+         padding: 2rem;
+         background: #ffffff;
+         border: 1px solid #e9ecef;
+         border-radius: 12px;
+         flex-wrap: wrap;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      }
+      .social-share-label {
+         font-size: 1.5rem;
+         color: #495057;
+         font-weight: 600;
+      }
+      .social-share-buttons {
+         display: flex;
+         gap: 1rem;
+      }
+      .social-btn {
+         width: 45px;
+         height: 45px;
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         color: white;
+         font-size: 1.6rem;
+         text-decoration: none;
+         transition: all 0.3s ease;
+         box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      }
+      .social-btn:hover {
+         transform: translateY(-2px);
+         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      }
+      .social-btn.facebook { background: #1877f2; }
+      .social-btn.twitter { background: #1da1f2; }
+      .social-btn.linkedin { background: #0a66c2; }
+      .social-btn.whatsapp { background: #25d366; }
+      .email-signup {
+         background: linear-gradient(135deg, var(--main-color) 0%, #0056b3 50%, #667eea 100%);
+         padding: 4rem 3rem;
+         border-radius: 16px;
+         text-align: center;
+         color: white;
+         margin: 4rem 0;
+         box-shadow: 0 4px 16px rgba(0,123,255,0.2);
+         transition: all 0.3s ease;
+      }
+      .email-signup:hover {
+         box-shadow: 0 6px 24px rgba(0,123,255,0.3);
+      }
+      .email-signup h3 {
+         font-size: 2rem;
+         margin-bottom: 1.5rem;
+      }
+      .email-signup p {
+         font-size: 1.5rem;
+         margin-bottom: 2rem;
+         opacity: 0.9;
+      }
+      .email-input-group {
+         display: flex;
+         gap: 1rem;
+         max-width: 500px;
+         margin: 0 auto;
+      }
+      .email-input-group input {
+         flex: 1;
+         padding: 1.2rem 1.5rem;
+         border: none;
+         border-radius: 8px;
+         font-size: 1.4rem;
+      }
+      .email-input-group button {
+         padding: 1.2rem 2.5rem;
+         background: white;
+         color: var(--main-color);
+         border: none;
+         border-radius: 8px;
+         font-size: 1.4rem;
+         font-weight: 700;
+         cursor: pointer;
+         transition: all 0.3s ease;
+      }
+      .email-input-group button:hover {
+         opacity: 0.9;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      }
+      .related-articles {
+         margin: 5rem 0;
+         padding: 3rem 0;
+         border-top: 2px solid #e9ecef;
+      }
+      .related-articles h2 {
+         font-size: 2.4rem;
+         color: #1a1a1a;
+         font-weight: 700;
+         margin-bottom: 3rem;
+      }
+      .related-article-card {
+         background: #ffffff;
+         border: 1px solid #e9ecef;
+         border-radius: 14px;
+         padding: 2.5rem;
+         margin-bottom: 2rem;
+         transition: all 0.3s ease;
+         text-decoration: none;
+         color: inherit;
+         display: block;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      }
+      .related-article-card:hover {
+         box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+         border-color: #dee2e6;
+      }
+      .related-article-title {
+         font-size: 1.8rem;
+         color: #1a1a1a;
+         font-weight: 700;
+         margin-bottom: 1rem;
+         line-height: 1.4;
+      }
+      .related-article-meta {
+         font-size: 1.3rem;
+         color: #6c757d;
+      }
+      .author-section {
+         background: #ffffff;
+         padding: 3.5rem;
+         border-radius: 16px;
+         margin: 4rem 0;
+         border: 1px solid #e9ecef;
+         border-left: 4px solid var(--main-color);
+         box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      }
+      .author-info {
+         display: flex;
+         align-items: center;
+         gap: 2rem;
+         margin-bottom: 1.5rem;
+      }
+      .author-avatar {
+         width: 60px;
+         height: 60px;
+         background: linear-gradient(135deg, var(--main-color), #0056b3);
+         border-radius: 50%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         color: white;
+         font-size: 2.4rem;
+         font-weight: 700;
+      }
+      .author-details h3 {
+         font-size: 2rem;
+         color: #1a1a1a;
+         margin: 0 0 0.5rem 0;
+      }
+      .author-details p {
+         font-size: 1.5rem;
+         color: #6c757d;
+         margin: 0;
+      }
+      @media (max-width: 768px) {
+         .article-hero {
+            height: 250px;
+         }
+         .article-main-card {
+            padding: 2.5rem 1.8rem;
+         }
+         .article-title {
+            font-size: 2.4rem;
+         }
+         .article-content {
+            font-size: 1.5rem;
+            line-height: 1.8;
+         }
+         .article-content h2 {
+            font-size: 2rem;
+            margin-top: 3rem;
+         }
+         .article-content h3 {
+            font-size: 1.8rem;
+            padding-left: 1rem;
+         }
+         .article-meta {
+            font-size: 1.3rem;
+         }
+         .highlight-box {
+            padding: 2rem 1.5rem;
+         }
+         .author-section {
+            padding: 2.5rem 1.8rem;
+         }
+      }
+   </style>
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header class="header">
+
+   <nav class="navbar nav-1">
+      <section class="flex">
+         <a href="home.html" class="logo"><i class="fas fa-house"></i>HouseThat</a>
+
+         <ul>
+            <li><a href="#">Post Property<i class="fas fa-paper-plane"></i></a></li>
+         </ul>
+      </section>
+   </nav>
+
+   <nav class="navbar nav-2">
+      <section class="flex">
+         <div id="menu-btn" class="fas fa-bars"></div>
+
+         <div class="menu">
+            <ul>
+               <li><a href="#">Buy<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="#">House</a></li>
+                     <li><a href="#">Flat</a></li>
+                     <li><a href="#">Shop</a></li>
+                     <li><a href="#">Ready to move</a></li>
+                     <li><a href="#">Furnished</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">Sell<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="#">Post Property</a></li>
+                     <li><a href="#">Dashboard</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">Rent</a>
+                  <ul>
+                     <li><a href="#">House</a></li>
+                     <li><a href="#">Flat</a></li>
+                     <li><a href="#">Shop</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">Help<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="about.html">About Us</a></li>
+                     <li><a href="contact.html">Contact Us</a></li>
+                     <li><a href="contact.html#faq">FAQ</a></li>
+                     <li><a href="blogs.html">Blogs</a></li>
+                  </ul>
+               </li>
+               <li><a href="blogs.html">Blogs</a></li>
+            </ul>
+         </div>
+
+         <ul>
+            <li><a href="#">Saved <i class="far fa-heart"></i></a></li>
+            <li><a href="#">Account <i class="fas fa-angle-down"></i></a>
+               <ul>
+                  <li><a href="login.html">Login</a></li>
+                  <li><a href="register.html">Register</a></li>
+               </ul>
+            </li>
+         </ul>
+      </section>
+   </nav>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- article page starts -->
+
+<section class="article-page">
+   
+   <!-- Hero Image -->
+   <div class="article-hero">
+   </div>
+   
+   <div class="article-container">
+      
+      <div class="article-main-card">
+         <!-- Breadcrumb -->
+         <div class="breadcrumb">
+            <a href="home.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="blogs.html">Blogs</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Articles</span>
+         </div>
+
+         <!-- Article Header -->
+         <div class="article-header">
+         <div class="article-category">Knowledge Centre</div>
+         <h1 class="article-title">Work from home changing homebuying preferences</h1>
+         
+         <div class="article-tags">
+            <span class="article-tag">#Commercial</span>
+            <span class="article-tag">#Property Punditz</span>
+            <span class="article-tag">#Residential</span>
+         </div>
+
+         <div class="article-meta">
+            <span><i class="far fa-clock"></i> 3 min read</span>
+            <span><i class="far fa-calendar"></i> Sep 30, 2020</span>
+         </div>
+
+         <div style="background: #ffffff; padding: 2rem; border-radius: 12px; margin: 2rem 0; border: 1px solid #e9ecef; border-left: 4px solid var(--main-color);">
+            <p style="margin: 0; font-size: 1.6rem; color: #495057;"><strong>By HouseThat</strong></p>
+            <p style="margin: 0.5rem 0 0 0; font-size: 1.4rem; color: #6c757d;">Real Estate Knowledge Platform</p>
+         </div>
+
+         <div class="article-stats">
+            <div class="stat-item">
+               <i class="fas fa-eye"></i>
+               <span>1082 Views</span>
+            </div>
+            <div class="stat-item">
+               <i class="fas fa-share-alt"></i>
+               <span>2 Times shared</span>
+            </div>
+            <div class="stat-item">
+               <i class="far fa-heart"></i>
+               <span>5 Likes</span>
+            </div>
+         </div>
+
+         <!-- Social Share -->
+         <div class="social-share">
+            <span class="social-share-label">Share:</span>
+            <div class="social-share-buttons">
+               <a href="#" class="social-btn facebook" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+               <a href="#" class="social-btn twitter" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+               <a href="#" class="social-btn linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+               <a href="#" class="social-btn whatsapp" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+         </div>
+      </div>
+      </div>
+
+      <!-- Article Content -->
+      <div class="article-main-card">
+      <div class="article-content">
+         <p><strong>COVID-19 has played a significant role</strong> in the way people select homes. With a large number of people working and spending extended periods at home, the recent months have seen a rise in the home office set up creating a niche for itself as a new real estate asset class.</p>
+
+         <p>Work from home and social distancing norms have made people realise the importance of having well-designed spaces to work from, and having plenty of outdoor amenities and areas to be able to enjoy the outdoors or get some exercise. In addition to the requirement of additional space, the real estate industry is witnessing an interesting trend of new-age millennials showing increased preference towards home-ownership with increasingly larger periods of time spent within the confines of one's home.</p>
+
+         <div class="content-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&h=600&fit=crop&q=80" alt="Home office workspace" class="content-image">
+            <p class="image-caption">Work from home has created new space requirements in residential properties</p>
+         </div>
+
+         <p>In a recent market survey about the most popular asset class for investment amidst COVID-19, a majority of the respondents picked real estate as the best investment option. More than half of this segment belonged to the millennial age group - a generation that has, until now, been known more as renters than as homeowners. It appears as if the pandemic has made millennials suddenly wake up and realise the benefits of owning a comfortable and spacious home of one's own.</p>
+
+         <div class="highlight-box">
+            <p><strong>Additional factors for their new love for home-ownership</strong> could be the security that one feels with the ownership of a solid, tangible asset, in addition to the very low interest rates offered for home loans at this time. Thus a new growth trajectory can be seen in India as well as in international markets such as the US, where millennials have dominated the homebuyers segment of late.</p>
+         </div>
+
+         <p>With Indian families being largely non-nuclear, most Indians have found their current homes lacking adequate, separate spaces to accommodate working couples, children with overlapping online classes, and their parents. Even nuclear households are increasingly finding it challenging to find enough space within their existing homes and have already started factoring these in their home searches. This is where a well-designed home stands out from the rest, with more usable space per square feet being clearly demonstrated in the design. Indoor space that plans for privacy within the different rooms allows multiple people to work from home without feeling crowded. The requirement of additional and flexible spaces in homes has taken precedence over everything else.</p>
+
+         <h2>Outdoor spaces and amenities</h2>
+
+         <p>The requirement for additional space is not limited to the four walls of one's home - outdoor spaces have also gained importance. Outdoor spaces and sports amenities within communities are perfect when working from home to go for walks and get enough activity and exercise to maintain a healthy lifestyle. These features with options to cater to all age groups are typically found in projects with well thought out master plans and the average home buyer is including these preferences in their checklists while deciding on a home purchase, which is a significant milestone in a person's life.</p>
+
+         <div class="content-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=600&fit=crop&q=80" alt="Outdoor amenities and community spaces" class="content-image">
+            <p class="image-caption">Outdoor amenities have become essential for work-from-home professionals</p>
+         </div>
+
+         <h2>Design-focused developers gaining market share</h2>
+
+         <p>These factors have made superior design a key aspect when it comes to property sales. Different developers have different core competencies, with some being especially strong in marketing and sales. In contrast, others are perfect at access to capital, while yet another group is highly focused on superior design. COVID-19 has made buyers pay more attention to this latter group of design-focused developers at the expense of the more traditional ones. So projects in both villa and apartment segments with excellent open spaces, a wide range of amenities and thoughtfully designed indoor spaces are gaining market share. One of the recent trends has been a preference for villa projects as they tend to more easily offer all the attributes that buyers have started looking for, even if one has to loosen their pursestrings more to afford one.</p>
+
+         <div style="text-align: center; margin: 4rem 0; padding: 3rem; background: #ffffff; border-radius: 15px; border: 1px solid #e9ecef; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+            <p style="font-size: 1.6rem; color: #495057; margin-bottom: 2rem; font-weight: 700;"><strong>Could the article help you understand the topic?</strong></p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+               <button style="padding: 1.2rem 3rem; background: linear-gradient(135deg, var(--main-color), #0056b3); color: white; border: none; border-radius: 10px; font-size: 1.5rem; font-weight: 600; cursor: pointer; box-shadow: 0 2px 8px rgba(0,123,255,0.25); transition: all 0.3s ease;" onmouseover="this.style.boxShadow='0 4px 12px rgba(0,123,255,0.35)'" onmouseout="this.style.boxShadow='0 2px 8px rgba(0,123,255,0.25)'">Yes</button>
+               <button style="padding: 1.2rem 3rem; background: #ffffff; color: #495057; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1.5rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--main-color)'; this.style.color='var(--main-color)'" onmouseout="this.style.borderColor='#e9ecef'; this.style.color='#495057'">No</button>
+            </div>
+         </div>
+
+      </div>
+      </div>
+
+      <!-- Email Signup -->
+      <div class="email-signup">
+         <h3>Get real estate updates delivered to your inbox!</h3>
+         <p>Stay informed about the latest market trends, property news, and investment opportunities.</p>
+         <div class="email-input-group">
+            <input type="email" placeholder="Email address">
+            <button>Subscribe</button>
+         </div>
+      </div>
+
+      <!-- More from Knowledge Centre -->
+      <div class="article-main-card">
+      <div class="related-articles">
+         <h2>More from Knowledge Centre</h2>
+         <p style="font-size: 1.5rem; line-height: 1.85; color: #495057; margin-bottom: 2.5rem; text-align: justify;">Stay updated on the latest developments in the Indian real estate industry by following HouseThat Knowledge Centre. Our platform offers valuable insights, news, and updates, along with informative articles, expert opinions, and market reports. With reliable and accurate information, it's a go-to destination for anyone seeking knowledge about the Indian real estate sector.</p>
+         <p style="font-size: 1.4rem; line-height: 1.85; color: #6c757d; margin-bottom: 3rem;">For inquiries or to get in touch with the HouseThat Editorial Team, please write to us at <a href="mailto:Info@HouseThat.co.in" style="color: var(--main-color); text-decoration: none; font-weight: 600; transition: color 0.2s ease;" onmouseover="this.style.color='#0056b3'" onmouseout="this.style.color='var(--main-color)'">Info@HouseThat.co.in</a>.</p>
+
+         <a href="why-property-prices-same-locality-vary.html" class="related-article-card">
+            <div class="related-article-title">Why do flat prices in the same locality vary?</div>
+            <div class="related-article-meta">#Buyers #Indian Real Estate #Investors • 4 min read • Oct 16, 2025</div>
+         </a>
+
+         <a href="homebuying-trends-post-covid-19.html" class="related-article-card">
+            <div class="related-article-title">Homebuying trends in the post-COVID-19 era</div>
+            <div class="related-article-meta">#Property Punditz #Residential • 2 min read • Apr 01, 2021</div>
+         </a>
+
+         <a href="homebuying-in-2021-and-expectations.html" class="related-article-card">
+            <div class="related-article-title">Homebuying in 2021 and the expectations ahead</div>
+            <div class="related-article-meta">#Property Punditz #Residential • 2 min read • Dec 30, 2021</div>
+         </a>
+
+         <a href="festive-fervour-drives-homebuying-sentiment.html" class="related-article-card">
+            <div class="related-article-title">Festive fervour drives the homebuying sentiment</div>
+            <div class="related-article-meta">#Property Punditz #Purchase #Residential • 2 min read • Sep 24, 2021</div>
+         </a>
+
+         <a href="covid-19-effect-millennials-homebuying.html" class="related-article-card">
+            <div class="related-article-title">COVID-19 effect: Millennials to go for homebuying</div>
+            <div class="related-article-meta">#Coronavirus #Investment #Property Punditz • 3 min read • Jun 10, 2021</div>
+         </a>
+      </div>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="article-main-card">
+         <div style="background: #ffffff; padding: 2.5rem; border-radius: 12px; margin: 0; border: 1px solid #e9ecef; border-left: 4px solid #6c757d;">
+            <p style="font-size: 1.5rem; line-height: 1.85; color: #6c757d; margin: 0; font-style: italic;">
+               <strong>Disclaimer:</strong> The views expressed above are for informational purposes only based on industry reports and related news stories. HouseThat does not guarantee the accuracy, completeness, or reliability of the information and shall not be held responsible for any action taken based on the published information.
+            </p>
+         </div>
+      </div>
+
+      <!-- Author Section -->
+      <div class="article-main-card">
+      <div class="author-section">
+         <div class="author-info">
+            <div class="author-avatar">HT</div>
+            <div class="author-details">
+               <h3>HouseThat</h3>
+               <p>Real Estate Knowledge Platform</p>
+            </div>
+         </div>
+         <p style="font-size: 1.6rem; line-height: 1.85; color: #495057; margin: 0;">
+            HouseThat is a leading real estate platform that connects buyers, sellers, and investors in the Indian property market. With a focus on providing reliable property information, market insights, and expert knowledge, HouseThat aims to simplify the real estate journey for everyone. Our Knowledge Centre offers valuable insights, expert opinions, and comprehensive articles to help make informed property decisions.
+         </p>
+      </div>
+      </div>
+
+   </div>
+
+</section>
+
+<!-- article page ends -->
+
+<!-- footer section starts  -->
+
+<footer class="footer">
+
+   <section class="flex">
+
+      <div class="box">
+         <a href="tel:9696968030"><i class="fas fa-phone"></i><span>+91 9696968030</span></a>
+         <a href="tel:7840803090"><i class="fas fa-phone"></i><span>+91 7840803090</span></a>
+         <a href="mailto:Info@HouseThat.co.in"><i class="fas fa-envelope"></i><span>Info@HouseThat.co.in</span></a>
+         <a href="#"><i class="fas fa-map-marker-alt"></i><span>B-34, 3rd Floor, Sector 67, Noida,
+            Uttar Pradesh 201301</span></a>
+      </div>
+
+      <div class="box">
+         <a href="home.html"><span>Home</span></a>
+         <a href="about.html"><span>About Us</span></a>
+         <a href="contact.html"><span>Contact Us</span></a>
+         <a href="listings.html"><span>All Listings</span></a>
+         <a href="blogs.html"><span>Blogs</span></a>
+         <a href="terms.html"><span>Terms & Conditions</span></a>
+      </div>
+
+      <div class="box">
+         <a href="https://www.facebook.com/housethat.ind/"><span>Facebook</span><i class="fab fa-facebook-f"></i></a>
+         <a href="https://x.com/HouseThat35250"><span>Twitter</span><i class="fab fa-twitter"></i></a>
+         <a href="https://in.linkedin.com/company/housethat"><span>Linkedin</span><i class="fab fa-linkedin"></i></a>
+         <a href="https://www.instagram.com/housethat.co.in/"><span>Instagram</span><i class="fab fa-instagram"></i></a>
+
+      </div>
+
+   </section>
+
+   <div class="credit">
+      <p style="margin: 0 0 0.5rem 0; line-height: 1.6;">© 2025 Marketed by <span>HouseThat</span>. All rights reserved.</p>
+      <p style="margin: 0; font-size: 1.6rem; opacity: 0.9;">RERA Registered Channel Partner: <span style="font-weight: 600;">UPRERAAGT13108</span></p>
+   </div>
+
+</footer>
+
+<!-- footer section ends -->
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
+
